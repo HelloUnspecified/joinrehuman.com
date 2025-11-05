@@ -1,0 +1,40 @@
+---
+import { getEntryBySlug } from "astro:content";
+import Card from "../ui/Card.astro";
+import EmailCard from "./EmailCard.astro";
+
+const ContactDetails = await getEntryBySlug("contact", "index");
+const { cards, mail } = ContactDetails?.data;
+---
+
+<div class="section-contact-info">
+  <div class="section-space">
+    <div class="container-default">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {
+          cards.map(({ title, description, icon }: any, index: any) => {
+            if (title === "Email Us") {
+              return (
+                <EmailCard
+                  title={title}
+                  icon={icon}
+                  email={mail}
+                  index={index}
+                />
+              );
+            } else {
+              return (
+                <Card
+                  title={title}
+                  description={description}
+                  icon={icon}
+                  index={index}
+                />
+              );
+            }
+          })
+        }
+      </div>
+    </div>
+  </div>
+</div>

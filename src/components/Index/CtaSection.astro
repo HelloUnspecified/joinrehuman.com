@@ -1,0 +1,42 @@
+---
+import { getEntryBySlug } from "astro:content";
+import Button from "../ui/Button.astro";
+import { Image } from "astro:assets";
+
+const {
+  data: { title, button },
+} = await getEntryBySlug("IndexPage", "cta");
+---
+
+<section class="section-cta">
+  <div class="relative bg-ColorCaribbeanGreen">
+    <div class="py-[60px] lg:py-20 xl:py-[100px]">
+      <div class="container-default">
+        <div class="jos mb-[50px]">
+          <div class="mx-auto max-w-[700px]">
+            <h2 class="text-center text-white">
+              {title}
+            </h2>
+          </div>
+        </div>
+        <div class="jos flex justify-center">
+          <Button color="is-black" link={button?.link} text={button?.text} />
+        </div>
+      </div>
+    </div>
+    <Image
+      src="/assets/img/elements/flower-shape-1.svg"
+      alt="flower-shape-1"
+      width="92"
+      height="116"
+      class="absolute left-[152px] top-[44px] hidden md:block"
+    />
+    <Image
+      src="/assets/img/elements/flower-shape-2.svg"
+      alt="flower-shape-2"
+      width="129"
+      height="164"
+      class="absolute bottom-0 right-[57px] hidden md:block"
+    />
+  </div>
+</section>

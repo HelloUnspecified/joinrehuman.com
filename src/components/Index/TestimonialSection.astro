@@ -1,0 +1,31 @@
+---
+import { getEntryBySlug } from "astro:content";
+const Testimonial = await getEntryBySlug("IndexPage", "testimonial");
+import TestimonialSwiper from "../functional/TestimonialSwiper";
+const { header, testimonials } = Testimonial.data;
+---
+
+<section class="section-testimonial">
+  <div class="rounded-[30px] bg-ColorCaribbeanGreen lg:rounded-[50px]">
+    <div class="section-space">
+      <div class="container-default">
+        <div class="jos mb-[60px] xl:mb-20">
+          <div class="max-w-[746px]">
+            <div class="mb-5">
+              <h2
+                class="font-Kanit text-4xl font-medium leading-none -tracking-[1px] text-ColorMidnightMoss lg:text-5xl xl:text-7xl xxl:text-[80px]"
+              >
+                {header}
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div class="jos swiper testimonial-one">
+          <div class="swiper-wrapper">
+            <TestimonialSwiper client:only="react" data={testimonials} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,110 @@
+---
+import { getCollection } from "astro:content";
+import { slug } from "github-slugger";
+import Layout from "../../layout/Layout.astro";
+import BlogAside from "../../components/Blog/BlogAside.astro";
+import BreadCumb from "../../components/ui/BreadCumb.astro";
+import { Image } from "astro:assets";
+
+export async function getStaticPaths() {
+  const Blogs = await getCollection("blogs");
+  return Blogs.map((blog: any) => {
+    return {
+      params: { single: slug(blog?.data?.title) },
+      props: { blog },
+    };
+  });
+}
+const { blog } = Astro.props;
+const { data } = blog;
+const { title, date, author, category, image } = data;
+const { Content } = await blog.render();
+---
+
+<Layout title="">
+  <main class="main-wrapper relative overflow-hidden">
+    <BreadCumb>
+      <h1 class="breadcrumb-title">Blog Details</h1>
+      <ul class="breadcrumb-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog/1">Blog</a></li>
+        <li>{title}</li>
+      </ul>
+    </BreadCumb>
+    <div class="blog-section">
+      <div class="section-space">
+        <div class="container-default">
+          <div
+            class="grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-cols-[1fr,minmax(416px,_0.45fr)]"
+          >
+            <div class="flex flex-col gap-y-10 lg:gap-y-14 xl:gap-y-20">
+              <div class="flex flex-col gap-6">
+                <article class="jos overflow-hidden bg-white">
+                  <div class="mb-7 block overflow-hidden rounded-[10px]">
+                    <Image
+                      src={image}
+                      alt="blog-main-1"
+                      width="856"
+                      height="540"
+                      class="h-auto w-full scale-100 object-cover"
+                    />
+                  </div>
+                  <div class="px-[30px]">
+                    <ul
+                      class="mb-[30px] flex flex-wrap items-center gap-4 text-base font-semibold sm:gap-6"
+                    >
+                      <li>
+                        <button
+                          class="flex items-center gap-x-[10px] hover:text-ColorCaribbeanGreen"
+                        >
+                          <Image
+                            src={author.img}
+                            alt="blog-author-img-1"
+                            width="45"
+                            height="45"
+                            class="rounded-[50%]"
+                          />
+                          By {author.name}
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="flex items-center gap-x-[10px] hover:text-ColorCaribbeanGreen"
+                        >
+                          <i class="fa-regular fa-calendar"></i>
+                          {date}
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="rounded-[50px] bg-ColorBlack/5 px-[26px] py-1.5 text-ColorBlack/60 hover:bg-ColorCaribbeanGreen hover:text-white"
+                          >{category}</button
+                        >
+                      </li>
+                    </ul>
+                    <div>
+                      <h2
+                        class="mb-5 mt-8 line-clamp-2 text-2xl font-bold leading-[1.4] -tracking-[1px] group-hover:text-ColorCaribbeanGreen lg:text-3xl"
+                      >
+                        {title}
+                      </h2>
+                      <Content />
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <BlogAside />
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  @reference "../../css/tailwind.css";
+  h2 {
+    @apply font-body;
+  }
+</style>

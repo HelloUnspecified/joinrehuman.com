@@ -1,0 +1,36 @@
+---
+import { getEntryBySlug } from "astro:content";
+import Button from "../components/ui/Button.astro";
+import Layout from "../layout/Layout.astro";
+import { Image } from "astro:assets";
+const NotFoundData = await getEntryBySlug("notFound", "index");
+const { header, description, image, button } = NotFoundData?.data;
+---
+
+<Layout title="404-error">
+  <main class="main-wrapper relative overflow-hidden">
+    <section class="section-404">
+      <div class="section-space">
+        <div class="container-default">
+          <div
+            class="mt-10 flex flex-col items-center justify-center text-center lg:mt-[60px] xl:mt-[90px]"
+          >
+            <Image
+              src={image}
+              alt="404-img"
+              width="532"
+              height="550"
+              class="mb-[30px]"
+            />
+            <h2 class="mb-[15px]">{header}</h2>
+            <p class="mb-10 max-w-[374px] text-ColorBlack/80">
+              {description}
+            </p>
+
+            <Button link={button?.link} text={button?.text} />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

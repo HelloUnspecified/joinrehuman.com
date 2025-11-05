@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+
+const VideoData = await getEntryBySlug("IndexPage", "videosection");
+const { title, description, image, link } = VideoData?.data;
+---
+
+<section class="section-video">
+  <div class="section-space-bottom">
+    <div class="container-default">
+      <div class="jos mb-[60px] xl:mb-20">
+        <div class="mx-auto max-w-[636px]">
+          <h2 class="mb-5 text-center">
+            {title}
+          </h2>
+          <p class="text-center">
+            {description}
+          </p>
+        </div>
+      </div>
+      <div class="jos">
+        <div class="relative flex items-center justify-center">
+          <Image
+            src={image}
+            alt="video-img"
+            width="1295"
+            height="699"
+            class="h-auto w-full"
+          />
+          <a
+            data-fslightbox="gallery"
+            href={link}
+            class="group group absolute flex h-20 w-20 items-center justify-center rounded-[50%] bg-white text-ColorCaribbeanGreen xl:h-[120px] xl:w-[120px]"
+            aria-label="video-play"
+          >
+            <span
+              class="text-2xl transition-all duration-300 ease-linear group-hover:scale-110"
+              ><i class="fa-solid fa-play"></i></span
+            >
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

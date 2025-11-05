@@ -1,0 +1,28 @@
+---
+import HeroSection from "../components/Index/HeroSection.astro";
+import Layout from "../layout/Layout.astro";
+import { getEntryBySlug } from "astro:content";
+import Features from "../components/Index/Features.astro";
+import Price from "../components/Service/Price.astro";
+import TestimonialSection from "../components/Index/TestimonialSection.astro";
+import ContentArea3 from "../components/Index/ContentArea3.astro";
+import Brand from "../components/Index/Brand.astro";
+import ContentArea1 from "../components/Index/ContentArea1.astro";
+import ContentArea2 from "../components/Index/ContentArea2.astro";
+import FaqSection from "../components/Index/FaqSection.astro";
+const HeroSectionData = await getEntryBySlug("IndexPage", "hero");
+---
+
+<Layout title="Home Page">
+  <main class="main-wrapper relative overflow-hidden">
+    <HeroSection HeroSectionData={HeroSectionData} />
+    <Brand />
+    <ContentArea1 />
+    <Features />
+    <ContentArea2 />
+    <ContentArea3 />
+    <Price />
+    <TestimonialSection />
+    <FaqSection />
+  </main>
+</Layout>

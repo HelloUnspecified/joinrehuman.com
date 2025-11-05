@@ -1,0 +1,9 @@
+---
+const { link, text, css, color } = Astro.props;
+---
+
+<a
+  href={link}
+  class=`btn ${color?color:'is-caribbean-green'} is-transparent btn-animation is-rounded group inline-block is-large  ${css}`
+  ><span>{text}</span></a
+>

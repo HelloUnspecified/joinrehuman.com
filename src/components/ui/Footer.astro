@@ -1,0 +1,183 @@
+---
+import { getEntryBySlug } from "astro:content";
+import FooterPages from "./FooterPages.astro";
+import Logo from "./Logo.astro";
+import ComingSoonForm from "../functional/ComingSoonForm";
+import { Image } from "astro:assets";
+const FooterData = await getEntryBySlug("site", "footer");
+const {
+  header,
+  leftButton,
+  rightButton,
+  belowText,
+  logo,
+  description,
+  mail,
+  PrimaryPages,
+  UtilityPages,
+  formData,
+  socialLinks,
+  agencyDescription,
+} = FooterData.data;
+const {
+  data: { web3AccessKey },
+} = await getEntryBySlug("site", "meta");
+---
+
+<footer class="section-footer">
+  <div
+    class="relative z-10 rounded-tl-[30px] rounded-tr-[30px] bg-ColorHeroBg lg:rounded-tl-[50px] lg:rounded-tr-[50px] xl:rounded-tl-[100px] xl:rounded-tr-[100px]"
+  >
+    <div class="relative z-10">
+      <div class="pb-[60px] pt-20 lg:pb-20 lg:pt-[100px] xl:pt-[120px]">
+        <div class="container-default">
+          <div class="flex flex-col items-center justify-center">
+            <div class="max-w-[720px]">
+              <h2
+                class="text-center font-Kanit text-4xl font-medium leading-none -tracking-[1px] text-ColorMidnightMoss lg:text-5xl xl:text-7xl xxl:text-[80px]"
+              >
+                {header}
+              </h2>
+              <p class="mt-5 text-center text-[#2c2c2c]">
+                {description}
+              </p>
+
+              <div class="mt-8 text-center lg:mt-[50px]">
+                <div class="mb-3 flex flex-wrap justify-center gap-6">
+                  <a
+                    href={leftButton?.link}
+                    class="btn is-caribbean-green is-transparent btn-animation is-large is-rounded group inline-block"
+                  >
+                    <span>
+                      {leftButton?.text}
+                      <i
+                        class="fa fa-arrow-right ml-[10px] text-2xl leading-none"
+                      ></i>
+                    </span>
+                  </a>
+                  <a
+                    href={rightButton?.link}
+                    class="btn is-outline-midnight-moss btn-animation is-large is-rounded group inline-block"
+                    ><span>{rightButton?.text}</span></a
+                  >
+                </div>
+                <div>
+                  <span class="text-sm text-[#7F8995]">{belowText}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="horizontal-line bg-white"></div>
+    <div class="border-t border-[#EAEDF0] text-[#2C2C2C]">
+      <div class="py-[60px] lg:py-20 xl:py-[100px]">
+        <div class="container-default">
+          <div
+            class="grid gap-x-16 gap-y-10 sm:grid-cols-2 lg:grid-cols-[1fr_repeat(3,_auto)] xl:gap-x-24 xxl:gap-x-[134px]"
+          >
+            <div class="flex flex-col gap-y-7">
+              <Logo link="/" logo={logo} />
+              <div>
+                <div class="max-w-[416px]">
+                  {agencyDescription}
+                </div>
+                <a
+                  href=`mailto:${mail}`
+                  class="my-6 block underline-offset-4 transition-all duration-300 hover:underline"
+                  >{mail}</a
+                >
+                <div class="flex flex-wrap gap-5">
+                  {
+                    socialLinks?.map(({ link, icon }: any) => (
+                      <a
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-white bg-opacity-5 text-sm text-white transition-all duration-300 hover:bg-ColorPaleGold hover:text-ColorDenimDarkBlue"
+                        aria-label="socialIcons"
+                      >
+                        <i class={`fa-brands ${icon}`} />
+                      </a>
+                    ))
+                  }
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-y-7">
+              <div
+                class="text-xl font-semibold capitalize text-ColorMidnightMoss"
+              >
+                Primary Pages
+              </div>
+              <ul class="flex flex-col gap-y-[10px] capitalize">
+                <FooterPages data={PrimaryPages} />
+              </ul>
+            </div>
+            <div class="flex flex-col gap-y-6">
+              <div
+                class="text-xl font-semibold capitalize text-ColorMidnightMoss"
+              >
+                Utility pages
+              </div>
+              <ul class="flex flex-col gap-y-[10px] capitalize">
+                <FooterPages data={UtilityPages} />
+              </ul>
+            </div>
+            <div class="flex flex-col gap-y-6">
+              <div
+                class="text-xl font-semibold capitalize text-ColorMidnightMoss"
+              >
+                {formData?.header}
+              </div>
+              <ComingSoonForm
+                client:only="react"
+                formData={formData}
+                web3AccessKey={web3AccessKey}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-[#EAEDF0]">
+      <div class="py-[18px]">
+        <div class="container-default">
+          <div
+            class="flex flex-col items-center gap-5 lg:flex-row lg:items-start lg:justify-between"
+          >
+            <div class="flex flex-wrap gap-5">
+              {
+                socialLinks?.map(({ link, icon }: any) => (
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-ColorMidnightMoss/10 text-sm text-ColorMidnightMoss transition-all duration-300 hover:bg-ColorCaribbeanGreen"
+                    aria-label="socialIcons"
+                  >
+                    <i class={`fa-brands ${icon}`} />
+                  </a>
+                ))
+              }
+            </div>
+            <div class="text-center text-ColorMidnightMoss text-opacity-80">
+              &copy; Copyright {new Date().getFullYear()}, All Rights Reserved
+              by ElevateMinds
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute left-0 top-10 -z-10 h-auto w-full">
+      <Image
+        src="/assets/img/elements/hero-10-bg-shape.svg"
+        alt="hero-10-bg-shape"
+        width="1600"
+        height="650"
+        class="h-auto w-full"
+      />
+    </div>
+  </div>
+</footer>
