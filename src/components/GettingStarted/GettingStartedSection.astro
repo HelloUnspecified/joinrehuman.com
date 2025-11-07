@@ -1,0 +1,159 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+const GettingStartedData = await getEntryBySlug("gettingStarted", "index");
+const { hero, options } = GettingStartedData?.data;
+---
+
+<!-- Hero Section -->
+<section class="section-getting-started-hero">
+  <div class="relative z-10 overflow-hidden rounded-bl-[30px] rounded-br-[30px] bg-ColorOffWhite md:rounded-bl-[50px] md:rounded-br-[50px] xl:rounded-bl-[100px] xl:rounded-br-[100px]">
+    <div class="pt-20 pb-12 lg:pt-[100px] lg:pb-16 xl:pt-[120px] xl:pb-20">
+      <div class="container-default">
+      <div class="mx-auto max-w-[900px]">
+        <div class="flex flex-col items-center justify-center text-center mb-10 lg:mb-16">
+
+          <div class="jos mb-6">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight -tracking-[1px] text-ColorBlack">
+              {hero?.header}
+            </h1>
+          </div>
+          <div class="jos max-w-[768px]">
+            <p class="text-lg md:text-xl text-ColorBlack/80">
+              {hero?.subheader}
+            </p>
+          </div>
+        </div>
+
+        <!-- Video Placeholder -->
+        {hero?.videoPlaceholder && (
+          <div class="jos relative rounded-[20px] overflow-hidden bg-ColorBlack/5 aspect-video flex items-center justify-center">
+            <div class="text-center p-8">
+              <div class="mb-4">
+                <i class="fa fa-play-circle text-6xl text-ReHumanTerracotta"></i>
+              </div>
+              <p class="text-lg font-semibold text-ColorBlack/60">Video Coming Soon</p>
+              <p class="text-sm text-ColorBlack/40 mt-2">Watch a quick intro to re:Human</p>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- Options Section -->
+<section class="section-getting-started-options bg-white">
+  <div class="py-16 lg:py-20 xl:py-24">
+    <div class="container-default">
+      <div class="mx-auto max-w-[900px]">
+        <!-- Quick Links Overview -->
+        <div class="jos mb-12 lg:mb-16 text-center">
+          <h2 class="text-2xl lg:text-3xl font-bold text-ColorBlack mb-6">
+            Three Ways to Get Started
+          </h2>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            {options?.map((option: any, index: number) => (
+              <a
+                href={`#option-${index + 1}`}
+                class="inline-flex items-center gap-2 text-base lg:text-lg font-semibold text-ReHumanTerracotta hover:text-ColorBlack transition-colors"
+              >
+                <i class="fa fa-arrow-down text-sm"></i>
+                {option.title}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Vertical Options Stack -->
+        <div class="space-y-8 lg:space-y-12">
+          {options?.map((option: any, index: number) => (
+            <div
+              id={`option-${index + 1}`}
+              class="jos bg-white rounded-[20px] p-8 lg:p-10 xl:p-12 border border-ColorBlack/10 scroll-mt-8"
+              data-jos_delay={index * 0.1}
+            >
+              <div class="flex flex-col">
+                <!-- Two Column Layout -->
+                <div class="flex flex-col lg:flex-row gap-8 lg:gap-10 mb-8 lg:mb-10">
+                  <!-- Icon & Title Column -->
+                  <div class="lg:w-1/3">
+                    <div class="mb-6 lg:mb-8">
+                      <Image
+                        src={option.icon}
+                        alt={option.title}
+                        width="70"
+                        height="70"
+                        class="h-[70px] w-[70px]"
+                      />
+                    </div>
+                    <h2 class="text-2xl lg:text-3xl font-bold mb-2 text-ColorBlack">
+                      {option.title}
+                    </h2>
+                    <p class="text-base lg:text-lg text-ReHumanTerracotta font-semibold">
+                      {option.subtitle}
+                    </p>
+                  </div>
+
+                  <!-- Content Column -->
+                  <div class="lg:w-2/3">
+                    <p class="text-base lg:text-lg text-ColorBlack/80 mb-8 leading-relaxed">
+                      {option.description}
+                    </p>
+
+                    <!-- What You Get -->
+                    <div class="mb-6 lg:mb-8">
+                      <h3 class="text-xs lg:text-sm font-bold uppercase tracking-wide text-ColorBlack/60 mb-4">
+                        What You Get
+                      </h3>
+                      <ul class="space-y-3">
+                        {option.whatYouGet?.map((item: string) => (
+                          <li class="flex items-start gap-3">
+                            <i class="fa fa-check text-ReHumanTerracotta mt-1 shrink-0"></i>
+                            <span class="text-sm lg:text-base text-ColorBlack/70">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <!-- Who It's For -->
+                    <div class="bg-ColorOffWhite rounded-[10px] p-5 lg:p-6">
+                      <h3 class="text-xs lg:text-sm font-bold uppercase tracking-wide text-ColorBlack/60 mb-3">
+                        Perfect For
+                      </h3>
+                      <p class="text-sm lg:text-base text-ColorBlack/70 italic">
+                        {option.whoItsFor}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bottom Right CTA Button -->
+                <div class="text-right">
+                  <a
+                    href={option.link}
+                    class="btn is-rehuman-primary btn-animation is-large is-rounded inline-block"
+                  >
+                    <span>{option.cta}</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Back to Home Link -->
+        <div class="jos mt-16 lg:mt-20 text-center">
+          <a
+            href="/"
+            class="btn-text hover:text-ReHumanTerracotta inline-flex items-center gap-2"
+          >
+            <i class="fa fa-arrow-left"></i>
+            Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -30,14 +30,16 @@ const {
       <div class="flex items-center gap-6">
         <a
           href={rightButton1?.link}
-          class="btn-text hidden hover:text-ColorCaribbeanGreen sm:inline-block"
-          >{rightButton1?.text}</a
+          class="btn is-rehuman-primary btn-animation group hidden is-rounded sm:inline-block"
+          ><span>{rightButton1?.text}</span></a
         >
-        <a
-          href={rightButton2?.link}
-          class="btn is-caribbean-green btn-animation group hidden is-rounded sm:inline-block"
-          ><span>{rightButton2?.text}</span></a
-        >
+        {rightButton2?.link && (
+          <a
+            href={rightButton2?.link}
+            class="btn is-rehuman-secondary btn-animation group hidden is-rounded sm:inline-block"
+            ><span>{rightButton2?.text}</span></a
+          >
+        )}
         <div class="block lg:hidden">
           <button
             id="openBtn"

@@ -13,7 +13,9 @@ const { Content } = await ContentData.render();
         <div
           class="grid items-center gap-10 md:grid-cols-2 lg:gap-24 xl:grid-cols-[0.8fr_minmax(0,_1fr)] xl:gap-[135px]"
         >
-          <div class="jos order-1 md:order-2" data-jos_animation="fade-right">
+          
+        <div class="jos order-2 md:order-1" data-jos_animation="fade-left">
+          <div class="relative">
             <div>
               <div class="mb-5">
                 <h2
@@ -23,7 +25,17 @@ const { Content } = await ContentData.render();
                 </h2>
               </div>
             </div>
+            
+
+
+          </div>
+        </div>
+        
+        
+        <div class="jos order-1 md:order-2" data-jos_animation="fade-right">
+            
             <Content />
+            
             <div class="mt-8 lg:mt-[50px]">
               <a
                 href={button?.link}
@@ -37,17 +49,7 @@ const { Content } = await ContentData.render();
               </a>
             </div>
           </div>
-          <div class="jos order-2 md:order-1" data-jos_animation="fade-left">
-            <div class="relative">
-              <Image
-                src={image}
-                alt="content-img-1"
-                width="586"
-                height="586"
-                class="h-full w-full"
-              />
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>

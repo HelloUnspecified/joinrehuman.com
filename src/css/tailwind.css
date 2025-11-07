@@ -22,10 +22,19 @@
   --font-body: Inter, sans-serif;
   --font-FontAwesome: Font Awesome 6 Pro;
 
+  /* re:Human Brand Colors */
+  --color-ReHumanTerracotta: #E07856;
+  --color-ReHumanCharcoal: #1A1A1A;
+  --color-ReHumanCream: #F5F1E8;
+  --color-ReHumanCoral: #F4A193;
+  --color-ReHumanGold: #D4A574;
+  --color-ReHumanWarmGray: #8B7E74;
+
+  /* Legacy colors (mapped to re:Human palette for compatibility) */
   --color-ColorDark: #191919;
-  --color-ColorBlack: #0a102f;
+  --color-ColorBlack: #1A1A1A;
   --color-ColorBlue: #3147ff;
-  --color-ColorOffWhite: #faf9f5;
+  --color-ColorOffWhite: #F5F1E8;
   --color-ColorPurple: #a259ff;
   --color-ColorBluePurple: #7949f6;
   --color-ColorYellow: #ffc900;
@@ -39,11 +48,11 @@
   --color-ColorPaleGold: #ffd874;
   --color-ColorEggSour: #fff4d9;
   --color-ColorDenimDarkBlue: #2d2b92;
-  --color-ColorCaribbeanGreen: #15cf92;
-  --color-ColorMidnightMoss: #010d09;
+  --color-ColorCaribbeanGreen: #E07856;
+  --color-ColorMidnightMoss: #1A1A1A;
   --color-ColorHoneySuckle: #e9ff97;
-  --color-ColorTest: #7CC4B2;
-  --color-ColorHeroBg: #CCE5E0;
+  --color-ColorTest: #E07856;
+  --color-ColorHeroBg: #F5F1E8;
 }
 
 /*
@@ -137,6 +146,23 @@
 
 @utility is-caribbean-green {
   @apply border-ColorTest bg-ColorTest text-ColorMidnightMoss hover:bg-transparent hover:border-ColorTest hover:text-ColorTest;
+}
+
+/* re:Human Brand Button Styles */
+@utility is-rehuman-primary {
+  @apply border-ReHumanTerracotta bg-ReHumanTerracotta text-white hover:bg-transparent hover:border-ReHumanTerracotta hover:text-ReHumanTerracotta;
+}
+
+@utility is-rehuman-secondary {
+  @apply border-ReHumanCharcoal bg-ReHumanCharcoal text-ReHumanCream hover:bg-transparent hover:border-ReHumanCharcoal hover:text-ReHumanCharcoal;
+}
+
+@utility is-rehuman-outline {
+  @apply border-ReHumanTerracotta bg-transparent text-ReHumanTerracotta hover:bg-ReHumanTerracotta hover:text-white;
+}
+
+@utility is-rehuman-light {
+  @apply border-ReHumanCream bg-ReHumanCream text-ReHumanCharcoal hover:bg-ReHumanTerracotta hover:border-ReHumanTerracotta hover:text-white;
 }
 
 @utility is-honey-suckle {

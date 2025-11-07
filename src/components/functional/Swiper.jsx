@@ -37,14 +37,12 @@ function SwiperComponent({ data }) {
         return (
           <SwiperSlide
             key={`${image}-${index}`}
-            className="!flex justify-center sm:px-0 px-5"
+            className="!flex justify-center items-center sm:px-0 px-5"
           >
             <img
               src={image}
-              alt="brand-5"
-              width="186"
-              height="46"
-              className="h-auto w-fit"
+              alt={`brand-${index + 1}`}
+              className="h-[60px] w-auto object-contain max-w-full"
             />
           </SwiperSlide>
         );
