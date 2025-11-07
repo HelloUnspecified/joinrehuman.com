@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unspecified | Human-Centered Systems Design</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Custom styles */
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f2f8fc; /* Custom Off-White/Light Blue */
+        color: #1e293b; /* Slate 800 */
+      }
+      .font-sans-display {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 900; /* Black weight */
+      }
+      .cta-button {
+        background-color: #334155; /* Slate 700 */
+        color: #ffffff;
+      }
+      .cta-button:hover {
+        background-color: #1e293b; /* Slate 800 */
+      }
+      .headline-text {
+        color: #0284c7; /* Sky 600 */
+      }
+      .section-divider {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+      }
+      .section-divider svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 80px;
+      }
+      .section-divider .shape-fill {
+        fill: #f2f8fc;
+      }
+      .underline-svg {
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <!-- Header -->
+    <header
+      class="py-4 px-6 md:px-12 bg-white/80 backdrop-blur-sm sticky top-0 z-20 border-b border-slate-200"
+    >
+      <nav class="flex justify-between items-center max-w-7xl mx-auto">
+        <a href="#" class="text-2xl font-bold text-slate-900">Unspecified</a>
+        <div class="hidden md:flex items-center space-x-8">
+          <a
+            href="#how-we-help"
+            class="text-slate-600 hover:text-slate-900 transition"
+            >How We Help</a
+          >
+          <a
+            href="#collective"
+            class="font-semibold text-sky-600 hover:text-sky-500 transition"
+            >The Collective</a
+          >
+          <a
+            href="#about"
+            class="text-slate-600 hover:text-slate-900 transition"
+            >About</a
+          >
+        </div>
+        <a
+          href="#email-course"
+          class="cta-button font-semibold py-2 px-5 rounded-lg shadow-md transition-transform transform hover:scale-105"
+        >
+          Get The Free Course
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Section 1: Hero Section -->
+      <section class="bg-white relative">
+        <div class="max-w-4xl mx-auto text-center px-6 py-24 md:py-32">
+          <h1
+            class="font-sans-display text-5xl md:text-7xl text-slate-900 mb-6 leading-tight"
+          >
+            Your People Are Your Unfair Advantage. <br />
+            <span class="headline-text">We Help You Unlock It with AI.</span>
+          </h1>
+          <p
+            class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed"
+          >
+            Go from fearing AI to leveraging it. We provide the community and
+            frameworks to refactor your operations, increase profits, and
+            strengthen your unique culture.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <a
+              href="#email-course"
+              class="cta-button font-bold py-4 px-8 rounded-lg shadow-lg text-lg transition-transform transform hover:scale-105 inline-block w-full sm:w-auto"
+            >
+              Get The Free Course
+            </a>
+            <a
+              href="#collective"
+              class="bg-white text-slate-700 font-bold py-4 px-8 rounded-lg shadow-lg text-lg transition-transform transform hover:scale-105 inline-block border-2 border-slate-300 hover:bg-slate-50 w-full sm:w-auto"
+            >
+              Join The Collective
+            </a>
+          </div>
+        </div>
+        <div class="section-divider">
+          <svg
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M1200 120L0 16.48 0 0 1200 0 1200 120z"
+              class="shape-fill"
+            ></path>
+          </svg>
+        </div>
+      </section>
+
+      <!-- Trusted By Section -->
+      <section class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+          <h3
+            class="text-center text-slate-500 text-sm font-semibold uppercase tracking-widest mb-10"
+          >
+            Trusted by innovators at companies like
+          </h3>
+          <div
+            class="flex flex-wrap justify-center items-center gap-x-16 gap-y-10"
+          >
+            <img
+              src="https://placehold.co/140x50/334155/F2F8FC?text=InnovateCorp"
+              alt="InnovateCorp Logo"
+              class="h-9 opacity-70 hover:opacity-100 transition duration-300"
+              onerror="this.onerror=null;this.src='https://placehold.co/140x50?text=Logo';"
+            />
+            <img
+              src="https://placehold.co/140x50/334155/F2F8FC?text=QuantumLeap"
+              alt="QuantumLeap Logo"
+              class="h-9 opacity-70 hover:opacity-100 transition duration-300"
+              onerror="this.onerror=null;this.src='https://placehold.co/140x50?text=Logo';"
+            />
+            <img
+              src="https://placehold.co/140x50/334155/F2F8FC?text=ApexDigital"
+              alt="ApexDigital Logo"
+              class="h-9 opacity-70 hover:opacity-100 transition duration-300"
+              onerror="this.onerror=null;this.src='https://placehold.co/140x50?text=Logo';"
+            />
+            <img
+              src="https://placehold.co/140x50/334155/F2F8FC?text=NextGen"
+              alt="NextGen Logo"
+              class="h-9 opacity-70 hover:opacity-100 transition duration-300"
+              onerror="this.onerror=null;this.src='https://placehold.co/140x50?text=Logo';"
+            />
+            <img
+              src="https://placehold.co/140x50/334155/F2F8FC?text=Synergy"
+              alt="Synergy Logo"
+              class="h-9 opacity-70 hover:opacity-100 transition duration-300"
+              onerror="this.onerror=null;this.src='https://placehold.co/140x50?text=Logo';"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- How We Help Section -->
+      <section id="how-we-help" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="text-center max-w-3xl mx-auto mb-20">
+            <h2
+              class="font-sans-display text-4xl md:text-5xl text-slate-900 mb-5 relative inline-block"
+            >
+              One-Size-Fits-None.
+              <svg
+                class="underline-svg"
+                viewBox="0 0 200 10"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 5 C 30 10, 170 0, 198 5"
+                  stroke="#0284C7"
+                  stroke-width="3"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </h2>
+            <p class="text-slate-600 text-lg leading-relaxed mt-4">
+              Your company is unique. Throwing a generic AI system at it won't
+              work. We help you evolve your operational playbook with your team,
+              ensuring new systems are adopted, effective, and human-centered.
+            </p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div
+              class="bg-slate-50 p-10 rounded-xl border border-slate-200 transform hover:-translate-y-2 transition-transform duration-300"
+            >
+              <h3 class="text-xl font-bold text-slate-900 mb-3">
+                Systems & Culture Audits
+              </h3>
+              <p class="text-slate-600 leading-relaxed">
+                We diagnose your current operations to find the friction points
+                between your people and your tech, delivering a clear roadmap
+                for improvement.
+              </p>
+            </div>
+            <div
+              class="bg-slate-50 p-10 rounded-xl border border-slate-200 transform hover:-translate-y-2 transition-transform duration-300"
+            >
+              <h3 class="text-xl font-bold text-slate-900 mb-3">
+                Leadership Workshops
+              </h3>
+              <p class="text-slate-600 leading-relaxed">
+                We train your team on the principles of human-centered systems
+                design, empowering them to solve their own problems effectively.
+              </p>
+            </div>
+            <div
+              class="bg-slate-800 text-white p-10 rounded-xl border-2 border-sky-500 shadow-2xl transform hover:-translate-y-2 transition-transform duration-300"
+            >
+              <h3 class="text-xl font-bold text-white mb-3">
+                The Collective Membership
+              </h3>
+              <p class="text-slate-300 leading-relaxed">
+                An ongoing community for leaders to implement these changes with
+                expert guidance and peer support. Our premier offering.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lead Magnet Section -->
+      <section id="email-course" class="py-24">
+        <div
+          class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center"
+        >
+          <div>
+            <img
+              src="https://placehold.co/500x500/E2E8F0/0284C7?text=The+Human-Centered+Ops+Playbook"
+              alt="Mockup of a 15-day email course"
+              class="rounded-xl shadow-xl transform hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="pr-8">
+            <h2
+              class="font-sans-display text-3xl md:text-4xl text-slate-900 mb-5"
+            >
+              Your First Step to Better Systems.
+            </h2>
+            <p class="text-slate-600 text-lg mb-8 leading-relaxed">
+              Ready to start thinking differently? Sign up for our free 15-day
+              email course, **The Human-Centered Ops Playbook**. You'll get one
+              actionable lesson each day to help you identify and solve the
+              hidden friction in your business.
+            </p>
+            <form class="flex flex-col sm:flex-row gap-4">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition"
+                required
+              />
+              <button
+                type="submit"
+                class="cta-button font-bold py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105 whitespace-nowrap"
+              >
+                Send Me Lesson 1
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Success Story Section -->
+      <section class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="text-center max-w-3xl mx-auto mb-20">
+            <h2 class="font-sans-display text-4xl md:text-5xl text-slate-900">
+              From Friction to Flow
+            </h2>
+          </div>
+          <div
+            class="bg-slate-50 border border-slate-200 rounded-xl p-10 md:p-14 grid md:grid-cols-3 gap-10 items-center"
+          >
+            <div class="md:col-span-2">
+              <h3 class="text-2xl font-bold text-slate-900 mb-5">
+                Success Story: ApexDigital
+              </h3>
+              <div class="space-y-5 text-slate-600 leading-relaxed">
+                <p>
+                  <strong class="text-slate-800">The Challenge:</strong> A
+                  fast-growing agency was struggling with low morale and missed
+                  deadlines because their project management tools were creating
+                  more work, not less.
+                </p>
+                <p>
+                  <strong class="text-slate-800">Our Approach:</strong> We ran a
+                  series of workshops with their team to map their core
+                  workflows and co-design a new, simplified system with their
+                  direct input.
+                </p>
+                <p>
+                  <strong class="text-slate-800">The Result:</strong> They
+                  reduced project rework by 50%, and their team engagement score
+                  increased by 40 points. They now ship client work 25% faster.
+                </p>
+              </div>
+            </div>
+            <div class="text-center">
+              <img
+                src="https://randomuser.me/api/portraits/women/44.jpg"
+                alt="Jane D."
+                class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white shadow-lg"
+                onerror="this.onerror=null;this.src='https://placehold.co/96x96/64748b/ffffff?text=JD';"
+              />
+              <p class="font-bold text-slate-900 text-lg">Jane D.</p>
+              <p class="text-slate-500">COO, ApexDigital</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Offer - The Collective -->
+      <section id="collective" class="py-24">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+          <h2
+            class="font-sans-display text-4xl md:text-5xl text-slate-900 mb-5"
+          >
+            Ready for Ongoing Support? <br />
+            Join The "OK, But..." Collective
+          </h2>
+          <p
+            class="text-lg text-slate-600 max-w-3xl mx-auto mb-12 leading-relaxed"
+          >
+            For leaders ready to implement these changes, our private community
+            provides the accountability, expertise, and peer support to ensure
+            you succeed. It's a collaborative engine for evolving your
+            operational playbook.
+          </p>
+          <div
+            class="bg-white border-2 border-sky-500 rounded-xl p-10 md:p-14 text-left grid md:grid-cols-3 gap-10 shadow-2xl"
+          >
+            <div class="md:col-span-2">
+              <h3 class="text-2xl font-bold text-slate-900 mb-5">
+                A Membership for Innovators
+              </h3>
+              <p class="text-slate-600 mb-8 leading-relaxed">
+                Join a vetted community of founders, CTOs, and operators. Get
+                daily access to expert-led sessions, 1-on-1 strategy calls, and
+                a library of adaptable frameworks to help you build a more human
+                and more profitable company.
+              </p>
+              <a
+                href="landing_page_html_v1.html"
+                class="cta-button font-bold py-3 px-6 rounded-lg shadow-md text-lg transition-transform transform hover:scale-105 inline-block"
+              >
+                Learn More & Apply
+              </a>
+            </div>
+            <div class="hidden md:block">
+              <ul class="space-y-4 text-slate-600">
+                <li class="flex items-center">
+                  <svg
+                    class="w-5 h-5 text-sky-600 mr-3 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path></svg
+                  >Daily Group Sessions
+                </li>
+                <li class="flex items-center">
+                  <svg
+                    class="w-5 h-5 text-sky-600 mr-3 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path></svg
+                  >Private Community Hub
+                </li>
+                <li class="flex items-center">
+                  <svg
+                    class="w-5 h-5 text-sky-600 mr-3 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path></svg
+                  >1-on-1 Strategy Sessions
+                </li>
+                <li class="flex items-center">
+                  <svg
+                    class="w-5 h-5 text-sky-600 mr-3 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path></svg
+                  >Resource Library
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+          <img
+            src="https://placehold.co/128x128/E2E8F0/1E293B?text=Clark"
+            alt="Clark Sell"
+            class="w-32 h-32 rounded-full mx-auto mb-8 border-4 border-white shadow-lg"
+          />
+          <h2 class="font-sans-display text-3xl text-slate-900 mb-3">
+            Built for the Skeptics & Innovators
+          </h2>
+          <p class="font-semibold text-sky-600 mb-6">
+            Clark Sell, Founder of Unspecified
+          </p>
+          <p class="text-slate-600 max-w-3xl mx-auto text-lg leading-relaxed">
+            "Unspecified was born from countless conversations with leaders who
+            were tired of generic advice. They knew their problems were unique,
+            and they needed a partner who would listen first. Our entire
+            philosophy is built on that foundation: we provide the expertise,
+            frameworks, and community to help you build the right solution for
+            *your* business, not someone else's."
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200">
+      <div class="max-w-7xl mx-auto py-16 px-6 text-center text-slate-500">
+        <a href="#" class="text-2xl font-bold text-slate-900 mb-6 inline-block"
+          >Unspecified</a
+        >
+        <div class="flex justify-center space-x-8 mb-10">
+          <a
+            href="#how-we-help"
+            class="text-slate-600 hover:text-slate-900 transition"
+            >How We Help</a
+          >
+          <a
+            href="#collective"
+            class="text-slate-600 hover:text-slate-900 transition"
+            >The Collective</a
+          >
+          <a
+            href="#about"
+            class="text-slate-600 hover:text-slate-900 transition"
+            >About</a
+          >
+          <a
+            href="mailto:hello@unspecified.com"
+            class="text-slate-600 hover:text-slate-900 transition"
+            >Contact</a
+          >
+        </div>
+        <p>&copy; 2024 Unspecified, LLC. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

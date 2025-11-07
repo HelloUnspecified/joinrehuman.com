@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+
+const { HeroSectionData } = Astro.props;
+const { header, description, image, buttonLeft, buttonRight, BelowText, headerLineTwo } =
+  HeroSectionData?.data;
+---
+
+<section class="section-hero">
+  <div
+    class="relative z-10 overflow-hidden rounded-bl-[30px] rounded-br-[30px] bg-ColorHeroBg md:rounded-bl-[50px] md:rounded-br-[50px] xl:rounded-bl-[100px] xl:rounded-br-[100px]"
+  >
+    <div class="pt-28 md:pt-36 lg:pt-[150px] xxl:pt-[185px]">
+      <div class="container-default">
+        <div class="flex flex-col items-center justify-center">
+          <div class="text-center">
+            <div
+              class="jos mx-auto mb-6 max-w-xl lg:max-w-2xl xl:max-w-3xl xxl:max-w-[1076px]"
+            >
+              <h1
+                class="mb-6 font-Kanit text-[40px] font-medium leading-none -tracking-[1px] text-[#010D09] sm:text-5xl lg:text-6xl xl:text-[76px] xxl:text-[110px]"
+              >
+                {header}
+                <br />
+                <span class="text-ColorCaribbeanGreen">{headerLineTwo}</span>
+              </h1>
+            </div>
+            <div
+              class="jos mx-auto mb-8 max-w-xl lg:mb-[50px] lg:max-w-2xl xl:max-w-3xl xxl:max-w-[896px]"
+            >
+              <p class="mb-8">
+                {description}
+              </p>
+            </div>
+            <div class="mb-3 flex flex-wrap justify-center gap-6">
+              <a
+                href={buttonLeft?.link}
+                class="btn is-caribbean-green is-transparent btn-animation is-large is-rounded group inline-block"
+              >
+                <span>
+                  {buttonLeft?.text}
+                  <i class="fa fa-arrow-right ml-[10px] text-2xl leading-none"
+                  ></i>
+                </span>
+              </a>
+              <a
+                href={buttonRight?.link}
+                class="btn is-outline-midnight-moss btn-animation is-large is-rounded group inline-block"
+                ><span>{buttonRight?.text}</span></a
+              >
+            </div>
+            <div class="mb-10 lg:mb-[60xp] xl:mb-20">
+              <span class="text-sm text-black">{BelowText}</span>
+            </div>
+          </div>
+          <div
+            class="relative mx-auto max-w-[1076px] rounded-tl-[10px] rounded-tr-[10px]"
+          >
+            <Image
+              src={image}
+              alt="hero-dashboard"
+              width="1076"
+              height="563"
+              data-jos_animation="zoom-in-down"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute left-0 top-0 -z-10 h-auto w-full">
+      <Image
+        src="/assets/img/elements/hero-10-bg-shape.svg"
+        alt="hero-10-bg-shape"
+        width="1600"
+        height="650"
+        class="h-auto w-full"
+      />
+    </div>
+  </div>
+</section>

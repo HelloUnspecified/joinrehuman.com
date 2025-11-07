@@ -1,0 +1,133 @@
+---
+import { getEntryBySlug } from "astro:content";
+import { getCollection } from "astro:content";
+var PricingData = await getCollection("Pricing");
+PricingData = PricingData.filter((data) => data.slug.startsWith("plan-"));
+const IndexData = await getEntryBySlug("Pricing", "index");
+const { header } = IndexData?.data;
+---
+
+<section class="section-pricing">
+  <div class="section-space-bottom">
+    <div class="container-default">
+      <div class="jos mb-[60px] xl:mb-20">
+        <div class="mx-auto max-w-[746px]">
+          <div class="mb-5">
+            <h2
+              class="text-center font-Kanit text-4xl font-medium leading-none -tracking-[1px] text-ColorMidnightMoss lg:text-5xl xl:text-7xl xxl:text-[80px]"
+            >
+              {header}
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="my-[50px] flex flex-row items-center justify-center gap-6">
+          <span class="text-base font-bold text-ColorMidnightMoss"
+            >Monthly Billing</span
+          >
+          <label for="toggle" class="flex cursor-pointer items-center">
+            <span
+              class="relative h-[35px] w-[70px] rounded-[35px] bg-ColorMidnightMoss"
+            >
+              <input id="toggle" type="checkbox" class="hidden" />
+              <span
+                class="toggle_dot absolute h-[35px] w-[35px] rounded-full bg-ColorCaribbeanGreen transition-all duration-300"
+              ></span>
+            </span>
+          </label>
+          <span class="text-base font-bold text-ColorMidnightMoss"
+            >Annual Billing</span
+          >
+        </div>
+        <div
+          class="grid items-center gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-3"
+        >
+          {
+            PricingData?.map(
+              (
+                { data: { name, price, description, points, button } }: any,
+                index: number,
+              ) => (
+                <div class="jos" data-jos_animation="flip-left">
+                  <div
+                    class={`rounded-[10px] p-7 xl:p-10 ${index === 1 ? "bg-ColorMidnightMoss" : "bg-[#FFFCEF]"}`}
+                  >
+                    <div class="text-center">
+                      <span
+                        class={`text-2xl font-bold ${index !== 1 ? "text-ColorBlack" : "text-white"}`}
+                      >
+                        {name}
+                      </span>
+                      <div
+                        class={`price-month month text-[28px] font-normal leading-[2.85]  ${index !== 1 ? "text-ColorBlack" : "text-white"}`}
+                      >
+                        $
+                        <span class="text-[48px] font-bold leading-[1.3] xl:text-[58px]">
+                          {price?.monthly}
+                        </span>
+                        /month
+                      </div>
+                      <div
+                        class={`price-year annual hidden text-[28px] font-normal leading-[2.85] ${index !== 1 ? "text-ColorBlack" : "text-white"}`}
+                      >
+                        $
+                        <span class="text-[48px] font-bold leading-[1.3] xl:text-[58px]">
+                          {price?.yearly}
+                        </span>
+                        /yearly
+                      </div>
+                      <span
+                        class={`text-sm ${index !== 1 ? "text-ColorBlack/70" : "text-white/70"}`}
+                      >
+                        {description}
+                      </span>
+                    </div>
+                    <div class="my-10 h-px w-full bg-ColorBlack/10" />
+                    <ul
+                      class={`flex flex-col gap-y-4 font-semibold ${index !== 1 ? "text-ColorMidnightMoss/80" : "text-white/80"} xl:px-[18px]`}
+                    >
+                      {points?.map((point: string) => (
+                        <li class="flex gap-x-3">
+                          <span class="text-xl text-ColorCaribbeanGreen">
+                            <i class="fa-solid fa-check" />
+                          </span>
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                    <div class="mt-10 flex justify-center">
+                      <a
+                        href={button?.link}
+                        class={`btn ${index !== 1 ? "is-outline-midnight-moss" : "is-caribbean-green"} is-transparent is-rounded is-large group flex w-full items-center justify-center border-2`}
+                      >
+                        {button?.text}
+                        <i class="fa fa-arrow-right ml-[10px] text-2xl leading-none" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ),
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  function togglePrice() {
+    const prices = document.querySelectorAll(".price-month, .price-year");
+
+    prices.forEach((price: any) => {
+      if (price.classList.contains("hidden")) {
+        price.classList.remove("hidden");
+      } else {
+        price.classList.add("hidden");
+      }
+    });
+  }
+
+  const toggleButton = document.getElementById("toggle") as HTMLInputElement;
+  toggleButton.addEventListener("change", togglePrice);
+</script>

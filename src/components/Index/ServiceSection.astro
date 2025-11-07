@@ -1,0 +1,43 @@
+---
+var Services = await getCollection("services");
+Services = Services.filter((Service) => Service.slug.startsWith("service-"));
+const IndexData = await getEntryBySlug("services", "index");
+import { getEntryBySlug } from "astro:content";
+import { getCollection } from "astro:content";
+import Header from "../ui/Heading.astro";
+import ServiceCard from "../ui/ServiceCard.astro";
+import { Image } from "astro:assets";
+const { indexheader } = IndexData.data;
+---
+
+<section class="section-service">
+  <div class="relative z-10 overflow-hidden">
+    <div class="section-space">
+      <div class="container-custom">
+        <Header heading={indexheader} MaxWidth="max-w-[590px]" />
+        <div class="grid gap-6 sm:grid-cols-2">
+          {
+            Services?.slice(0, 4)?.map(({ data }: any) => {
+              const { icon, title, description } = data;
+              return (
+                <ServiceCard
+                  icon={icon}
+                  title={title}
+                  description={description}
+                />
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 -z-10">
+      <Image
+        src="/assets/img/elements/service-1-shape-1.svg"
+        alt="service-section-shape"
+        width="390"
+        height="507"
+      />
+    </div>
+  </div>
+</section>

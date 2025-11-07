@@ -1,0 +1,62 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+const ContentData = await getEntryBySlug("IndexPage", "content-1");
+const { header, image, cardImage, button } = ContentData?.data;
+const { Content } = await ContentData.render();
+---
+
+<section class="section-content">
+  <div class="section-space-bottom">
+    <div class="container-default">
+      <div class="flex flex-col gap-y-20 lg:gap-y-[100px] xl:gap-y-[120px]">
+        <div
+          class="grid items-center gap-10 md:grid-cols-2 lg:gap-24 xl:grid-cols-[0.8fr_minmax(0,_1fr)] xl:gap-[135px]"
+        >
+          <div class="jos order-1 md:order-2" data-jos_animation="fade-right">
+            <div>
+              <div class="mb-5">
+                <h2
+                  class="font-Kanit text-4xl font-medium leading-none -tracking-[1px] lg:text-5xl xl:text-7xl xxl:text-[80px]"
+                >
+                  {header}
+                </h2>
+              </div>
+            </div>
+            <Content />
+            <div class="mt-8 lg:mt-[50px]">
+              <a
+                href={button?.link}
+                class="btn is-caribbean-green is-transparent btn-animation is-large is-rounded group inline-block"
+              >
+                <span>
+                  {button?.text}
+                  <i class="fa fa-arrow-right ml-[10px] text-2xl leading-none"
+                  ></i>
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="jos order-2 md:order-1" data-jos_animation="fade-left">
+            <div class="relative">
+              <Image
+                src={image}
+                alt="content-img-1"
+                width="586"
+                height="586"
+                class="h-full w-full"
+              />
+              <Image
+                src={cardImage}
+                alt="content-img-1-card"
+                width="353"
+                height="243"
+                class="absolute -right-[110px] bottom-12 hidden lg:inline-block"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

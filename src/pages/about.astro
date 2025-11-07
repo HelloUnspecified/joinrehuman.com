@@ -1,0 +1,32 @@
+---
+import AboutFacts from "../components/About/AboutFacts.astro";
+import AboutFeatures from "../components/About/AboutFeatures.astro";
+import AboutGallery from "../components/About/AboutGallery.astro";
+import AboutHero from "../components/About/AboutHero.astro";
+import Team from "../components/About/Team.astro";
+import Brand from "../components/Index/Brand.astro";
+import FaqSection from "../components/Index/FaqSection.astro";
+import PortfolioSection from "../components/Index/PortfolioSection.astro";
+import BreadCumb from "../components/ui/BreadCumb.astro";
+import Layout from "../layout/Layout.astro";
+---
+
+<Layout title="About">
+  <main class="main-wrapper relative overflow-hidden">
+    <BreadCumb>
+      <h1 class="breadcrumb-title">About Us</h1>
+      <ul class="breadcrumb-nav">
+        <li><a href="/">Home</a></li>
+        <li>About</li>
+      </ul>
+    </BreadCumb>
+    <AboutGallery />
+    <Brand marginBottom={true} />
+    <AboutHero />
+    <AboutFacts />
+    <AboutFeatures />
+    <PortfolioSection />
+    <Team />
+    <FaqSection />
+  </main>
+</Layout>
