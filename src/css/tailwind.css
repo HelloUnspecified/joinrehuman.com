@@ -158,7 +158,7 @@
 }
 
 @utility is-rehuman-outline {
-  @apply border-ReHumanTerracotta bg-transparent text-ReHumanTerracotta hover:bg-ReHumanTerracotta hover:text-white;
+  @apply border-ReHumanTerracotta bg-transparent text-ReHumanTerracotta before:bg-ReHumanTerracotta after:bg-ReHumanTerracotta hover:bg-ReHumanTerracotta hover:text-white;
 }
 
 @utility is-rehuman-light {

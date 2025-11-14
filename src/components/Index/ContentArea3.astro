@@ -3,7 +3,7 @@ import { getEntryBySlug } from "astro:content";
 import { Image } from "astro:assets";
 
 const ContentData = await getEntryBySlug("IndexPage", "content-3");
-const { title, content } = ContentData?.data;
+const { title, content, button } = ContentData?.data;
 const { Content } = await ContentData?.render();
 ---
 
@@ -26,7 +26,7 @@ const { Content } = await ContentData?.render();
           <Content />
         </div>
         <div
-          class="jos relative z-10 flex justify-center"
+          class="jos relative z-10 flex flex-col"
           data-jos_animation="fade-left"
         >
           <ul class="grid gap-6 rounded-[10px]">
@@ -58,6 +58,19 @@ const { Content } = await ContentData?.render();
               ))
             }
           </ul>
+          {button && (
+            <div class="mt-8 flex justify-center lg:justify-end">
+              <a
+                href={button.link}
+                class="btn is-rehuman-primary btn-animation is-large is-rounded group inline-block"
+              >
+                <span>
+                  {button.text}
+                  <i class="fa fa-arrow-right ml-[10px] text-2xl leading-none"></i>
+                </span>
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>

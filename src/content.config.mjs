@@ -6,6 +6,7 @@ const collections = {
   IndexPage: defineCollection({}),
   Pricing: defineCollection({}),
   aboutPage: defineCollection({}),
+  apply: defineCollection({}),
   blogs: defineCollection({}),
   career: defineCollection({}),
   comingSoon: defineCollection({}),
