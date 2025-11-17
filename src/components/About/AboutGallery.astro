@@ -9,17 +9,17 @@ const { images } = GalleryImages?.data;
 <div class="section-about-gallery">
   <div class="section-space">
     <div class="container-default">
-      <div class="grid gap-x-6 gap-y-10 sm:grid-cols-3">
+      <div class="flex justify-center items-center gap-6 flex-wrap">
         {
-          images?.map((image: string) => {
+          images?.map((image: string, index: number) => {
             return (
               <div class="jos" data-jos_animation="fade-up" data-jos_delay="0">
                 <Image
                   src={image}
-                  alt="about-gallery-img-1"
-                  width="416"
-                  height="286"
-                  class="rounded-lg"
+                  alt={`about-gallery-img-${index + 1}`}
+                  width={index === 0 ? "600" : "416"}
+                  height={index === 0 ? "400" : "600"}
+                  class={`rounded-lg ${index === 0 ? 'object-cover h-[600px]' : 'h-[600px] object-cover'}`}
                 />
               </div>
             );
