@@ -2,8 +2,10 @@
 import { getEntryBySlug } from "astro:content";
 import FooterPages from "./FooterPages.astro";
 import Logo from "./Logo.astro";
-import ComingSoonForm from "../functional/ComingSoonForm";
+// import ComingSoonForm from "../functional/ComingSoonForm";
 import { Image } from "astro:assets";
+import SubscribeForm from "../functional/SubscribeForm.astro";
+
 const FooterData = await getEntryBySlug("site", "footer");
 const {
   header,
@@ -88,28 +90,13 @@ const {
                   class="my-6 block underline-offset-4 transition-all duration-300 hover:underline"
                   >{mail}</a
                 >
-                <div class="flex flex-wrap gap-5">
-                  {
-                    socialLinks?.map(({ link, icon }: any) => (
-                      <a
-                        href={link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-white bg-opacity-5 text-sm text-white transition-all duration-300 hover:bg-ColorPaleGold hover:text-ColorDenimDarkBlue"
-                        aria-label="socialIcons"
-                      >
-                        <i class={`fa-brands ${icon}`} />
-                      </a>
-                    ))
-                  }
-                </div>
               </div>
             </div>
             <div class="flex flex-col gap-y-7">
               <div
                 class="text-xl font-semibold capitalize text-ColorMidnightMoss"
               >
-                Primary Pages
+                Resources
               </div>
               <ul class="flex flex-col gap-y-[10px] capitalize">
                 <FooterPages data={PrimaryPages} />
@@ -119,7 +106,7 @@ const {
               <div
                 class="text-xl font-semibold capitalize text-ColorMidnightMoss"
               >
-                Utility pages
+                Company
               </div>
               <ul class="flex flex-col gap-y-[10px] capitalize">
                 <FooterPages data={UtilityPages} />
@@ -131,11 +118,13 @@ const {
               >
                 {formData?.header}
               </div>
-              <ComingSoonForm
+              <!-- <ComingSoonForm
                 client:only="react"
                 formData={formData}
                 web3AccessKey={web3AccessKey}
-              />
+              /> -->
+
+              <SubscribeForm/>
             </div>
           </div>
         </div>
