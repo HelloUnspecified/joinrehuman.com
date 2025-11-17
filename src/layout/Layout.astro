@@ -10,6 +10,8 @@ import "@fontsource/kanit/500.css";
 import "@fontsource/inter/400.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import { getEntryBySlug } from "astro:content";
+import PostHog from "../components/functional/posthog.astro";
+
 const { title } = Astro.props;
 const MetaData = await getEntryBySlug("site", "meta");
 const { siteName, description, favicon } = MetaData?.data;
@@ -26,6 +28,7 @@ const { siteName, description, favicon } = MetaData?.data;
       content={description ? description : "Unspecified Software Co."}
     />
     <link rel="icon" href={favicon || "/favicon.webp"} />
+    <PostHog/>
   </head>
   <body>
     <div class="page-wrapper relative z-[1] bg-white">

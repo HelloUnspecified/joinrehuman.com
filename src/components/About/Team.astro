@@ -12,13 +12,13 @@ const { hideHeader } = Astro.props;
     <div class="section-space">
       <div class="container-default">
         {!hideHeader && <Header heading={header} MaxWidth="max-w-[526px]" />}
-        <div class="grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="grid gap-x-6 gap-y-8 grid-cols-1 sm:grid-cols-6">
           {
             members
               ?.slice(0, 4)
-              ?.map(({ name, post, socialLinks, image }: any) => (
+              ?.map(({ name, post, socialLinks, image }: any, index: number) => (
                 <div
-                  class="jos flex flex-col items-center justify-center rounded-[10px] bg-white p-5 text-center"
+                  class={`jos flex flex-col items-center justify-center rounded-[10px] bg-white p-5 text-center sm:col-span-2 ${index === 0 ? 'sm:col-start-2' : ''}`}
                   data-jos_animation="flip-left"
                 >
                   <Image
@@ -26,7 +26,7 @@ const { hideHeader } = Astro.props;
                     alt="team-img-1"
                     width="266"
                     height="250"
-                    class="h-auto w-full rounded-[10px] lg:w-auto"
+                    class="w-full h-auto aspect-square object-cover rounded-[10px]"
                   />
                   <div class="mb-4 mt-6">
                     <div class="mb-1 text-xl font-semibold">{name}</div>
