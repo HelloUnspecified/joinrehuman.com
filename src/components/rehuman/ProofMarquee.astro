@@ -33,13 +33,13 @@ const allCards = [...people, ...people, ...people];
   <div class="mx-auto max-w-[1400px] w-full">
     <!-- System Header -->
     <div class="mb-12">
-      <p class="font-mono text-xs uppercase tracking-widest text-ember">
+      <p class="font-mono text-xs md:text-sm uppercase tracking-widest text-[#121212]/50 dark:text-[#EBE9E4]/50 flex items-center">
         &gt; SYS.PROOF // THE_HUMANS
       </p>
     </div>
 
     <!-- Massive Text -->
-    <h2 class="font-heading text-5xl md:text-7xl lg:text-8xl xl:text-[120px] font-black uppercase italic tracking-tight text-text-light dark:text-text-dark mb-20 leading-[0.9]">
+    <h2 class="font-heading text-5xl md:text-7xl lg:text-8xl xl:text-[120px] font-black uppercase italic tracking-tighter leading-[1.1] text-[#121212] dark:text-[#EBE9E4] mb-12">
       High-Tech<br />Humanist
     </h2>
   </div>
@@ -69,11 +69,11 @@ const allCards = [...people, ...people, ...people];
             />
           </div>
           {/* Name */}
-          <h4 class="font-heading font-black text-xl uppercase tracking-tight text-text-light dark:text-text-dark mb-1">
+          <h4 class="font-heading font-bold text-xl uppercase tracking-tight text-[#121212] dark:text-[#EBE9E4] mb-4">
             {person.name}
           </h4>
           {/* Transformation */}
-          <p class="text-sm text-text-light/50 dark:text-text-dark/50 mb-0" set:html={person.transformation}>
+          <p class="text-sm text-[#121212]/70 dark:text-[#EBE9E4]/70 leading-relaxed" set:html={person.transformation}>
           </p>
           {/* Logo & CTA Footer */}
           <div class="mt-auto pt-6 border-t border-black/10 dark:border-white/10 flex items-center justify-between">
