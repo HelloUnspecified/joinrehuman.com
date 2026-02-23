@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --breakpoint-*: initial;
   --breakpoint-sm: 576px;
@@ -20,7 +22,16 @@
   --font-Sora: Sora, sans-serif;
   --font-Outfit: Outfit, sans-serif;
   --font-body: Inter, sans-serif;
+  --font-heading: "Inter Tight", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
   --font-FontAwesome: Font Awesome 6 Pro;
+
+  /* re/Human V5 Brand Tokens */
+  --color-ember: #FF5733;
+  --color-warm-light: #F9F8F6;
+  --color-warm-dark: #1A1918;
+  --color-text-light: #121212;
+  --color-text-dark: #EBE9E4;
 
   /* re:Human Brand Colors */
   --color-ReHumanTerracotta: #E07856;
@@ -261,6 +272,15 @@
 
   p {
     @apply mb-8 last:mb-0;
+  }
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
