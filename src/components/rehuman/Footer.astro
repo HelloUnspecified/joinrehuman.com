@@ -1,8 +1,27 @@
 ---
 ---
 
-<footer class="bg-[#1A1918] text-[#EBE9E4] pt-32 pb-12 px-6 rounded-t-[4rem] mt-24">
+<footer class="bg-[#1A1918] text-[#EBE9E4] pt-32 pb-12 px-6 rounded-t-[4rem] mt-24 border-t border-white/10">
   <div class="mx-auto max-w-[1400px]">
+    <!-- Brand & CTA Row -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-24 gap-8">
+      <!-- Left: Logo -->
+      <a href="/" class="font-heading font-black text-3xl md:text-4xl tracking-tighter text-[#EBE9E4] uppercase italic hover:text-[#FF5733] transition-colors duration-300">
+        re/<span class="text-[#FF5733]">Human</span>
+      </a>
+
+      <!-- Right: Status & CTA -->
+      <div class="flex flex-col items-end gap-3">
+        <span class="flex items-center gap-2 font-mono text-[10px] md:text-xs uppercase tracking-widest text-[#FF5733]">
+          <span class="w-2 h-2 rounded-full bg-[#FF5733] animate-pulse"></span>
+          HUMAN PROTOCOL // ACTIVE
+        </span>
+        <a href="/book" class="font-mono text-sm text-[#EBE9E4]/70 hover:text-[#FF5733] transition-colors duration-300 flex items-center">
+          &gt; DEPLOY_ARCHITECTURE<span class="inline-block w-[2px] h-[1em] bg-[#FF5733] ml-1 animate-pulse"></span>
+        </a>
+      </div>
+    </div>
+
     <!-- Newsletter Section -->
     <div class="mb-0">
       <!-- Terminal Header -->
@@ -36,26 +55,18 @@
       </form>
     </div>
 
-    <!-- System Readout Bottom Bar -->
-    <div class="mt-32 pt-8 border-t border-[#EBE9E4]/10 flex flex-col md:flex-row justify-between items-center gap-6">
+    <!-- Bottom Row: Legal & Links -->
+    <div class="flex flex-col lg:flex-row justify-between items-center mt-32 pt-8 border-t border-white/10 gap-6 font-mono text-[10px] md:text-xs uppercase tracking-widest text-[#EBE9E4]/50">
       <!-- Left: Copyright -->
-      <span class="font-mono text-xs uppercase tracking-widest text-[#EBE9E4]/50">
-        &copy; 2026 RE/HUMAN. ALL RIGHTS RESERVED.
-      </span>
-
-      <!-- Center: System Status -->
-      <div class="font-mono text-xs uppercase tracking-widest text-[#EBE9E4]/50 flex items-center">
-        <span class="inline-block w-2 h-2 rounded-full bg-[#FF5733] animate-pulse mr-2"></span>
-        <span class="text-[#FF5733]">HUMAN PROTOCOL // ACTIVE</span>
-      </div>
+      <span>&copy; {new Date().getFullYear()} RE/HUMAN. ALL RIGHTS RESERVED.</span>
 
       <!-- Right: Site Index -->
-      <nav class="flex items-center gap-8">
-        <a href="/contact" class="font-mono text-xs uppercase tracking-widest text-[#EBE9E4]/50 hover:text-[#FF5733] transition-colors duration-300">//Articles</a>
-        <a href="/faq" class="font-mono text-xs uppercase tracking-widest text-[#EBE9E4]/50 hover:text-[#FF5733] transition-colors duration-300">//FAQ</a>
-        <a href="/about" class="font-mono text-xs uppercase tracking-widest text-[#EBE9E4]/50 hover:text-[#FF5733] transition-colors duration-300">//About_Us</a>
-        <a href="/contact" class="font-mono text-xs uppercase tracking-widest text-[#EBE9E4]/50 hover:text-[#FF5733] transition-colors duration-300">//Contact</a>
-      </nav>
+      <div class="flex gap-4 md:gap-6">
+        <a href="#" class="hover:text-[#FF5733] transition-colors">//ARTICLES</a>
+        <a href="#" class="hover:text-[#FF5733] transition-colors">//FAQ</a>
+        <a href="#" class="hover:text-[#FF5733] transition-colors">//ABOUT_US</a>
+        <a href="#" class="hover:text-[#FF5733] transition-colors">//CONTACT</a>
+      </div>
     </div>
   </div>
 </footer>
