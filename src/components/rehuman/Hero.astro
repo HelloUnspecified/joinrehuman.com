@@ -1,0 +1,74 @@
+---
+---
+
+<section class="relative flex min-h-[100dvh] items-center overflow-hidden bg-warm-light dark:bg-warm-dark">
+  <!-- Background Grid/Code Stream -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden opacity-[0.04] dark:opacity-[0.06]">
+    <div class="font-mono text-[10px] leading-[1.8] text-text-light dark:text-text-dark whitespace-pre select-none" id="hero-grid" aria-hidden="true"></div>
+  </div>
+
+  <div class="relative z-10 mx-auto w-full max-w-[1400px] px-6 md:px-10 pt-32 pb-20">
+    <!-- System Header -->
+    <div class="hero-fade mb-8">
+      <p class="font-mono text-xs uppercase tracking-widest text-ember">
+        <span class="inline-block w-2 h-2 rounded-full bg-ember animate-pulse mr-2 align-middle"></span>
+        SYS.CORE // ONLINE
+      </p>
+    </div>
+
+    <!-- Headline -->
+    <h1 class="hero-fade font-heading text-5xl md:text-7xl lg:text-8xl xl:text-[120px] font-black uppercase italic tracking-tight leading-[0.9] text-text-light dark:text-text-dark mb-8">
+      Community<br />is the new<br />moat.
+    </h1>
+
+    <!-- Subheadline -->
+    <p class="hero-fade max-w-2xl text-lg md:text-xl text-text-light/60 dark:text-text-dark/60 leading-relaxed">
+      In the age of AI, your only unfair advantage is your people.
+    </p>
+
+    <!-- Scroll Indicator -->
+    <div class="hero-fade mt-16 md:mt-24">
+      <div class="flex items-center gap-3 font-mono text-xs text-text-light/30 dark:text-text-dark/30 uppercase tracking-widest">
+        <span class="block h-8 w-px bg-ember/50"></span>
+        Scroll to explore
+        <span class="inline-block w-2.5 h-4 md:h-5 bg-[#FF5733] animate-pulse"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+
+  // Generate background grid
+  const grid = document.getElementById("hero-grid");
+  if (grid) {
+    const lines: string[] = [];
+    const tokens = [
+      "HUMAN_PROTOCOL", "INIT_SYSTEM", "CONNECT.AUTH", "BUILD_MOAT",
+      "SOUL.RENDER", "CULTURE.SYNC", "TRUST_LAYER", "COMMUNITY.BIND",
+      "SIGNAL.BOOST", "EMPATHY_ENGINE", "SCALE.HUMAN", "DATA.HEART"
+    ];
+    for (let i = 0; i < 80; i++) {
+      const line = Array.from({ length: 12 }, () =>
+        tokens[Math.floor(Math.random() * tokens.length)]
+      ).join("  ");
+      lines.push(line);
+    }
+    grid.textContent = lines.join("\n");
+  }
+
+  // GSAP staggered fade-up
+  gsap.fromTo(
+    ".hero-fade",
+    { opacity: 0, y: 40 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power3.out",
+      delay: 0.3,
+    }
+  );
+</script>

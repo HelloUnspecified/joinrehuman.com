@@ -1,0 +1,101 @@
+---
+const people = [
+  {
+    name: "Ava Mitchell",
+    company: "NovaTech",
+    role: "Head of Community",
+    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop&crop=faces",
+  },
+  {
+    name: "Jordan Reeves",
+    company: "Helix Studio",
+    role: "Creative Director",
+    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=faces",
+  },
+  {
+    name: "Sam Nakamura",
+    company: "Basecamp Co.",
+    role: "Founder & CEO",
+    img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop&crop=faces",
+  },
+  {
+    name: "Riley Okafor",
+    company: "Meridian Labs",
+    role: "Brand Strategist",
+    img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=500&fit=crop&crop=faces",
+  },
+  {
+    name: "Casey Moreno",
+    company: "Soulcraft Inc.",
+    role: "VP of Culture",
+    img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=faces",
+  },
+  {
+    name: "Drew Sullivan",
+    company: "Ironpeak",
+    role: "Chief People Officer",
+    img: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=500&fit=crop&crop=faces",
+  },
+];
+
+const allCards = [...people, ...people];
+---
+
+<section class="bg-warm-light dark:bg-warm-dark min-h-screen flex flex-col justify-center py-32 px-6 md:px-10 overflow-hidden">
+  <div class="mx-auto max-w-[1400px] w-full">
+    <!-- System Header -->
+    <div class="mb-12">
+      <p class="font-mono text-xs uppercase tracking-widest text-ember">
+        &gt; SYS.PROOF // THE_HUMANS
+      </p>
+    </div>
+
+    <!-- Massive Text -->
+    <h2 class="font-heading text-5xl md:text-7xl lg:text-8xl xl:text-[120px] font-black uppercase italic tracking-tight text-text-light dark:text-text-dark mb-20 leading-[0.9]">
+      High-Tech<br />Humanist
+    </h2>
+  </div>
+
+  <!-- Infinite Marquee Wrapper -->
+  <div class="relative w-full overflow-hidden pt-6">
+    <!-- Left Edge Fade -->
+    <div class="absolute left-0 top-0 bottom-0 w-24 md:w-40 z-10 bg-linear-to-r from-[#F9F8F6] dark:from-[#1A1918] to-transparent pointer-events-none"></div>
+    <!-- Right Edge Fade -->
+    <div class="absolute right-0 top-0 bottom-0 w-24 md:w-40 z-10 bg-linear-to-l from-[#F9F8F6] dark:from-[#1A1918] to-transparent pointer-events-none"></div>
+
+    <!-- Scrolling Track -->
+    <div
+      class="flex gap-8 w-max hover:[animation-play-state:paused]"
+      style="animation: marquee-scroll 30s linear infinite;"
+    >
+      {allCards.map((person) => (
+        <a href="#" class="group block w-[300px] shrink-0 bg-white dark:bg-[#121212] p-6 rounded-[2rem] shadow-xl border border-black/5 dark:border-white/5 transition-all duration-500 hover:scale-105 hover:-translate-y-3 cursor-pointer">
+          {/* Portrait */}
+          <div class="aspect-4/5 overflow-hidden rounded-2xl mb-6">
+            <img
+              src={person.img}
+              alt={person.name}
+              class="object-cover w-full h-full grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700"
+              loading="lazy"
+            />
+          </div>
+          {/* Name */}
+          <h4 class="font-heading font-black text-xl uppercase tracking-tight text-text-light dark:text-text-dark mb-1">
+            {person.name}
+          </h4>
+          {/* Title */}
+          <p class="text-sm text-text-light/50 dark:text-text-dark/50 mb-0">
+            {person.role}
+          </p>
+          {/* Logo & CTA Footer */}
+          <div class="mt-6 pt-6 border-t border-black/10 dark:border-white/10 flex items-center justify-between">
+            <span class="font-heading font-black text-sm uppercase tracking-widest text-text-light/30 dark:text-text-dark/30 group-hover:text-text-light dark:group-hover:text-text-dark transition-colors duration-300">
+              {person.company}
+            </span>
+            <span class="font-mono text-[#FF5733] text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0 duration-300">View ↗</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
