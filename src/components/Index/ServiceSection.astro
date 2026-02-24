@@ -1,8 +1,8 @@
 ---
 var Services = await getCollection("services");
 Services = Services.filter((Service) => Service.slug.startsWith("service-"));
-const IndexData = await getEntryBySlug("services", "index");
-import { getEntryBySlug } from "astro:content";
+const IndexData = await getEntry("services", "index");
+import { getEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import Header from "../ui/Heading.astro";
 import ServiceCard from "../ui/ServiceCard.astro";

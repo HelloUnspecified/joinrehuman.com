@@ -1,9 +1,9 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import Button from "../components/ui/Button.astro";
 import Layout from "../layout/Layout.astro";
 import { Image } from "astro:assets";
-const NotFoundData = await getEntryBySlug("notFound", "index");
+const NotFoundData = await getEntry("notFound", "index");
 const { header, description, image, button } = NotFoundData?.data;
 ---
 
