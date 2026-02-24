@@ -9,11 +9,11 @@ import "@fontsource/plus-jakarta-sans/800.css";
 import "@fontsource/kanit/500.css";
 import "@fontsource/inter/400.css";
 import "@fortawesome/fontawesome-free/css/all.css";
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import PostHog from "../components/functional/posthog.astro";
 
 const { title } = Astro.props;
-const MetaData = await getEntryBySlug("site", "meta");
+const MetaData = await getEntry("site", "meta");
 const { siteName, description, favicon } = MetaData?.data;
 ---
 

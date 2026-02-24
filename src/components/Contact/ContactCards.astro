@@ -1,9 +1,9 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import Card from "../ui/Card.astro";
 import EmailCard from "./EmailCard.astro";
 
-const ContactDetails = await getEntryBySlug("contact", "index");
+const ContactDetails = await getEntry("contact", "index");
 const { cards, mail } = ContactDetails?.data;
 ---
 

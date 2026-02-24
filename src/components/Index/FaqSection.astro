@@ -1,6 +1,6 @@
 ---
-import { getEntryBySlug } from "astro:content";
-const QNA = await getEntryBySlug("IndexPage", "qna");
+import { getEntry } from "astro:content";
+const QNA = await getEntry("index", "qna");
 const { content, header } = QNA.data;
 ---
 

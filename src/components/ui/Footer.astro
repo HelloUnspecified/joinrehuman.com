@@ -1,12 +1,12 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import FooterPages from "./FooterPages.astro";
 import Logo from "./Logo.astro";
 // import ComingSoonForm from "../functional/ComingSoonForm";
 import { Image } from "astro:assets";
 import SubscribeForm from "../functional/SubscribeForm.astro";
 
-const FooterData = await getEntryBySlug("site", "footer");
+const FooterData = await getEntry("site", "footer");
 const {
   header,
   leftButton,
@@ -23,7 +23,7 @@ const {
 } = FooterData.data;
 const {
   data: { web3AccessKey },
-} = await getEntryBySlug("site", "meta");
+} = await getEntry("site", "meta");
 ---
 
 <footer class="section-footer">

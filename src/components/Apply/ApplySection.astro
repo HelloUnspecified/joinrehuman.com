@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import { getEntryBySlug } from "astro:content";
-const ApplyData = await getEntryBySlug("apply", "index");
+import { getEntry } from "astro:content";
+const ApplyData = await getEntry("apply", "index");
 const { hero, communitySection, healthyCommunity } = ApplyData?.data;
 ---
 
