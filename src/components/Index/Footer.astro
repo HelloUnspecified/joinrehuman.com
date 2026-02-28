@@ -17,7 +17,7 @@
           HUMAN PROTOCOL // ACTIVE
         </span>
         <a href="/book" class="font-mono text-sm text-[#EBE9E4]/70 hover:text-[#FF5733] transition-colors duration-300 flex items-center">
-          &gt; DEPLOY_ARCHITECTURE<span class="inline-block w-[2px] h-[1em] bg-[#FF5733] ml-1 animate-pulse"></span>
+          &gt; BOOK_STRATEGY_REVIEW<span class="inline-block w-[2px] h-[1em] bg-[#FF5733] ml-1 animate-pulse"></span>
         </a>
       </div>
     </div>
@@ -36,22 +36,30 @@
 
       <!-- Body -->
       <p class="text-lg md:text-xl text-[#EBE9E4]/70 leading-relaxed max-w-2xl mt-4 mb-12">
-        Join our dispatch for deep dives into culture design and community architecture.
+        Get our weekly dispatch on community architecture, frameworks, case studies, and systems thinking for leaders building movements.
       </p>
 
       <!-- Email Input -->
-      <form class="flex flex-col md:flex-row max-w-2xl gap-4">
-        <input
-          type="email"
-          placeholder="[ awaiting_input: user@domain.com ]"
-          class="text-sm bg-transparent border-b-2 border-[#EBE9E4]/30 text-[#EBE9E4] px-4 py-4 focus:outline-none focus:border-[#FF5733] transition-colors w-full font-mono placeholder:text-[#EBE9E4]/30"
-        />
-        <button
-          type="submit"
-          class="font-mono text-sm uppercase tracking-widest text-[#FF5733] px-8 py-4 border border-transparent hover:border-[#FF5733] transition-colors shrink-0"
-        >
-          [ INITIATE_PROTOCOL ]
-        </button>
+      <form id="newsletter-form" class="max-w-2xl">
+        <div class="flex flex-col md:flex-row gap-4">
+          <input
+            type="email"
+            name="email"
+            id="email-input"
+            required
+            data-1p-ignore
+            autocomplete="off"
+            placeholder="[ awaiting_input: user@domain.com ]"
+            class="text-sm bg-transparent border-b-2 border-[#EBE9E4]/30 text-[#EBE9E4] px-4 py-4 focus:outline-none focus:border-[#FF5733] transition-colors w-full font-mono placeholder:text-[#EBE9E4]/30"
+          />
+          <button
+            type="submit"
+            class="font-mono text-sm uppercase tracking-widest text-[#FF5733] px-8 py-4 border border-transparent hover:border-[#FF5733] transition-colors shrink-0"
+          >
+            [ INITIATE_PROTOCOL ]
+          </button>
+        </div>
+        <p id="form-message" class="mt-6"></p>
       </form>
     </div>
 
@@ -70,3 +78,40 @@
     </div>
   </div>
 </footer>
+
+<script>
+  const form = document.getElementById('newsletter-form');
+  const messageElement = document.getElementById('form-message');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const emailInput = document.getElementById('email-input') as HTMLInputElement;
+    const email = emailInput.value;
+
+    // Optional: Add loading state to your button here
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        messageElement.textContent = '[ PROTOCOL_INITIATED ] Check your inbox to confirm your subscription.';
+        messageElement.className = 'mt-6 font-mono text-sm text-[#FF5733]';
+        emailInput.value = '';
+      } else {
+        messageElement.textContent = `[ ERROR ] ${data.error || 'Transmission failed. Try again.'}`;
+        messageElement.className = 'mt-6 font-mono text-sm text-red-400';
+      }
+    } catch (error) {
+      messageElement.textContent = '[ CONNECTION_LOST ] Network error. Please retry.';
+      messageElement.className = 'mt-6 font-mono text-sm text-red-400';
+    }
+  });
+</script>
