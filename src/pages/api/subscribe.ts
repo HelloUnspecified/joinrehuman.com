@@ -38,13 +38,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
     );
 
     if (!beehiivResponse.ok) {
-      // const errorData = await beehiivResponse.json();
-
-      const errorText = await beehiivResponse.text(); 
-      console.error(`Beehiiv API Error [${beehiivResponse.status}]:`, errorText);
-      
-      // throw new Error(errorData.message || 'Failed to subscribe to Beehiiv');
-      throw new Error(errorText || 'Failed to subscribe to Beehiiv');
+      const errorData = await beehiivResponse.json();      
+      throw new Error(errorData.message || 'Failed to subscribe to Beehiiv');
     }
 
     return new Response(
