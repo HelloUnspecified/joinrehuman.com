@@ -15,8 +15,9 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    const API_KEY = import.meta.env.BEEHIIV_API_KEY;
-    const PUB_ID = import.meta.env.BEEHIIV_PUBLICATION_ID;
+    const env = locals.runtime?.env;
+    const API_KEY = env?.BEEHIIV_API_KEY;
+    const PUB_ID = env?.BEEHIIV_PUBLICATION_ID;
 
     // Call the Beehiiv API
     const beehiivResponse = await fetch(
