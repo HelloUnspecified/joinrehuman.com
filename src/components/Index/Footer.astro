@@ -81,14 +81,21 @@
 
 <script>
   const form = document.getElementById('newsletter-form');
-  const messageElement = document.getElementById('form-message');
+  const messageElement = document.getElementById('form-message') as HTMLParagraphElement;
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const emailInput = document.getElementById('email-input') as HTMLInputElement;
+    const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
     const email = emailInput.value;
 
-    // Optional: Add loading state to your button here
+    // Set loading state
+    emailInput.disabled = true;
+    submitButton.disabled = true;
+    const originalButtonText = submitButton.textContent;
+    submitButton.textContent = '[ TRANSMITTING... ]';
+    submitButton.classList.add('animate-pulse', 'opacity-50');
+    messageElement.textContent = '';
 
     try {
       const response = await fetch('/api/subscribe', {
@@ -112,6 +119,11 @@
     } catch (error) {
       messageElement.textContent = '[ CONNECTION_LOST ] Network error. Please retry.';
       messageElement.className = 'mt-6 font-mono text-sm text-red-400';
+    } finally {
+      emailInput.disabled = false;
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+      submitButton.classList.remove('animate-pulse', 'opacity-50');
     }
   });
 </script>
