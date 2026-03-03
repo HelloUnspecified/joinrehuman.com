@@ -1,13 +1,19 @@
 ---
+
 ---
 
 <nav
   id="navbar"
   class="fixed top-0 left-0 right-0 z-[100] transition-all duration-300"
 >
-  <div class="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-10">
+  <div
+    class="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-10"
+  >
     <!-- Brand -->
-    <a href="/" class="font-heading text-2xl font-black uppercase italic tracking-tight text-rh-ink dark:text-rh-chalk">
+    <a
+      href="/"
+      class="font-heading text-2xl font-black uppercase italic tracking-tight text-rh-ink dark:text-rh-chalk"
+    >
       re/<span class="text-rh-ember">Human</span>
     </a>
 
@@ -19,7 +25,9 @@
         class="font-mono text-xs tracking-wider text-rh-ink/60 dark:text-rh-chalk/60 hover:text-rh-ember transition-colors cursor-pointer"
         aria-label="Toggle theme"
       >
-        [<span id="toggle-label">LGT / <span class="text-rh-ember font-bold">DRK</span></span>]
+        [<span id="toggle-label"
+          >LGT / <span class="text-rh-ember font-bold">DRK</span></span
+        >]
       </button>
 
       <!-- CTA -->
@@ -61,9 +69,17 @@
   const navbar = document.getElementById("navbar");
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
-      navbar?.classList.add("backdrop-blur-xl", "bg-rh-warm-light/80", "dark:bg-rh-warm-dark/80");
+      navbar?.classList.add(
+        "backdrop-blur-xl",
+        "bg-rh-warm-light/80",
+        "dark:bg-rh-warm-dark/80",
+      );
     } else {
-      navbar?.classList.remove("backdrop-blur-xl", "bg-rh-warm-light/80", "dark:bg-rh-warm-dark/80");
+      navbar?.classList.remove(
+        "backdrop-blur-xl",
+        "bg-rh-warm-light/80",
+        "dark:bg-rh-warm-dark/80",
+      );
     }
   });
 </script>

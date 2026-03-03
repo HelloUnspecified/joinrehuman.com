@@ -1,18 +1,28 @@
 ---
 import SqueezeLayout from "../layouts/SqueezeLayout.astro";
+import SectionLabel from "../elements/SectionLabel.astro";
 ---
-  
+
 <SqueezeLayout title="Book Your Architecture Session">
   <!-- Minimal Header -->
-  <nav id="book-navbar" class="fixed top-0 left-0 right-0 z-[100] transition-all duration-300">
-    <div class="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-10">
-      <a href="/" class="font-heading text-2xl font-black uppercase italic tracking-tight text-rh-chalk">
+  <nav
+    id="book-navbar"
+    class="fixed top-0 left-0 right-0 z-[100] transition-all duration-300"
+  >
+    <div
+      class="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-10"
+    >
+      <a
+        href="/"
+        class="font-heading text-2xl font-black uppercase italic tracking-tight text-rh-chalk"
+      >
         re/<span class="text-rh-ember">Human</span>
       </a>
-      <div class="font-mono text-xs uppercase tracking-widest text-rh-chalk/50 flex items-center">
-        <span class="inline-block w-2 h-2 rounded-full bg-rh-ember animate-pulse mr-2"></span>
-        SYS.SECURE // PRIVATE_SESSION
-      </div>
+      <SectionLabel
+        text="SYS.SECURE // PRIVATE_SESSION"
+        dot
+        class="!text-rh-chalk/50"
+      />
     </div>
   </nav>
 
@@ -28,25 +38,36 @@ import SqueezeLayout from "../layouts/SqueezeLayout.astro";
   </script>
 
   <!-- Hook Section -->
-  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24">
+  <section
+    class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24"
+  >
     <!-- Terminal Header -->
-    <p class="font-mono text-xs md:text-sm uppercase tracking-widest text-rh-chalk/50 flex items-center">
-      &gt; SYS.INITIATE // ARCHITECTURE_SESSION
-    </p>
+    <SectionLabel
+      text="> SYS.INITIATE // ARCHITECTURE_SESSION"
+      class="!text-rh-chalk/50"
+    />
 
     <!-- Headline -->
-    <h1 class="font-heading text-6xl md:text-8xl lg:text-9xl font-black uppercase italic tracking-normal leading-[1.1] text-rh-chalk mt-8">
-      YOUR PEOPLE ARE <br/> <span class="text-rh-ember">WAITING.</span>
+    <h1
+      class="font-heading text-6xl md:text-8xl lg:text-9xl font-black uppercase italic tracking-normal leading-[1.1] text-rh-chalk mt-8"
+    >
+      YOUR PEOPLE ARE <br />
+      <span class="text-rh-ember">WAITING.</span>
     </h1>
 
     <!-- Sub-copy -->
-    <p class="text-lg md:text-xl text-rh-chalk/70 leading-relaxed max-w-2xl mt-8">
-      Watch the breakdown. Then book your private strategy session with our team.
+    <p
+      class="text-lg md:text-xl text-rh-chalk/70 leading-relaxed max-w-2xl mt-8"
+    >
+      Watch the breakdown. Then book your private strategy session with our
+      team.
     </p>
 
     <!-- Scroll Indicator -->
     <div class="mt-16 animate-bounce">
-      <span class="font-mono text-xs uppercase tracking-widest text-rh-ember">[ SCROLL ]</span>
+      <span class="font-mono text-xs uppercase tracking-widest text-rh-ember"
+        >[ SCROLL ]</span
+      >
     </div>
   </section>
 
@@ -54,33 +75,48 @@ import SqueezeLayout from "../layouts/SqueezeLayout.astro";
   <section class="py-32 px-6 md:px-10">
     <div class="mx-auto max-w-[1000px]">
       <!-- Terminal Header -->
-      <p class="font-mono text-xs md:text-sm uppercase tracking-widest text-rh-chalk/50 flex items-center mb-8">
-        <span class="inline-block w-2 h-2 rounded-full bg-rh-ember animate-pulse mr-2"></span>
-        SYS.STREAM // VIDEO_BRIEF
-      </p>
+      <SectionLabel
+        text="SYS.STREAM // VIDEO_BRIEF"
+        dot
+        class="!text-rh-chalk/50 mb-8"
+      />
 
       <!-- Video Container -->
-      <div class="relative w-full aspect-video bg-rh-warm-dark rounded-2xl border border-rh-chalk/10 overflow-hidden">
+      <div
+        class="relative w-full aspect-video bg-rh-warm-dark rounded-2xl border border-rh-chalk/10 overflow-hidden"
+      >
         <!-- Terminal Overlay Top Bar -->
-        <div class="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-6 py-4 bg-gradient-to-b from-rh-ink/80 to-transparent">
+        <div
+          class="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-6 py-4 bg-gradient-to-b from-rh-ink/80 to-transparent"
+        >
           <div class="flex items-center gap-2">
             <span class="w-3 h-3 rounded-full bg-rh-ember/60"></span>
             <span class="w-3 h-3 rounded-full bg-rh-chalk/20"></span>
             <span class="w-3 h-3 rounded-full bg-rh-chalk/20"></span>
           </div>
-          <span class="font-mono text-xs uppercase tracking-widest text-rh-chalk/30">
+          <span
+            class="font-mono text-xs uppercase tracking-widest text-rh-chalk/30"
+          >
             rh_architecture_brief.mp4
           </span>
         </div>
 
         <!-- Video Placeholder -->
         <div class="absolute inset-0 flex flex-col items-center justify-center">
-          <div class="w-20 h-20 rounded-full border-2 border-rh-ember flex items-center justify-center mb-6 hover:bg-rh-ember/10 transition-colors cursor-pointer">
-            <svg class="w-8 h-8 text-rh-ember ml-1" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
+          <div
+            class="w-20 h-20 rounded-full border-2 border-rh-ember flex items-center justify-center mb-6 hover:bg-rh-ember/10 transition-colors cursor-pointer"
+          >
+            <svg
+              class="w-8 h-8 text-rh-ember ml-1"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M8 5v14l11-7z"></path>
             </svg>
           </div>
-          <span class="font-mono text-xs uppercase tracking-widest text-rh-chalk/50">
+          <span
+            class="font-mono text-xs uppercase tracking-widest text-rh-chalk/50"
+          >
             [ CLICK TO PLAY ]
           </span>
         </div>
@@ -95,34 +131,47 @@ import SqueezeLayout from "../layouts/SqueezeLayout.astro";
         <!-- Left: Firewall Copy -->
         <div class="flex-1 flex flex-col justify-center">
           <!-- Terminal Header -->
-          <p class="font-mono text-xs md:text-sm uppercase tracking-widest text-rh-chalk/50 flex items-center mb-8">
-            &gt; SYS.FIREWALL // SESSION_BRIEF
-          </p>
+          <SectionLabel
+            text="> SYS.FIREWALL // SESSION_BRIEF"
+            class="!text-rh-chalk/50 mb-8"
+          />
 
-          <h2 class="font-heading text-5xl md:text-7xl font-black uppercase italic tracking-normal leading-[1.1] text-rh-chalk mb-8">
+          <h2
+            class="font-heading text-5xl md:text-7xl font-black uppercase italic tracking-normal leading-[1.1] text-rh-chalk mb-8"
+          >
             This Isn't a<br />Sales Call.
           </h2>
 
           <p class="text-lg md:text-xl text-rh-chalk/70 leading-relaxed mb-8">
-            It's a private architecture session. We'll map your current ecosystem, identify the structural gaps, and show you the exact blueprint to turn your audience into an unbreakable community.
+            It's a private architecture session. We'll map your current
+            ecosystem, identify the structural gaps, and show you the exact
+            blueprint to turn your audience into an unbreakable community.
           </p>
 
           <ul class="space-y-4 mb-8">
             <li class="flex items-start gap-3">
               <span class="text-rh-ember font-mono text-sm mt-1">&gt;</span>
-              <span class="text-lg text-rh-chalk/70">Full ecosystem diagnostic</span>
+              <span class="text-lg text-rh-chalk/70"
+                >Full ecosystem diagnostic</span
+              >
             </li>
             <li class="flex items-start gap-3">
               <span class="text-rh-ember font-mono text-sm mt-1">&gt;</span>
-              <span class="text-lg text-rh-chalk/70">Custom architecture blueprint</span>
+              <span class="text-lg text-rh-chalk/70"
+                >Custom architecture blueprint</span
+              >
             </li>
             <li class="flex items-start gap-3">
               <span class="text-rh-ember font-mono text-sm mt-1">&gt;</span>
-              <span class="text-lg text-rh-chalk/70">Culture design framework</span>
+              <span class="text-lg text-rh-chalk/70"
+                >Culture design framework</span
+              >
             </li>
             <li class="flex items-start gap-3">
               <span class="text-rh-ember font-mono text-sm mt-1">&gt;</span>
-              <span class="text-lg text-rh-chalk/70">Zero obligation. Zero pitch.</span>
+              <span class="text-lg text-rh-chalk/70"
+                >Zero obligation. Zero pitch.</span
+              >
             </li>
           </ul>
 
@@ -132,35 +181,69 @@ import SqueezeLayout from "../layouts/SqueezeLayout.astro";
         </div>
 
         <!-- Right: Calendly Embed Placeholder -->
-         <div class="bg-rh-warm-dark border border-white/10 rounded-2xl p-8 lg:p-12 min-h-[500px] flex flex-col relative overflow-hidden group shadow-2xl">
-  
-          <div class="flex justify-between items-center border-b border-white/10 pb-4 mb-8">
-            <span class="font-mono text-xs text-rh-chalk/50 tracking-widest uppercase">> SCHEDULING_PROTOCOL</span>
-            <span class="flex items-center gap-2 font-mono text-xs text-green-400 uppercase tracking-widest">
-              <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+        <div
+          class="bg-rh-warm-dark border border-white/10 rounded-2xl p-8 lg:p-12 min-h-[500px] flex flex-col relative overflow-hidden group shadow-2xl"
+        >
+          <div
+            class="flex justify-between items-center border-b border-white/10 pb-4 mb-8"
+          >
+            <span
+              class="font-mono text-xs text-rh-chalk/50 tracking-widest uppercase"
+              >> SCHEDULING_PROTOCOL</span
+            >
+            <span
+              class="flex items-center gap-2 font-mono text-xs text-green-400 uppercase tracking-widest"
+            >
+              <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"
+              ></span>
               STATUS: READY
             </span>
           </div>
 
-          <div id="terminal-log" class="font-mono text-sm text-rh-chalk/70 space-y-4 mb-auto flex-grow">
-            <p class="terminal-line opacity-0" data-final-opacity="0.5">> [SYSTEM] Secure connection established.</p>
-            <p class="terminal-line opacity-0" data-final-opacity="0.7">> [SYSTEM] Scanning availability matrix...</p>
-            <p class="terminal-line opacity-0 text-green-400">> [OK] Calendar data synced.</p>
-            <p class="terminal-line opacity-0 text-rh-ember">> [ACTION_REQUIRED] Awaiting user initialization.</p>
+          <div
+            id="terminal-log"
+            class="font-mono text-sm text-rh-chalk/70 space-y-4 mb-auto flex-grow"
+          >
+            <p class="terminal-line opacity-0" data-final-opacity="0.5">
+              > [SYSTEM] Secure connection established.
+            </p>
+            <p class="terminal-line opacity-0" data-final-opacity="0.7">
+              > [SYSTEM] Scanning availability matrix...
+            </p>
+            <p class="terminal-line opacity-0 text-green-400">
+              > [OK] Calendar data synced.
+            </p>
+            <p class="terminal-line opacity-0 text-rh-ember">
+              > [ACTION_REQUIRED] Awaiting user initialization.
+            </p>
           </div>
 
-          <a id="terminal-cta" href="https://cal.joinrehuman.com/free-strategy-review" data-savvycal-embed class="block w-full text-center bg-rh-chalk text-rh-ink hover:bg-rh-ember hover:text-white transition-colors duration-300 font-black uppercase text-xl md:text-2xl py-6 rounded-xl tracking-tight mt-12 shadow-xl opacity-0 translate-y-4">
+          <a
+            id="terminal-cta"
+            href="https://cal.joinrehuman.com/free-strategy-review"
+            data-savvycal-embed
+            class="block w-full text-center bg-rh-chalk text-rh-ink hover:bg-rh-ember hover:text-white transition-colors duration-300 font-black uppercase text-xl md:text-2xl py-6 rounded-xl tracking-tight mt-12 shadow-xl opacity-0 translate-y-4"
+          >
             BOOK SESSION
           </a>
           <span class="font-mono text-xs text-rh-chalk/20">
-            <script>window.SavvyCal=window.SavvyCal||function(){(SavvyCal.q=SavvyCal.q||[]).push(arguments)};</script>
+            <script>
+              window.SavvyCal =
+                window.SavvyCal ||
+                function () {
+                  (SavvyCal.q = SavvyCal.q || []).push(arguments);
+                };
+            </script>
             <script async src="https://embed.savvycal.com/v1/embed.js"></script>
             <script>
-              SavvyCal('init', { origin: 'https://cal.joinrehuman.com' });
+              SavvyCal("init", { origin: "https://cal.joinrehuman.com" });
             </script>
           </span>
 
-          <p id="terminal-footer" class="font-mono text-[10px] text-center text-rh-chalk/30 mt-6 tracking-widest uppercase opacity-0">
+          <p
+            id="terminal-footer"
+            class="font-mono text-[10px] text-center text-rh-chalk/30 mt-6 tracking-widest uppercase opacity-0"
+          >
             [ ZERO OBLIGATION. ZERO PITCH. ]
           </p>
         </div>
@@ -170,12 +253,20 @@ import SqueezeLayout from "../layouts/SqueezeLayout.astro";
 
   <!-- Micro Footer -->
   <footer class="py-12 px-6 border-t border-rh-chalk/10">
-    <div class="mx-auto max-w-[1400px] flex flex-col md:flex-row justify-between items-center gap-6">
-      <span class="font-mono text-xs uppercase tracking-widest text-rh-chalk/50">
+    <div
+      class="mx-auto max-w-[1400px] flex flex-col md:flex-row justify-between items-center gap-6"
+    >
+      <span
+        class="font-mono text-xs uppercase tracking-widest text-rh-chalk/50"
+      >
         &copy; 2026 RE/HUMAN. ALL RIGHTS RESERVED.
       </span>
-      <div class="font-mono text-xs uppercase tracking-widest text-rh-chalk/50 flex items-center">
-        <span class="inline-block w-2 h-2 rounded-full bg-rh-ember animate-pulse mr-2"></span>
+      <div
+        class="font-mono text-xs uppercase tracking-widest text-rh-chalk/50 flex items-center"
+      >
+        <span
+          class="inline-block w-2 h-2 rounded-full bg-rh-ember animate-pulse mr-2"
+        ></span>
         <span class="text-rh-ember">HUMAN PROTOCOL // ACTIVE</span>
       </div>
     </div>
@@ -205,25 +296,31 @@ import SqueezeLayout from "../layouts/SqueezeLayout.astro";
 
           // CTA button fades in after all lines
           if (cta) {
-            setTimeout(() => {
-              cta.style.transition = "opacity 0.4s ease, transform 0.4s ease";
-              cta.style.opacity = "1";
-              cta.style.transform = "translateY(0)";
-            }, 350 * lines.length + 150);
+            setTimeout(
+              () => {
+                cta.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+                cta.style.opacity = "1";
+                cta.style.transform = "translateY(0)";
+              },
+              350 * lines.length + 150,
+            );
           }
 
           // Footer text last
           if (footer) {
-            setTimeout(() => {
-              footer.style.transition = "opacity 0.4s ease";
-              footer.style.opacity = "1";
-            }, 350 * lines.length + 400);
+            setTimeout(
+              () => {
+                footer.style.transition = "opacity 0.4s ease";
+                footer.style.opacity = "1";
+              },
+              350 * lines.length + 400,
+            );
           }
 
           observer.disconnect();
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     const log = document.getElementById("terminal-log");

@@ -1,20 +1,30 @@
 ---
+import SectionLabel from "../../elements/SectionLabel.astro";
 ---
 
-<section class="relative min-h-screen flex flex-col justify-center items-center w-full px-6 bg-rh-warm-light dark:bg-rh-warm-dark overflow-hidden" id="filter-section">
+<section
+  class="relative min-h-screen flex flex-col justify-center items-center w-full px-6 bg-rh-warm-light dark:bg-rh-warm-dark overflow-hidden"
+  id="filter-section"
+>
   <!-- Centered Terminal Header — in normal flow above text -->
   <div class="w-full text-center mb-16">
-    <p class="font-mono text-xs md:text-sm uppercase tracking-widest text-rh-ink/50 dark:text-rh-chalk/50 flex items-center justify-center">
-      &gt; SYS.FIREWALL // QUALIFICATION_CHECK
-    </p>
+    <SectionLabel text="> SYS.FIREWALL // QUALIFICATION_CHECK" centered />
   </div>
 
   <!-- Text Block Wrapper — fixed height, holds all 3 blocks -->
-  <div class="relative w-full max-w-5xl mx-auto text-center h-[50vh] md:h-[40vh] flex items-center justify-center">
+  <div
+    class="relative w-full max-w-5xl mx-auto text-center h-[50vh] md:h-[40vh] flex items-center justify-center"
+  >
     <!-- Block 1: The Rejection -->
-    <div id="filter-block-1" class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center px-4">
-      <p class="text-2xl md:text-3xl lg:text-4xl text-rh-ink/70 dark:text-rh-chalk/70 leading-tight md:leading-snug font-medium mb-8 max-w-4xl mx-auto tracking-tight">
-        If you want to hack algorithms, spam DMs, or build a temporary Discord just to upsell a course...
+    <div
+      id="filter-block-1"
+      class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center px-4"
+    >
+      <p
+        class="text-2xl md:text-3xl lg:text-4xl text-rh-ink/70 dark:text-rh-chalk/70 leading-tight md:leading-snug font-medium mb-8 max-w-4xl mx-auto tracking-tight"
+      >
+        If you want to hack algorithms, spam DMs, or build a temporary Discord
+        just to upsell a course...
       </p>
       <button
         onclick="window.close(); if(!window.closed) window.location.href='about:blank';"
@@ -25,24 +35,43 @@
     </div>
 
     <!-- Block 2: The Acceptance -->
-    <div id="filter-block-2" class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center px-4 opacity-0 pointer-events-none">
-      <p class="text-2xl md:text-3xl lg:text-4xl text-rh-ink/70 dark:text-rh-chalk/70 leading-tight md:leading-snug font-medium mb-8 max-w-4xl mx-auto tracking-tight">
-        If you want to translate your raw expertise into a self-sustaining ecosystem, where your people defend your mission in rooms you aren't even in.
+    <div
+      id="filter-block-2"
+      class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center px-4 opacity-0 pointer-events-none"
+    >
+      <p
+        class="text-2xl md:text-3xl lg:text-4xl text-rh-ink/70 dark:text-rh-chalk/70 leading-tight md:leading-snug font-medium mb-8 max-w-4xl mx-auto tracking-tight"
+      >
+        If you want to translate your raw expertise into a self-sustaining
+        ecosystem, where your people defend your mission in rooms you aren't
+        even in.
       </p>
-      <p class="font-heading text-5xl md:text-7xl font-black uppercase tracking-normal italic leading-none text-rh-ember">
+      <p
+        class="font-heading text-5xl md:text-7xl font-black uppercase tracking-normal italic leading-none text-rh-ember"
+      >
         You belong here.
       </p>
     </div>
 
     <!-- Block 3: The Invitation -->
-    <div id="filter-block-3" class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center px-4 opacity-0 pointer-events-none">
-      <p class="text-2xl md:text-3xl lg:text-4xl text-rh-ink/70 dark:text-rh-chalk/70 leading-tight md:leading-snug font-medium mb-8 max-w-4xl mx-auto tracking-tight">
-        Because a massive audience without culture is just a room full of strangers.
+    <div
+      id="filter-block-3"
+      class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center px-4 opacity-0 pointer-events-none"
+    >
+      <p
+        class="text-2xl md:text-3xl lg:text-4xl text-rh-ink/70 dark:text-rh-chalk/70 leading-tight md:leading-snug font-medium mb-8 max-w-4xl mx-auto tracking-tight"
+      >
+        Because a massive audience without culture is just a room full of
+        strangers.
       </p>
-      <p class="font-heading text-5xl md:text-7xl font-black uppercase tracking-normal italic leading-none text-rh-ember mt-6">
+      <p
+        class="font-heading text-5xl md:text-7xl font-black uppercase tracking-normal italic leading-none text-rh-ember mt-6"
+      >
         We architect belonging.
       </p>
-      <p class="font-heading text-2xl uppercase italic tracking-tighter text-rh-ink/50 dark:text-rh-chalk/50 mt-8">
+      <p
+        class="font-heading text-2xl uppercase italic tracking-tighter text-rh-ink/50 dark:text-rh-chalk/50 mt-8"
+      >
         Welcome to the family.
       </p>
     </div>
@@ -78,13 +107,19 @@
         duration: 1,
         ease: "power2.inOut",
       },
-      0
+      0,
     );
 
     // Block 2 enters
     tl.fromTo(
       "#filter-block-2",
-      { opacity: 0, y: 50, scale: 0.9, filter: "blur(6px)", pointerEvents: "none" },
+      {
+        opacity: 0,
+        y: 50,
+        scale: 0.9,
+        filter: "blur(6px)",
+        pointerEvents: "none",
+      },
       {
         opacity: 1,
         y: 0,
@@ -94,7 +129,7 @@
         duration: 1,
         ease: "power2.inOut",
       },
-      0.4
+      0.4,
     );
 
     // --- State 2 → State 3: Block 2 out, Block 3 in ---
@@ -110,13 +145,19 @@
         duration: 1,
         ease: "power2.inOut",
       },
-      1.8
+      1.8,
     );
 
     // Block 3 enters
     tl.fromTo(
       "#filter-block-3",
-      { opacity: 0, y: 50, scale: 0.9, filter: "blur(6px)", pointerEvents: "none" },
+      {
+        opacity: 0,
+        y: 50,
+        scale: 0.9,
+        filter: "blur(6px)",
+        pointerEvents: "none",
+      },
       {
         opacity: 1,
         y: 0,
@@ -126,7 +167,7 @@
         duration: 1,
         ease: "power2.inOut",
       },
-      2.2
+      2.2,
     );
   });
 </script>

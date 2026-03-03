@@ -14,12 +14,12 @@
   --font-mono: "JetBrains Mono", monospace;
 
   /* re/Human Brand Tokens */
-  --color-rh-ember: #FF5733;
-  --color-rh-warm-light: #F9F8F6;
-  --color-rh-warm-dark: #1A1918;
+  --color-rh-ember: #ff5733;
+  --color-rh-warm-light: #f9f8f6;
+  --color-rh-warm-dark: #1a1918;
   --color-rh-ink: #121212;
-  --color-rh-chalk: #EBE9E4;
-  --color-rh-terracotta: #E07856;
+  --color-rh-chalk: #ebe9e4;
+  --color-rh-terracotta: #e07856;
 }
 
 /*
