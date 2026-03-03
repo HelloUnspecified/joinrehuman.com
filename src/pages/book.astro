@@ -4,6 +4,20 @@ import SectionLabel from "../elements/SectionLabel.astro";
 ---
 
 <SqueezeLayout title="Book Your Architecture Session">
+  <Fragment slot="head">
+    <script is:inline>
+      window.SavvyCal =
+        window.SavvyCal ||
+        function () {
+          (SavvyCal.q = SavvyCal.q || []).push(arguments);
+        };
+    </script>
+    <script is:inline src="https://embed.savvycal.com/v1/embed.js"></script>
+    <script is:inline>
+      SavvyCal("init", { origin: "https://cal.joinrehuman.com" });
+    </script>
+  </Fragment>
+
   <!-- Minimal Header -->
   <nav
     id="book-navbar"
@@ -226,20 +240,6 @@ import SectionLabel from "../elements/SectionLabel.astro";
           >
             BOOK SESSION
           </a>
-          <span class="font-mono text-xs text-rh-chalk/20">
-            <script>
-              window.SavvyCal =
-                window.SavvyCal ||
-                function () {
-                  (SavvyCal.q = SavvyCal.q || []).push(arguments);
-                };
-            </script>
-            <script async src="https://embed.savvycal.com/v1/embed.js"></script>
-            <script>
-              SavvyCal("init", { origin: "https://cal.joinrehuman.com" });
-            </script>
-          </span>
-
           <p
             id="terminal-footer"
             class="font-mono text-[10px] text-center text-rh-chalk/30 mt-6 tracking-widest uppercase opacity-0"

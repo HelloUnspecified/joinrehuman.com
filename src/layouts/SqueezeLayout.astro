@@ -30,6 +30,8 @@ const { title = "re/Human" } = Astro.props;
     />
 
     <PostHog />
+
+    <slot name="head" />
   </head>
   <body class="bg-rh-ink text-rh-chalk font-body antialiased">
     <!-- Noise Overlay -->
