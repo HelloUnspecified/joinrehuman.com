@@ -242,7 +242,7 @@ import SectionLabel from "../elements/SectionLabel.astro";
           </a>
           <p
             id="terminal-footer"
-            class="font-mono text-[10px] text-center text-rh-chalk/30 mt-6 tracking-widest uppercase opacity-0"
+            class="font-mono text-[10px] text-center text-rh-chalk/30 mt-10 tracking-widest uppercase opacity-0"
           >
             [ ZERO OBLIGATION. ZERO PITCH. ]
           </p>
@@ -291,7 +291,7 @@ import SectionLabel from "../elements/SectionLabel.astro";
               el.style.opacity = finalOpacity;
               el.style.transform = "translateY(0)";
               el.classList.remove("opacity-0");
-            }, 350 * i);
+            }, 200 * i);
           });
 
           // CTA button fades in after all lines
@@ -302,7 +302,7 @@ import SectionLabel from "../elements/SectionLabel.astro";
                 cta.style.opacity = "1";
                 cta.style.transform = "translateY(0)";
               },
-              350 * lines.length + 150,
+              200 * lines.length + 150,
             );
           }
 
@@ -313,7 +313,7 @@ import SectionLabel from "../elements/SectionLabel.astro";
                 footer.style.transition = "opacity 0.4s ease";
                 footer.style.opacity = "1";
               },
-              350 * lines.length + 400,
+              200 * lines.length + 400,
             );
           }
 
