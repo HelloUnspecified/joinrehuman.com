@@ -1,14 +1,19 @@
 ---
 import "../css/tailwind.css";
 import PostHog from "../components/functional/posthog.astro";
+import SEO from "../components/functional/SEO.astro";
 import Navbar from "../components/Index/Navbar.astro";
 import Footer from "../components/Index/Footer.astro";
 
 interface Props {
   title?: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
+  noindex?: boolean;
 }
 
-const { title = "re/Human" } = Astro.props;
+const { title, description, ogImage, ogType, noindex } = Astro.props;
 ---
 
 <!doctype html>
@@ -16,10 +21,12 @@ const { title = "re/Human" } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>re/Human | {title}</title>
-    <meta
-      name="description"
-      content="In the age of AI, your only unfair advantage is your people. re/Human builds systems that scale authentic connection."
+    <SEO
+      title={title}
+      description={description}
+      ogImage={ogImage}
+      ogType={ogType}
+      noindex={noindex}
     />
     <link rel="icon" href="/favicon.webp" />
 
