@@ -13,20 +13,13 @@
   --font-heading: "Inter Tight", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  /* re/Human V5 Brand Tokens */
-  --color-ember: #FF5733;
-  --color-warm-light: #F9F8F6;
-  --color-warm-dark: #1A1918;
-  --color-text-light: #121212;
-  --color-text-dark: #EBE9E4;
-
-  /* re/Human Brand Colors */
-  --color-ReHumanTerracotta: #E07856;
-
-  /* Legacy colors (still referenced in Apply section) */
-  --color-ColorBlack: #1A1A1A;
-  --color-ColorOffWhite: #F5F1E8;
-  --color-ColorCaribbeanGreen: #E07856;
+  /* re/Human Brand Tokens */
+  --color-rh-ember: #FF5733;
+  --color-rh-warm-light: #F9F8F6;
+  --color-rh-warm-dark: #1A1918;
+  --color-rh-ink: #121212;
+  --color-rh-chalk: #EBE9E4;
+  --color-rh-terracotta: #E07856;
 }
 
 /*

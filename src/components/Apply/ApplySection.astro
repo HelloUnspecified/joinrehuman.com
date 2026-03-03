@@ -11,19 +11,19 @@ const { hero, communitySection, healthyCommunity } = ApplyData?.data;
 
 <!-- Hero Section -->
 <section class="section-getting-started-hero">
-  <div class="relative z-10 overflow-hidden rounded-bl-[30px] rounded-br-[30px] bg-ColorOffWhite md:rounded-bl-[50px] md:rounded-br-[50px] xl:rounded-bl-[100px] xl:rounded-br-[100px]">
+  <div class="relative z-10 overflow-hidden rounded-bl-[30px] rounded-br-[30px] bg-rh-warm-light md:rounded-bl-[50px] md:rounded-br-[50px] xl:rounded-bl-[100px] xl:rounded-br-[100px]">
     <div class="pt-20 pb-12 lg:pt-[100px] lg:pb-16 xl:pt-[120px] xl:pb-20">
       <div class="container-default">
       <div class="mx-auto max-w-[900px]">
         <div class="flex flex-col items-center justify-center text-center mb-10 lg:mb-16">
 
           <div class="jos mb-6">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight -tracking-[1px] text-ColorBlack">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight -tracking-[1px] text-rh-ink">
               {hero?.header}
             </h1>
           </div>
           <div class="jos max-w-[768px]">
-            <p class="text-lg md:text-xl text-ColorBlack/80">
+            <p class="text-lg md:text-xl text-rh-ink/80">
               {hero?.subheader}
             </p>
           </div>
@@ -31,13 +31,13 @@ const { hero, communitySection, healthyCommunity } = ApplyData?.data;
 
         <!-- Video Placeholder -->
         {hero?.videoPlaceholder && (
-          <div class="jos relative rounded-[20px] overflow-hidden bg-ColorBlack/5 aspect-video flex items-center justify-center">
+          <div class="jos relative rounded-[20px] overflow-hidden bg-rh-ink/5 aspect-video flex items-center justify-center">
             <div class="text-center p-8">
               <div class="mb-4">
-                <i class="fa fa-play-circle text-6xl text-ReHumanTerracotta"></i>
+                <i class="fa fa-play-circle text-6xl text-rh-terracotta"></i>
               </div>
-              <p class="text-lg font-semibold text-ColorBlack/60">Video Coming Soon</p>
-              <p class="text-sm text-ColorBlack/40 mt-2">Watch a quick intro to re:Human</p>
+              <p class="text-lg font-semibold text-rh-ink/60">Video Coming Soon</p>
+              <p class="text-sm text-rh-ink/40 mt-2">Watch a quick intro to re:Human</p>
             </div>
           </div>
         )}
@@ -60,10 +60,10 @@ const { hero, communitySection, healthyCommunity } = ApplyData?.data;
 
         <!-- Section Header -->
         <div class="jos mb-12 lg:mb-16 text-center">
-          <h2 class="text-3xl lg:text-4xl font-bold text-ColorBlack mb-4">
+          <h2 class="text-3xl lg:text-4xl font-bold text-rh-ink mb-4">
             {communitySection?.header}
           </h2>
-          <p class="text-lg lg:text-xl text-ColorBlack/70">
+          <p class="text-lg lg:text-xl text-rh-ink/70">
             {communitySection?.subheader}
           </p>
         </div>
@@ -72,7 +72,7 @@ const { hero, communitySection, healthyCommunity } = ApplyData?.data;
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {healthyCommunity?.map((item: any, index: number) => (
             <div
-              class="jos bg-white rounded-[20px] p-6 lg:p-8 border border-ColorBlack/10 hover:border-ReHumanTerracotta/30 transition-all duration-300 hover:shadow-lg flex flex-col h-full"
+              class="jos bg-white rounded-[20px] p-6 lg:p-8 border border-rh-ink/10 hover:border-rh-terracotta/30 transition-all duration-300 hover:shadow-lg flex flex-col h-full"
               data-jos_delay={index * 0.1}
             >
               <!-- Top Content -->
@@ -89,28 +89,28 @@ const { hero, communitySection, healthyCommunity } = ApplyData?.data;
                 </div>
 
                 <!-- Aspect Title -->
-                <h3 class="text-xl lg:text-2xl font-bold text-ColorBlack mb-4">
+                <h3 class="text-xl lg:text-2xl font-bold text-rh-ink mb-4">
                   {item.aspect}
                 </h3>
 
                 <!-- Description -->
-                <p class="text-sm lg:text-base text-ColorBlack/70 mb-6 leading-relaxed">
+                <p class="text-sm lg:text-base text-rh-ink/70 mb-6 leading-relaxed">
                   {item.description}
                 </p>
               </div>
 
               <!-- Divider -->
-              <div class="border-t border-ReHumanTerracotta/20 mb-6"></div>
+              <div class="border-t border-rh-terracotta/20 mb-6"></div>
 
               <!-- Business Benefit (fills remaining space) -->
-              <div class="bg-ColorOffWhite rounded-[10px] p-4 lg:p-5 flex-1 flex flex-col">
+              <div class="bg-rh-warm-light rounded-[10px] p-4 lg:p-5 flex-1 flex flex-col">
                 <div class="flex items-start gap-2 mb-3">
-                  <i class="fa fa-chart-line text-ReHumanTerracotta mt-1 shrink-0"></i>
-                  <h4 class="text-base lg:text-lg font-bold text-ReHumanTerracotta">
+                  <i class="fa fa-chart-line text-rh-terracotta mt-1 shrink-0"></i>
+                  <h4 class="text-base lg:text-lg font-bold text-rh-terracotta">
                     {item.businessBenefit}
                   </h4>
                 </div>
-                <p class="text-sm text-ColorBlack/70 mb-3">
+                <p class="text-sm text-rh-ink/70 mb-3">
                   {item.benefitDetails}
                 </p>
                 {item.sourceUrl && (
@@ -118,7 +118,7 @@ const { hero, communitySection, healthyCommunity } = ApplyData?.data;
                     href={item.sourceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="text-xs text-ReHumanTerracotta hover:text-ColorBlack transition-colors inline-flex items-center gap-1 mt-auto"
+                    class="text-xs text-rh-terracotta hover:text-rh-ink transition-colors inline-flex items-center gap-1 mt-auto"
                   >
                     <span>Read Research</span>
                     <i class="fa fa-external-link text-[10px]"></i>
@@ -133,7 +133,7 @@ const { hero, communitySection, healthyCommunity } = ApplyData?.data;
         <div class="jos mt-16 lg:mt-20 text-center">
           <a
             href="/"
-            class="btn-text hover:text-ReHumanTerracotta inline-flex items-center gap-2"
+            class="btn-text hover:text-rh-terracotta inline-flex items-center gap-2"
           >
             <i class="fa fa-arrow-left"></i>
             Back to Home

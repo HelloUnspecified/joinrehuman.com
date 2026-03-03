@@ -7,8 +7,8 @@
 >
   <div class="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-10">
     <!-- Brand -->
-    <a href="/" class="font-heading text-2xl font-black uppercase italic tracking-tight text-text-light dark:text-text-dark">
-      re/<span class="text-[#FF5733]">Human</span>
+    <a href="/" class="font-heading text-2xl font-black uppercase italic tracking-tight text-rh-ink dark:text-rh-chalk">
+      re/<span class="text-rh-ember">Human</span>
     </a>
 
     <!-- Right Side -->
@@ -16,16 +16,16 @@
       <!-- Theme Toggle -->
       <button
         id="theme-toggle"
-        class="font-mono text-xs tracking-wider text-text-light/60 dark:text-text-dark/60 hover:text-ember transition-colors cursor-pointer"
+        class="font-mono text-xs tracking-wider text-rh-ink/60 dark:text-rh-chalk/60 hover:text-rh-ember transition-colors cursor-pointer"
         aria-label="Toggle theme"
       >
-        [<span id="toggle-label">LGT / <span class="text-ember font-bold">DRK</span></span>]
+        [<span id="toggle-label">LGT / <span class="text-rh-ember font-bold">DRK</span></span>]
       </button>
 
       <!-- CTA -->
       <a
         href="/book"
-        class="group relative inline-flex items-center gap-2 bg-ember px-5 py-2.5 font-mono text-xs font-bold uppercase tracking-wider text-white transition-transform duration-200 hover:scale-[1.03]"
+        class="group relative inline-flex items-center gap-2 bg-rh-ember px-5 py-2.5 font-mono text-xs font-bold uppercase tracking-wider text-white transition-transform duration-200 hover:scale-[1.03]"
       >
         BOOK_STRATEGY_REVIEW
       </a>
@@ -42,9 +42,9 @@
     const isDark = document.documentElement.classList.contains("dark");
     if (label) {
       if (isDark) {
-        label.innerHTML = `<span class="text-ember font-bold">LGT</span> / DRK`;
+        label.innerHTML = `<span class="text-rh-ember font-bold">LGT</span> / DRK`;
       } else {
-        label.innerHTML = `LGT / <span class="text-ember font-bold">DRK</span>`;
+        label.innerHTML = `LGT / <span class="text-rh-ember font-bold">DRK</span>`;
       }
     }
   }
@@ -61,9 +61,9 @@
   const navbar = document.getElementById("navbar");
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
-      navbar?.classList.add("backdrop-blur-xl", "bg-warm-light/80", "dark:bg-warm-dark/80");
+      navbar?.classList.add("backdrop-blur-xl", "bg-rh-warm-light/80", "dark:bg-rh-warm-dark/80");
     } else {
-      navbar?.classList.remove("backdrop-blur-xl", "bg-warm-light/80", "dark:bg-warm-dark/80");
+      navbar?.classList.remove("backdrop-blur-xl", "bg-rh-warm-light/80", "dark:bg-rh-warm-dark/80");
     }
   });
 </script>
