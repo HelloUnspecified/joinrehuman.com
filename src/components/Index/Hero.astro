@@ -57,13 +57,21 @@
       "SOUL.RENDER", "CULTURE.SYNC", "TRUST_LAYER", "COMMUNITY.BIND",
       "SIGNAL.BOOST", "EMPATHY_ENGINE", "SCALE.HUMAN", "DATA.HEART"
     ];
-    for (let i = 0; i < 80; i++) {
-      const line = Array.from({ length: 12 }, () =>
+    for (let i = 0; i < 110; i++) {
+      const line = Array.from({ length: 16 }, () =>
         tokens[Math.floor(Math.random() * tokens.length)]
       ).join("  ");
       lines.push(line);
     }
     grid.textContent = lines.join("\n");
+
+    // Slow upward drift animation
+    gsap.to(grid, {
+      yPercent: -15,
+      duration: 60,
+      ease: "none",
+      repeat: -1,
+    });
   }
 
   // GSAP staggered fade-up
