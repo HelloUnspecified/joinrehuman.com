@@ -11,7 +11,7 @@ import SectionLabel from "../elements/SectionLabel.astro";
 
     <!-- Terminal Window -->
     <div
-      class="w-full max-w-lg bg-rh-ink border border-rh-chalk/10 rounded-xl overflow-hidden"
+      class="w-full max-w-7xl bg-rh-ink border border-rh-chalk/10 rounded-xl overflow-hidden"
     >
       <!-- Title Bar -->
       <div
@@ -70,7 +70,7 @@ import SectionLabel from "../elements/SectionLabel.astro";
 
         const pre = document.createElement("pre");
         pre.className =
-          "text-rh-ember text-[11px] sm:text-xs md:text-sm leading-tight select-none whitespace-pre";
+          "text-rh-ember text-sm sm:text-base md:text-lg lg:text-xl leading-tight select-none whitespace-pre";
         pre.textContent =
           "██╗  ██╗ ██████╗ ██╗  ██╗\n██║  ██║██╔═══██╗██║  ██║\n███████║██║   ██║███████║\n╚════██║██║   ██║╚════██║\n     ██║╚██████╔╝     ██║\n     ╚═╝ ╚═════╝      ╚═╝";
         artWrapper.appendChild(pre);
