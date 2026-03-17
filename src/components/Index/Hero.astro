@@ -2,40 +2,18 @@
 import SectionLabel from "../../elements/SectionLabel.astro";
 import Heading from "../../elements/Heading.astro";
 import BodyText from "../../elements/BodyText.astro";
-
-// Build-time code stream generation (1 <pre> node instead of 1,760 DOM nodes)
-const tokens = [
-  "HUMAN_PROTOCOL", "ARCH.REVIEW", "CONNECT.AUTH", "INFRA.HUMAN",
-  "SOUL.RENDER", "CULTURE.SYNC", "TRUST_LAYER", "RETENTION.BIND",
-  "SIGNAL.BOOST", "EMPATHY_ENGINE", "SCALE.HUMAN", "SYS.REDESIGN",
-];
-const seededRandom = (seed: number) => {
-  const x = Math.sin(seed) * 10000;
-  return x - Math.floor(x);
-};
-const lines: string[] = [];
-for (let i = 0; i < 120; i++) {
-  const line = Array.from(
-    { length: 20 },
-    (_, j) => tokens[Math.floor(seededRandom(i * 8 + j + 42) * tokens.length)],
-  ).join("  ");
-  lines.push(line);
-}
-const gridText = lines.join("\n");
 ---
 
 <section
   class="relative flex min-h-[100dvh] items-center overflow-hidden bg-rh-warm-light dark:bg-rh-warm-dark"
 >
-  <!-- Background Code Stream (build-time generated, left-aligned like a code editor) -->
+  <!-- Background Code Stream (canvas-rendered, no DOM text pollution) -->
   <div
     class="pointer-events-none absolute inset-0 overflow-hidden"
     aria-hidden="true"
   >
     <div class="relative w-[75%] h-full">
-      <pre
-        class="absolute inset-0 font-mono text-[10px] leading-[1.8] text-rh-ink dark:text-rh-chalk whitespace-pre select-none opacity-[0.04] dark:opacity-[0.06] overflow-hidden"
-      >{gridText}</pre>
+      <canvas id="hero-code-stream" class="absolute inset-0 w-full h-full select-none"></canvas>
       <!-- Right fade so text dissolves at the edge -->
       <div class="absolute top-0 right-0 bottom-0 w-32 md:w-48 hero-grid-fade-r"></div>
     </div>
@@ -211,6 +189,54 @@ const gridText = lines.join("\n");
       delay: 0.3,
     },
   );
+
+  // Background code stream via canvas (no DOM text)
+  const codeCanvas = document.getElementById("hero-code-stream") as HTMLCanvasElement | null;
+  if (codeCanvas) {
+    const ctx = codeCanvas.getContext("2d");
+    if (ctx) {
+      const tokens = [
+        "HUMAN_PROTOCOL", "ARCH.REVIEW", "CONNECT.AUTH", "INFRA.HUMAN",
+        "SOUL.RENDER", "CULTURE.SYNC", "TRUST_LAYER", "RETENTION.BIND",
+        "SIGNAL.BOOST", "EMPATHY_ENGINE", "SCALE.HUMAN", "SYS.REDESIGN",
+      ];
+      const seededRandom = (seed: number) => {
+        const x = Math.sin(seed) * 10000;
+        return x - Math.floor(x);
+      };
+
+      const draw = () => {
+        const dpr = window.devicePixelRatio || 1;
+        const rect = codeCanvas.getBoundingClientRect();
+        codeCanvas.width = rect.width * dpr;
+        codeCanvas.height = rect.height * dpr;
+        ctx.scale(dpr, dpr);
+
+        const fontSize = 10;
+        const lineHeight = fontSize * 1.8;
+        ctx.font = `${fontSize}px "JetBrains Mono", ui-monospace, monospace`;
+
+        const isDark = document.documentElement.classList.contains("dark");
+        ctx.fillStyle = isDark
+          ? "rgba(235, 233, 228, 0.06)"
+          : "rgba(18, 18, 18, 0.04)";
+
+        const rows = Math.ceil(rect.height / lineHeight) + 1;
+        for (let i = 0; i < rows; i++) {
+          let x = 0;
+          const y = i * lineHeight + fontSize;
+          for (let j = 0; j < 20; j++) {
+            const token = tokens[Math.floor(seededRandom(i * 8 + j + 42) * tokens.length)];
+            ctx.fillText(token, x, y);
+            x += ctx.measureText(token + "  ").width;
+          }
+        }
+      };
+
+      draw();
+      window.addEventListener("resize", draw);
+    }
+  }
 
   // Terminal typewriter for founder identity line
   const termLine = document.getElementById("founder-terminal-line");
