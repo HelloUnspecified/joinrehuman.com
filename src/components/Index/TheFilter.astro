@@ -1,12 +1,13 @@
 ---
 import SectionLabel from "../../elements/SectionLabel.astro";
+import CTAButton from "../../elements/CTAButton.astro";
 ---
 
 <section
   class="relative min-h-screen flex flex-col justify-center items-center w-full px-6 bg-rh-warm-light dark:bg-rh-warm-dark overflow-hidden"
   id="filter-section"
 >
-  <!-- Centered Terminal Header — in normal flow above text -->
+  <!-- Centered Terminal Header -->
   <div class="w-full text-center mb-16">
     <SectionLabel text="> SYS.FIREWALL // QUALIFICATION_CHECK" centered />
   </div>
@@ -23,14 +24,14 @@ import SectionLabel from "../../elements/SectionLabel.astro";
       <p
         class="text-2xl md:text-3xl lg:text-4xl text-rh-ink/70 dark:text-rh-chalk/70 leading-tight md:leading-snug font-medium mb-8 max-w-4xl mx-auto tracking-tight"
       >
-        If you want to hack algorithms, spam DMs, or build a temporary Discord
-        just to upsell a course...
+        If you're looking for growth hacks, a marketing agency, or another tool
+        to bolt onto a broken system —
       </p>
       <button
         onclick="window.close(); if(!window.closed) window.location.href='about:blank';"
         class="inline-block mt-8 px-8 py-4 border-4 border-rh-ink dark:border-rh-chalk text-rh-ink dark:text-rh-chalk font-heading text-xl md:text-2xl font-black uppercase italic tracking-tighter hover:bg-rh-ink hover:text-rh-warm-light dark:hover:bg-rh-chalk dark:hover:text-rh-warm-dark transition-colors cursor-pointer underline decoration-4 underline-offset-8"
       >
-        Close This Tab.
+        Close this tab.
       </button>
     </div>
 
@@ -40,40 +41,36 @@ import SectionLabel from "../../elements/SectionLabel.astro";
       class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center px-4 opacity-0 pointer-events-none"
     >
       <p
+        class="text-2xl md:text-3xl lg:text-4xl text-rh-ink/70 dark:text-rh-chalk/70 leading-tight md:leading-snug font-medium mb-4 max-w-4xl mx-auto tracking-tight"
+      >
+        If your organization is navigating the biggest shift in how humans work
+        in a century — and you know the human side can't be an afterthought
+        anymore —
+      </p>
+      <p
         class="text-2xl md:text-3xl lg:text-4xl text-rh-ink/70 dark:text-rh-chalk/70 leading-tight md:leading-snug font-medium mb-8 max-w-4xl mx-auto tracking-tight"
       >
-        If you want to translate your raw expertise into a self-sustaining
-        ecosystem, where your people defend your mission in rooms you aren't
-        even in.
+        If you're ready to architect the infrastructure that technology can't
+        replace —
       </p>
       <p
         class="font-heading text-5xl md:text-7xl font-black uppercase tracking-normal italic leading-none text-rh-ember"
       >
-        You belong here.
+        You're in the right place.
       </p>
     </div>
 
-    <!-- Block 3: The Invitation -->
+    <!-- Block 3: The Conviction -->
     <div
       id="filter-block-3"
       class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center px-4 opacity-0 pointer-events-none"
     >
       <p
-        class="text-2xl md:text-3xl lg:text-4xl text-rh-ink/70 dark:text-rh-chalk/70 leading-tight md:leading-snug font-medium mb-8 max-w-4xl mx-auto tracking-tight"
+        class="font-heading text-5xl md:text-7xl font-black uppercase tracking-normal italic leading-none text-rh-ember mb-12"
       >
-        Because a massive audience without culture is just a room full of
-        strangers.
+        We design the human layer.
       </p>
-      <p
-        class="font-heading text-5xl md:text-7xl font-black uppercase tracking-normal italic leading-none text-rh-ember mt-6"
-      >
-        We architect belonging.
-      </p>
-      <p
-        class="font-heading text-2xl uppercase italic tracking-tighter text-rh-ink/50 dark:text-rh-chalk/50 mt-8"
-      >
-        Welcome to the family.
-      </p>
+      <CTAButton href="/book">Book the Architecture Review</CTAButton>
     </div>
   </div>
 </section>
@@ -96,7 +93,6 @@ import SectionLabel from "../../elements/SectionLabel.astro";
 
     // --- State 1 → State 2: Block 1 out, Block 2 in ---
 
-    // Block 1 blurs, shrinks, fades
     tl.to(
       "#filter-block-1",
       {
@@ -110,7 +106,6 @@ import SectionLabel from "../../elements/SectionLabel.astro";
       0,
     );
 
-    // Block 2 enters
     tl.fromTo(
       "#filter-block-2",
       {
@@ -134,7 +129,6 @@ import SectionLabel from "../../elements/SectionLabel.astro";
 
     // --- State 2 → State 3: Block 2 out, Block 3 in ---
 
-    // Block 2 blurs, shrinks, fades
     tl.to(
       "#filter-block-2",
       {
@@ -148,7 +142,6 @@ import SectionLabel from "../../elements/SectionLabel.astro";
       1.8,
     );
 
-    // Block 3 enters
     tl.fromTo(
       "#filter-block-3",
       {
