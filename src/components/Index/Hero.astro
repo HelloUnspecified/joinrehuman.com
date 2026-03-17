@@ -1,6 +1,8 @@
 ---
 import SectionLabel from "../../elements/SectionLabel.astro";
 import Heading from "../../elements/Heading.astro";
+import BodyText from "../../elements/BodyText.astro";
+
 ---
 
 <section
@@ -17,6 +19,8 @@ import Heading from "../../elements/Heading.astro";
     >
     </div>
   </div>
+  <!-- Bottom fade gradient -->
+  <div class="pointer-events-none absolute bottom-0 left-0 right-0 h-48 hero-bottom-fade"></div>
 
   <div
     class="relative z-10 mx-auto w-full max-w-[1400px] px-6 md:px-10 pt-32 pb-20"
@@ -27,28 +31,67 @@ import Heading from "../../elements/Heading.astro";
     </div>
 
     <!-- Headline -->
-    <Heading as="h1" size="xl" class="hero-fade mb-8">
-      Community<br />is the new<br />moat.
+    <Heading as="h1" size="lg" class="hero-fade mb-12 max-w-5xl tracking-tight">
+      <div class="leading-[.9]">
+        Humans are the real infrastructure.
+      </div>
+
+      <div class="pt-10 leading-[.9]">
+        Most organizations haven't built it.
+      </div>
     </Heading>
 
+    <!-- Manifesto lines -->
+    <div class="hero-fade max-w-2xl mb-12 space-y-2">
+      <p class="font-mono text-sm md:text-base text-rh-ink/50 dark:text-rh-chalk/50 leading-relaxed">
+        When we connect, we build faster.
+      </p>
+      <p class="font-mono text-sm md:text-base text-rh-ink/50 dark:text-rh-chalk/50 leading-relaxed">
+        When we trust, we create braver things.
+      </p>
+      <p class="font-mono text-sm md:text-base text-rh-ink/50 dark:text-rh-chalk/50 leading-relaxed">
+        When we belong, we stay.
+      </p>
+    </div>
+
+    
     <!-- Subheadline -->
-    <p
-      class="hero-fade max-w-2xl text-lg md:text-xl text-rh-ink/70 dark:text-rh-chalk/70 leading-relaxed"
-    >
-      Whether you are invisible in a crowded market, or bleeding a massive
-      audience out the back door, content is no longer enough.
+    <!-- <BodyText class="hero-fade max-w-2xl mb-12">
+      re/Human architects the human infrastructure for what comes next.
+    </BodyText> -->
 
-      <br />
-      <br />
-      Stop renting attention.
 
-      <br />
-      <br />
-      Start architecting a movement.
-    </p>
+    <!-- Founder CTA — identity + action as one unit -->
+    <div class="hero-fade mb-16 md:mb-24 w-fit founder-cta-wrapper relative p-px">
+      <a
+        href="/book"
+        class="group relative grid grid-cols-[auto_1fr] gap-x-5 md:gap-x-6 gap-y-3 items-center bg-rh-warm-light dark:bg-rh-warm-dark p-5 md:p-6"
+      >
+        <img
+          src="/assets/img/pictures/clark-stage-01.jpg"
+          alt="Clark Sell"
+          class="row-span-2 w-16 h-16 md:w-26 md:h-26 rounded-full object-cover border-2 border-rh-ember/30"
+        />
+        <div class="text-left mb-2">
+          <div class="font-mono text-sm md:text-sm uppercase tracking-widest text-rh-ink/50 dark:text-rh-chalk/50 leading-relaxed">
+            re/Human architects the human infrastructure for what comes next.
+          </div>
+          <div class="font-mono text-[9px] md:text-sm uppercase tracking-widest text-rh-ink/30 dark:text-rh-chalk/30 mt-1">
+            <span id="founder-terminal-line"></span><span id="founder-cursor" class="inline-block w-0.5 h-[1em] bg-rh-ember ml-1 align-middle opacity-0"></span>
+          </div>
+          <!-- <div class="font-mono text-[9px] md:text-xs uppercase tracking-widest text-rh-ink/30 dark:text-rh-chalk/30 mt-1">
+            25 YRS SOFTWARE SYSTEMS // 15 YRS COMMUNITY AT SCALE
+          </div> -->
+        </div>
+        <span
+          class="font-mono text-sm md:text-base uppercase tracking-widest text-rh-ember group-hover:translate-x-1 transition-transform duration-300 justify-self-end text-right"
+          >SCHEDULE A FREE ARCHITECTURE REVIEW →
+        </span>
+      </a>
+    </div>
 
     <!-- Scroll Indicator -->
-    <div class="hero-fade mt-16 md:mt-24">
+    <div class="hero-fade">
       <div
         class="flex items-center gap-3 font-mono text-xs text-rh-ink/30 dark:text-rh-chalk/30 uppercase tracking-widest"
       >
@@ -61,6 +104,68 @@ import Heading from "../../elements/Heading.astro";
   </div>
 </section>
 
+<style>
+  .founder-cta-wrapper {
+    background: rgba(0, 0, 0, 0.06);
+  }
+
+  :global(.dark) .founder-cta-wrapper {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .founder-cta-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(
+      from var(--border-angle, 0deg),
+      transparent 0%,
+      transparent 25%,
+      #ff5733 50%,
+      transparent 75%,
+      transparent 100%
+    );
+    animation: rotate-border 4s linear infinite;
+    opacity: 0.5;
+  }
+
+  .founder-cta-wrapper:hover::before {
+    animation-play-state: paused;
+    background: #ff5733;
+    opacity: 1;
+  }
+
+  .founder-cta-wrapper > a {
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes rotate-border {
+    to {
+      --border-angle: 360deg;
+    }
+  }
+
+  @property --border-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  @keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .hero-bottom-fade {
+    background: linear-gradient(to bottom, transparent, #f9f8f6);
+  }
+
+  :global(.dark) .hero-bottom-fade {
+    background: linear-gradient(to bottom, transparent, #1a1918);
+  }
+</style>
+
 <script>
   import { gsap } from "gsap";
 
@@ -70,17 +175,17 @@ import Heading from "../../elements/Heading.astro";
     const lines: string[] = [];
     const tokens = [
       "HUMAN_PROTOCOL",
-      "INIT_SYSTEM",
+      "ARCH.REVIEW",
       "CONNECT.AUTH",
-      "BUILD_MOAT",
+      "INFRA.HUMAN",
       "SOUL.RENDER",
       "CULTURE.SYNC",
       "TRUST_LAYER",
-      "COMMUNITY.BIND",
+      "RETENTION.BIND",
       "SIGNAL.BOOST",
       "EMPATHY_ENGINE",
       "SCALE.HUMAN",
-      "DATA.HEART",
+      "SYS.REDESIGN",
     ];
     for (let i = 0; i < 110; i++) {
       const line = Array.from(
@@ -113,4 +218,42 @@ import Heading from "../../elements/Heading.astro";
       delay: 0.3,
     },
   );
+
+  // Terminal typewriter for founder identity line
+  const termLine = document.getElementById("founder-terminal-line");
+  const termCursor = document.getElementById("founder-cursor");
+  if (termLine && termCursor) {
+    const fullText = "> ID_VERIFIED // CLARK_SELL // HUMAN_ARCHITECT";
+    const emberPrefix = "> ID_VERIFIED";
+    let i = 0;
+
+    // Show blinking cursor after the hero fades in
+    setTimeout(() => {
+      termCursor.style.opacity = "1";
+      termCursor.style.animation = "cursor-blink 0.6s step-end infinite";
+
+      const type = () => {
+        if (i < fullText.length) {
+          // Build the innerHTML with ember-colored prefix
+          const current = fullText.slice(0, i + 1);
+          if (i < emberPrefix.length) {
+            termLine.innerHTML = `<span class="text-rh-ember">${current}</span>`;
+          } else {
+            termLine.innerHTML = `<span class="text-rh-ember">${emberPrefix}</span>${current.slice(emberPrefix.length)}`;
+          }
+          i++;
+          // Vary speed slightly for realism
+          const delay = current.endsWith("/") ? 80 : 40 + Math.random() * 30;
+          setTimeout(type, delay);
+        } else {
+          // Stop cursor blink after typing finishes
+          setTimeout(() => {
+            termCursor.style.animation = "none";
+            termCursor.style.opacity = "1";
+          }, 1500);
+        }
+      };
+      type();
+    }, 1800); // wait for hero fade-in to finish
+  }
 </script>

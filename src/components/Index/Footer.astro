@@ -1,5 +1,6 @@
 ---
 import SectionLabel from "../../elements/SectionLabel.astro";
+import NewsletterForm from "../functional/NewsletterForm.astro";
 ---
 
 <footer
@@ -44,27 +45,7 @@ import SectionLabel from "../../elements/SectionLabel.astro";
         </p>
 
         <!-- Email Input -->
-        <form id="newsletter-form" class="max-w-2xl">
-          <div class="flex flex-col md:flex-row gap-4">
-            <input
-              type="email"
-              name="email"
-              id="email-input"
-              required
-              data-1p-ignore
-              autocomplete="off"
-              placeholder="[ awaiting_input: user@domain.com ]"
-              class="text-sm bg-transparent border-b-2 border-rh-chalk/30 text-rh-chalk px-4 py-4 focus:outline-none focus:border-rh-ember transition-colors w-full font-mono placeholder:text-rh-chalk/30"
-            />
-            <button
-              type="submit"
-              class="font-mono text-sm uppercase tracking-widest text-rh-ember px-8 py-4 border border-transparent hover:border-rh-ember transition-colors shrink-0"
-            >
-              [ INITIATE_PROTOCOL ]
-            </button>
-          </div>
-          <p id="form-message" class="mt-6"></p>
-        </form>
+        <NewsletterForm id="footer-newsletter" />
       </div>
 
       <!-- Right: Terminal Window -->
@@ -152,59 +133,3 @@ import SectionLabel from "../../elements/SectionLabel.astro";
   </div>
 </footer>
 
-<script>
-  const form = document.getElementById("newsletter-form");
-  const messageElement = document.getElementById(
-    "form-message",
-  ) as HTMLParagraphElement;
-
-  form?.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const emailInput = document.getElementById(
-      "email-input",
-    ) as HTMLInputElement;
-    const submitButton = form.querySelector(
-      'button[type="submit"]',
-    ) as HTMLButtonElement;
-    const email = emailInput.value;
-
-    // Set loading state
-    emailInput.disabled = true;
-    submitButton.disabled = true;
-    const originalButtonText = submitButton.textContent;
-    submitButton.textContent = "[ TRANSMITTING... ]";
-    submitButton.classList.add("animate-pulse", "opacity-50");
-    messageElement.textContent = "";
-
-    try {
-      const response = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        messageElement.textContent =
-          "[ PROTOCOL_INITIATED ] Check your inbox to confirm your subscription.";
-        messageElement.className = "mt-6 font-mono text-sm text-rh-ember";
-        emailInput.value = "";
-      } else {
-        messageElement.textContent = `[ ERROR ] ${data.error || "Transmission failed. Try again."}`;
-        messageElement.className = "mt-6 font-mono text-sm text-red-400";
-      }
-    } catch (error) {
-      messageElement.textContent =
-        "[ CONNECTION_LOST ] Network error. Please retry.";
-      messageElement.className = "mt-6 font-mono text-sm text-red-400";
-    } finally {
-      emailInput.disabled = false;
-      submitButton.disabled = false;
-      submitButton.textContent = originalButtonText;
-      submitButton.classList.remove("animate-pulse", "opacity-50");
-    }
-  });
-</script>

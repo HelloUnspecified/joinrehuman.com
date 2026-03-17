@@ -1,0 +1,209 @@
+---
+import SectionLabel from "../../elements/SectionLabel.astro";
+import NewsletterForm from "./NewsletterForm.astro";
+---
+
+<div
+  id="overlay-menu"
+  class="fixed inset-0 z-[150] bg-rh-warm-dark opacity-0 pointer-events-none transition-opacity duration-300"
+  aria-hidden="true"
+>
+  <!-- Content wrapper -->
+  <div
+    id="overlay-menu-panel"
+    class="h-full w-full overflow-y-auto transform scale-95 transition-transform duration-300"
+  >
+    <!-- Top bar -->
+    <div
+      class="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-10"
+    >
+      <!-- Brand -->
+      <a
+        href="/"
+        class="font-heading text-2xl font-black uppercase italic tracking-tight text-rh-chalk"
+      >
+        re/<span class="text-rh-ember">Human</span>
+      </a>
+
+      <!-- Close button -->
+      <button
+        id="overlay-menu-close"
+        class="font-mono text-xs tracking-wider text-rh-chalk/60 hover:text-rh-ember transition-colors cursor-pointer"
+        aria-label="Close menu"
+      >
+        [ CLOSE ]
+      </button>
+    </div>
+
+    <!-- Main content -->
+    <div
+      class="mx-auto max-w-[1400px] px-6 md:px-10 pt-12 md:pt-20 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24"
+    >
+      <!-- Left column: Navigation -->
+      <div>
+        <SectionLabel
+          text="> SYS.NAV // DIRECTORY"
+          dot
+          class="!text-rh-chalk/50 mb-8"
+        />
+
+        <nav class="space-y-6">
+          <a
+            href="https://blog.joinrehuman.com/"
+            class="overlay-menu-link block font-heading text-4xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tight text-rh-chalk hover:text-rh-ember transition-colors duration-200"
+          >
+            Blog
+          </a>
+          <a
+            href="/book"
+            class="overlay-menu-link block font-heading text-4xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tight text-rh-chalk hover:text-rh-ember transition-colors duration-200"
+          >
+            Book a Session
+          </a>
+          <a
+            href="/the-architect"
+            class="overlay-menu-link block font-heading text-4xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tight text-rh-chalk hover:text-rh-ember transition-colors duration-200"
+          >
+            The Architect
+          </a>
+          <a
+            href="mailto:hello@joinrehuman.com"
+            class="overlay-menu-link block font-heading text-4xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tight text-rh-chalk hover:text-rh-ember transition-colors duration-200"
+          >
+            Contact
+          </a>
+        </nav>
+      </div>
+
+      <!-- Right column: Secondary content -->
+      <div class="flex flex-col gap-12">
+        <!-- Brand blurb -->
+        <div>
+          <SectionLabel
+            text="> SYS.ABOUT // SIGNAL"
+            class="!text-rh-chalk/50 mb-4"
+          />
+          <p class="text-lg md:text-xl text-rh-chalk/70 leading-relaxed max-w-md">
+            re/Human helps community-driven companies architect scalable systems
+            that turn members into movements.
+          </p>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <SectionLabel
+            text="> SYS.ARCHIVE // SUBSCRIBE"
+            class="!text-rh-chalk/50 mb-4"
+          />
+          <p class="text-sm text-rh-chalk/50 mb-6">
+            Weekly frameworks on community architecture and systems thinking.
+          </p>
+          <NewsletterForm id="overlay-newsletter" stacked />
+        </div>
+
+        <!-- Social links -->
+        <div>
+          <SectionLabel
+            text="> SYS.NET // CONNECT"
+            class="!text-rh-chalk/50 mb-4"
+          />
+          <div class="flex items-center gap-6">
+            <a
+              href="https://www.linkedin.com/company/joinrehuman/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-mono text-xs uppercase tracking-widest text-rh-chalk/60 hover:text-rh-ember transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://x.com/joinrehuman"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-mono text-xs uppercase tracking-widest text-rh-chalk/60 hover:text-rh-ember transition-colors"
+            >
+              X
+            </a>
+            <a
+              href="https://www.youtube.com/@joinrehuman"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-mono text-xs uppercase tracking-widest text-rh-chalk/60 hover:text-rh-ember transition-colors"
+            >
+              YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const overlay = document.getElementById("overlay-menu");
+  const panel = document.getElementById("overlay-menu-panel");
+  const closeBtn = document.getElementById("overlay-menu-close");
+  const links = document.querySelectorAll(".overlay-menu-link");
+
+  function openMenu() {
+    if (!overlay) return;
+    overlay.classList.remove("opacity-0", "pointer-events-none");
+    overlay.classList.add("opacity-100", "pointer-events-auto");
+    panel?.classList.remove("scale-95");
+    panel?.classList.add("scale-100");
+    overlay.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    if (!overlay) return;
+    overlay.classList.remove("opacity-100", "pointer-events-auto");
+    overlay.classList.add("opacity-0", "pointer-events-none");
+    panel?.classList.remove("scale-100");
+    panel?.classList.add("scale-95");
+    overlay.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    window.dispatchEvent(new CustomEvent("overlay-menu-closed"));
+  }
+
+  // Listen for toggle event from navbar
+  window.addEventListener("overlay-menu-toggle", () => {
+    const isOpen = overlay?.classList.contains("opacity-100");
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  // Close button
+  closeBtn?.addEventListener("click", closeMenu);
+
+  // Escape key
+  document.addEventListener("keydown", (e) => {
+    if (
+      e.key === "Escape" &&
+      overlay?.classList.contains("opacity-100")
+    ) {
+      closeMenu();
+    }
+  });
+
+  // Close on nav link click — animate out before navigating
+  links.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const href = link.getAttribute("href");
+      // Let external links and mailto open normally
+      if (!href || href.startsWith("mailto:") || href.startsWith("http")) {
+        closeMenu();
+        return;
+      }
+      e.preventDefault();
+      closeMenu();
+      // Navigate after the 300ms transition completes
+      setTimeout(() => {
+        window.location.href = href;
+      }, 300);
+    });
+  });
+</script>

@@ -1,0 +1,200 @@
+---
+import SectionLabel from "../../elements/SectionLabel.astro";
+import Heading from "../../elements/Heading.astro";
+import BodyText from "../../elements/BodyText.astro";
+import CTAButton from "../../elements/CTAButton.astro";
+---
+
+<section
+  class="bg-rh-warm-light dark:bg-rh-warm-dark py-32 md:py-48 px-6 md:px-10"
+  id="deliverables-section"
+>
+  <div class="mx-auto w-full max-w-[1400px]">
+    <!-- Terminal Header -->
+    <div class="deliverables-reveal mb-10">
+      <SectionLabel text="> SYS.DELIVERABLES // PLAIN_LANGUAGE" />
+    </div>
+
+    <!-- Headline -->
+    <Heading class="deliverables-reveal mb-16 max-w-4xl">
+      What you <span class="text-rh-ember">get.</span>
+    </Heading>
+
+    <!-- Deliverable blocks -->
+    <div class="max-w-4xl space-y-20 mb-16">
+      <!-- 01 — DIAGNOSE -->
+      <div class="deliverables-card">
+        <span
+          class="block font-mono text-[10px] uppercase tracking-widest text-rh-ember mb-4"
+          >01 // DIAGNOSE</span
+        >
+        <h3
+          class="font-heading font-black uppercase italic text-2xl md:text-3xl text-rh-ink dark:text-rh-chalk leading-tight mb-6"
+        >
+          The Human Architecture Review
+        </h3>
+        <BodyText class="mb-6">
+          We map your organization's human architecture across three layers —
+          signal, connection, and operating model — and show you exactly where
+          it's failing and what it's costing you.
+        </BodyText>
+        <BodyText class="mb-6">
+          This isn't a survey or a workshop. It's a systems-level diagnostic
+          built on 25 years of engineering infrastructure and 15 years of
+          studying how humans actually connect at scale.
+        </BodyText>
+        <BodyText>
+          You walk away with a complete architectural blueprint: what's broken,
+          what to fix first, and what the ROI looks like when you do.
+        </BodyText>
+      </div>
+
+      <!-- 02 — DESIGN -->
+      <div class="deliverables-card">
+        <span
+          class="block font-mono text-[10px] uppercase tracking-widest text-rh-ember mb-4"
+          >02 // DESIGN</span
+        >
+        <h3
+          class="font-heading font-black uppercase italic text-2xl md:text-3xl text-rh-ink dark:text-rh-chalk leading-tight mb-6"
+        >
+          Your Architecture, Built
+        </h3>
+        <BodyText class="mb-8">
+          Based on the blueprint, we design and build the specific human systems
+          your organization is missing.
+        </BodyText>
+
+        <!-- Signal -->
+        <div
+          class="border-l-2 border-rh-ember/30 pl-6 md:pl-8 mb-6"
+        >
+          <p
+            class="font-mono text-[10px] uppercase tracking-widest text-rh-ember/60 mb-3"
+          >
+            SIGNAL
+          </p>
+          <p
+            class="text-base md:text-lg text-rh-ink/70 dark:text-rh-chalk/70 leading-relaxed"
+          >
+            If the right people can't find you — we build your signal
+            architecture: the alignment between your mission, your message, and
+            the people who need to hear it.
+          </p>
+        </div>
+
+        <!-- Connection -->
+        <div
+          class="border-l-2 border-rh-ember/30 pl-6 md:pl-8 mb-6"
+        >
+          <p
+            class="font-mono text-[10px] uppercase tracking-widest text-rh-ember/60 mb-3"
+          >
+            CONNECTION
+          </p>
+          <p
+            class="text-base md:text-lg text-rh-ink/70 dark:text-rh-chalk/70 leading-relaxed"
+          >
+            If people arrive but don't stay — we design your connection
+            infrastructure: the environments, rituals, and peer-to-peer systems
+            that create belonging that sustains itself.
+          </p>
+        </div>
+
+        <!-- Operating Model -->
+        <div
+          class="border-l-2 border-rh-ember/30 pl-6 md:pl-8 mb-8"
+        >
+          <p
+            class="font-mono text-[10px] uppercase tracking-widest text-rh-ember/60 mb-3"
+          >
+            OPERATING MODEL
+          </p>
+          <p
+            class="text-base md:text-lg text-rh-ink/70 dark:text-rh-chalk/70 leading-relaxed"
+          >
+            If your culture breaks at scale — we redesign your operating model:
+            how your people coordinate, trust, and build together in a way that
+            compounds instead of fracturing.
+          </p>
+        </div>
+
+        <BodyText>
+          Every organization's architecture is different. We don't sell
+          templates. We design systems.
+        </BodyText>
+      </div>
+
+      <!-- 03 — TRANSFER -->
+      <div class="deliverables-card">
+        <span
+          class="block font-mono text-[10px] uppercase tracking-widest text-rh-ember mb-4"
+          >03 // TRANSFER</span
+        >
+        <h3
+          class="font-heading font-black uppercase italic text-2xl md:text-3xl text-rh-ink dark:text-rh-chalk leading-tight mb-6"
+        >
+          You Own It. It Compounds.
+        </h3>
+        <BodyText class="mb-6">
+          We train your team to operate the architecture independently. Then we
+          step back.
+        </BodyText>
+        <BodyText class="mb-6">
+          The systems we design are built to be self-reinforcing — peer-driven,
+          community-sustained, getting stronger with every cycle. This isn't a
+          retainer you pay forever. It's infrastructure that compounds in value
+          after we leave.
+        </BodyText>
+        <BodyText>
+          No agency dependency. No consultant lock-in. Architecture you own.
+        </BodyText>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="deliverables-reveal">
+      <CTAButton href="/how-we-work" variant="contrast">
+        See How Engagements Work →
+      </CTAButton>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.fromTo(
+    ".deliverables-reveal",
+    { opacity: 0, y: 50 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      stagger: 0.3,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: "#deliverables-section",
+        start: "top 70%",
+      },
+    },
+  );
+
+  gsap.fromTo(
+    ".deliverables-card",
+    { opacity: 0, y: 40 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: "#deliverables-section",
+        start: "top 55%",
+      },
+    },
+  );
+</script>

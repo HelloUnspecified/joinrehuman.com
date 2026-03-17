@@ -30,6 +30,15 @@
         >]
       </button>
 
+      <!-- Menu Toggle -->
+      <button
+        id="menu-toggle"
+        class="font-mono text-xs tracking-wider text-rh-ink/60 dark:text-rh-chalk/60 hover:text-rh-ember transition-colors cursor-pointer"
+        aria-label="Open menu"
+      >
+        [<span id="menu-toggle-label">MENU</span>]
+      </button>
+
       <!-- CTA -->
       <a
         href="/book"
@@ -63,6 +72,26 @@
     const isDark = document.documentElement.classList.toggle("dark");
     localStorage.setItem("rh-theme", isDark ? "dark" : "light");
     updateLabel();
+  });
+
+  // Menu toggle
+  const menuToggle = document.getElementById("menu-toggle");
+  const menuLabel = document.getElementById("menu-toggle-label");
+  let menuOpen = false;
+
+  menuToggle?.addEventListener("click", () => {
+    menuOpen = !menuOpen;
+    if (menuLabel) {
+      menuLabel.textContent = menuOpen ? "CLOSE" : "MENU";
+    }
+    window.dispatchEvent(new CustomEvent("overlay-menu-toggle"));
+  });
+
+  window.addEventListener("overlay-menu-closed", () => {
+    menuOpen = false;
+    if (menuLabel) {
+      menuLabel.textContent = "MENU";
+    }
   });
 
   // Navbar backdrop blur on scroll
