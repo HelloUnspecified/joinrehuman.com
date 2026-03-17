@@ -10,7 +10,7 @@ import Heading from "../../elements/Heading.astro";
 ---
 
 <section
-  class="bg-rh-warm-light dark:bg-rh-warm-dark min-h-screen flex flex-col justify-center py-32 md:py-48 px-6 md:px-10 overflow-hidden"
+  class="bg-rh-warm-light dark:bg-rh-warm-dark flex flex-col justify-center py-28 md:py-40 px-6 md:px-10 overflow-hidden"
 >
   <div class="mx-auto max-w-[1400px] w-full">
     <!-- System Header -->
@@ -19,13 +19,13 @@ import Heading from "../../elements/Heading.astro";
     </div>
 
     <!-- Massive Text -->
-    <Heading size="xl" class="mb-12">
+    <Heading size="xl" class="mb-12 tracking-tight">
       High-Tech<br />Humanist
     </Heading>
   </div>
 
   <!-- Infinite Marquee Wrapper -->
-  <div class="relative w-full overflow-hidden pt-6" id="marquee-wrapper">
+  <div class="relative w-full overflow-hidden pt-6 pb-8" id="marquee-wrapper">
     <!-- Left Edge Fade -->
     <div
       class="absolute left-0 top-0 bottom-0 w-24 md:w-40 z-10 bg-linear-to-r from-rh-warm-light dark:from-rh-warm-dark to-transparent pointer-events-none"
@@ -47,10 +47,10 @@ import Heading from "../../elements/Heading.astro";
         allCards.map((person) => (
           <a
             href="#"
-            class="group flex flex-col w-[360px] h-[580px] shrink-0 bg-white dark:bg-rh-ink p-6 rounded-[2rem] shadow-xl border border-black/5 dark:border-white/5 transition-all duration-500 hover:scale-105 hover:-translate-y-3 cursor-pointer"
+            class="group flex flex-col w-[320px] shrink-0 bg-rh-warm-light dark:bg-rh-warm-dark p-6 rounded-4xl shadow-xl ring-1 ring-rh-ink/5 dark:ring-rh-chalk/5 transition-all duration-500 hover:scale-105 hover:-translate-y-3 cursor-pointer"
           >
             {/* Portrait */}
-            <div class="relative w-full h-[280px] mb-6 shrink-0 overflow-hidden rounded-2xl">
+            <div class="relative w-full h-[200px] mb-6 shrink-0 overflow-hidden rounded-2xl">
               <img
                 src={person.img}
                 alt={person.name}

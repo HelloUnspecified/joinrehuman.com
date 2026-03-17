@@ -4,14 +4,14 @@ import Heading from "../../elements/Heading.astro";
 import BodyText from "../../elements/BodyText.astro";
 ---
 
-<section class="py-32 md:py-48 px-6 bg-rh-warm-light dark:bg-rh-warm-dark">
+<section class="py-28 md:py-40 px-6 bg-rh-warm-light dark:bg-rh-warm-dark">
   <div
     class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center"
   >
     <!-- Left Column: The Portrait -->
     <div class="lg:col-span-5 relative">
       <div
-        class="w-full aspect-[4/5] bg-rh-ink rounded-[2rem] overflow-hidden relative border border-black/10 dark:border-white/10 shadow-2xl"
+        class="w-full aspect-4/5 bg-rh-ink rounded-4xl overflow-hidden relative border border-black/10 dark:border-white/10 shadow-2xl"
       >
         <img
           src="/assets/img/people/the-architect.png"
@@ -33,7 +33,7 @@ import BodyText from "../../elements/BodyText.astro";
       <SectionLabel text="> SYS.IDENTITY // THE_ARCHITECT" class="mb-8" />
 
       <!-- Headline -->
-      <Heading size="md" class="mb-8">
+      <Heading size="md" class="mb-8 tracking-tight">
         I Built the Code.<br />Then I Built the Culture.
       </Heading>
 
@@ -59,6 +59,13 @@ import BodyText from "../../elements/BodyText.astro";
         need an architect who understands both the deep-tech infrastructure and
         the human soul.
       </BodyText>
+
+      <a
+        href="/the-architect"
+        class="inline-block font-mono text-sm uppercase tracking-widest text-rh-ember hover:underline mt-8"
+      >
+        Read the Full Story →
+      </a>
     </div>
   </div>
 </section>

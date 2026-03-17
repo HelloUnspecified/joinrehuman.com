@@ -6,157 +6,131 @@ import CTAButton from "../../elements/CTAButton.astro";
 ---
 
 <section
-  class="bg-rh-warm-light dark:bg-rh-warm-dark py-32 md:py-48 px-6 md:px-10"
+  class="bg-rh-warm-light dark:bg-rh-warm-dark py-28 md:py-40 px-6 md:px-10"
   id="deliverables-section"
 >
   <div class="mx-auto w-full max-w-[1400px]">
     <!-- Terminal Header -->
     <div class="deliverables-reveal mb-10">
-      <SectionLabel text="> SYS.DELIVERABLES // PLAIN_LANGUAGE" />
+      <SectionLabel text="> SYS.ENGAGE // PARTNERSHIP_MODEL" />
     </div>
 
     <!-- Headline -->
-    <Heading class="deliverables-reveal mb-16 max-w-4xl">
-      What you <span class="text-rh-ember">get.</span>
+    <Heading class="deliverables-reveal mb-8 max-w-5xl tracking-tight">
+      We architect it <span class="text-rh-ember">with you.</span>
     </Heading>
 
-    <!-- Deliverable blocks -->
-    <div class="max-w-4xl space-y-20 mb-16">
-      <!-- 01 — DIAGNOSE -->
-      <div class="deliverables-card">
-        <span
-          class="block font-mono text-[10px] uppercase tracking-widest text-rh-ember mb-4"
-          >01 // DIAGNOSE</span
-        >
-        <h3
-          class="font-heading font-black uppercase italic text-2xl md:text-3xl text-rh-ink dark:text-rh-chalk leading-tight mb-6"
-        >
-          The Human Architecture Review
-        </h3>
-        <BodyText class="mb-6">
-          We map your organization's human architecture across three layers —
-          signal, connection, and operating model — and show you exactly where
-          it's failing and what it's costing you.
-        </BodyText>
-        <BodyText class="mb-6">
-          This isn't a survey or a workshop. It's a systems-level diagnostic
-          built on 25 years of engineering infrastructure and 15 years of
-          studying how humans actually connect at scale.
-        </BodyText>
-        <BodyText>
-          You walk away with a complete architectural blueprint: what's broken,
-          what to fix first, and what the ROI looks like when you do.
-        </BodyText>
-      </div>
+    <!-- Intro narrative -->
+    <div class="deliverables-reveal max-w-3xl mb-20">
+      <BodyText class="mb-6">
+        Every organization is different. Some have teams but no strategy. Others
+        have vision but no infrastructure. We meet you where you are and design
+        the human architecture your organization needs to thrive in the AI era.
+      </BodyText>
+      <p class="font-mono text-sm md:text-base text-rh-ink/40 dark:text-rh-chalk/40 leading-relaxed">
+        Not a marketing agency. Not community management. Not personal branding.<br />
+        This is infrastructure design for human connection.
+      </p>
+    </div>
 
-      <!-- 02 — DESIGN -->
-      <div class="deliverables-card">
-        <span
-          class="block font-mono text-[10px] uppercase tracking-widest text-rh-ember mb-4"
-          >02 // DESIGN</span
-        >
-        <h3
-          class="font-heading font-black uppercase italic text-2xl md:text-3xl text-rh-ink dark:text-rh-chalk leading-tight mb-6"
-        >
-          Your Architecture, Built
-        </h3>
-        <BodyText class="mb-8">
-          Based on the blueprint, we design and build the specific human systems
-          your organization is missing.
-        </BodyText>
+    <!-- Transformation outcomes: 2x2 grid -->
+    <div class="mb-20">
+      <p class="deliverables-reveal font-mono text-xs md:text-sm uppercase tracking-widest text-rh-ember mb-10">
+        What changes when human architecture is in place
+      </p>
 
-        <!-- Signal -->
-        <div
-          class="border-l-2 border-rh-ember/30 pl-6 md:pl-8 mb-6"
-        >
-          <p
-            class="font-mono text-[10px] uppercase tracking-widest text-rh-ember/60 mb-3"
-          >
-            SIGNAL
-          </p>
-          <p
-            class="text-base md:text-lg text-rh-ink/70 dark:text-rh-chalk/70 leading-relaxed"
-          >
-            If the right people can't find you — we build your signal
-            architecture: the alignment between your mission, your message, and
-            the people who need to hear it.
-          </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 max-w-5xl">
+        <!-- Outcome 1 -->
+        <div class="deliverables-outcome">
+          <div class="flex items-start gap-4">
+            <span class="font-mono text-rh-ember text-sm mt-1 shrink-0">01</span>
+            <div>
+              <h3 class="font-heading font-black uppercase italic text-lg md:text-xl text-rh-ink dark:text-rh-chalk leading-tight mb-3">
+                Your community connects to each other
+              </h3>
+              <p class="text-sm md:text-base text-rh-ink/60 dark:text-rh-chalk/60 leading-relaxed">
+                Members stop consuming and start belonging. They build
+                relationships with each other, not just with you. That's the
+                shift from audience to community.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <!-- Connection -->
-        <div
-          class="border-l-2 border-rh-ember/30 pl-6 md:pl-8 mb-6"
-        >
-          <p
-            class="font-mono text-[10px] uppercase tracking-widest text-rh-ember/60 mb-3"
-          >
-            CONNECTION
-          </p>
-          <p
-            class="text-base md:text-lg text-rh-ink/70 dark:text-rh-chalk/70 leading-relaxed"
-          >
-            If people arrive but don't stay — we design your connection
-            infrastructure: the environments, rituals, and peer-to-peer systems
-            that create belonging that sustains itself.
-          </p>
+        <!-- Outcome 2 -->
+        <div class="deliverables-outcome">
+          <div class="flex items-start gap-4">
+            <span class="font-mono text-rh-ember text-sm mt-1 shrink-0">02</span>
+            <div>
+              <h3 class="font-heading font-black uppercase italic text-lg md:text-xl text-rh-ink dark:text-rh-chalk leading-tight mb-3">
+                Your culture scales without breaking
+              </h3>
+              <p class="text-sm md:text-base text-rh-ink/60 dark:text-rh-chalk/60 leading-relaxed">
+                What made your organization special at 20 people still works at
+                2,000. Because it's designed into the infrastructure, not held
+                together by a few key people.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <!-- Operating Model -->
-        <div
-          class="border-l-2 border-rh-ember/30 pl-6 md:pl-8 mb-8"
-        >
-          <p
-            class="font-mono text-[10px] uppercase tracking-widest text-rh-ember/60 mb-3"
-          >
-            OPERATING MODEL
-          </p>
-          <p
-            class="text-base md:text-lg text-rh-ink/70 dark:text-rh-chalk/70 leading-relaxed"
-          >
-            If your culture breaks at scale — we redesign your operating model:
-            how your people coordinate, trust, and build together in a way that
-            compounds instead of fracturing.
-          </p>
+        <!-- Outcome 3 -->
+        <div class="deliverables-outcome">
+          <div class="flex items-start gap-4">
+            <span class="font-mono text-rh-ember text-sm mt-1 shrink-0">03</span>
+            <div>
+              <h3 class="font-heading font-black uppercase italic text-lg md:text-xl text-rh-ink dark:text-rh-chalk leading-tight mb-3">
+                Your customers stay, refer, and build with you
+              </h3>
+              <p class="text-sm md:text-base text-rh-ink/60 dark:text-rh-chalk/60 leading-relaxed">
+                Retention stops being a problem you throw discounts at. People
+                stay because they're connected to something real. LTV goes up.
+                Acquisition costs go down.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <BodyText>
-          Every organization's architecture is different. We don't sell
-          templates. We design systems.
-        </BodyText>
-      </div>
-
-      <!-- 03 — TRANSFER -->
-      <div class="deliverables-card">
-        <span
-          class="block font-mono text-[10px] uppercase tracking-widest text-rh-ember mb-4"
-          >03 // TRANSFER</span
-        >
-        <h3
-          class="font-heading font-black uppercase italic text-2xl md:text-3xl text-rh-ink dark:text-rh-chalk leading-tight mb-6"
-        >
-          You Own It. It Compounds.
-        </h3>
-        <BodyText class="mb-6">
-          We train your team to operate the architecture independently. Then we
-          step back.
-        </BodyText>
-        <BodyText class="mb-6">
-          The systems we design are built to be self-reinforcing — peer-driven,
-          community-sustained, getting stronger with every cycle. This isn't a
-          retainer you pay forever. It's infrastructure that compounds in value
-          after we leave.
-        </BodyText>
-        <BodyText>
-          No agency dependency. No consultant lock-in. Architecture you own.
-        </BodyText>
+        <!-- Outcome 4 -->
+        <div class="deliverables-outcome">
+          <div class="flex items-start gap-4">
+            <span class="font-mono text-rh-ember text-sm mt-1 shrink-0">04</span>
+            <div>
+              <h3 class="font-heading font-black uppercase italic text-lg md:text-xl text-rh-ink dark:text-rh-chalk leading-tight mb-3">
+                You own it. It compounds.
+              </h3>
+              <p class="text-sm md:text-base text-rh-ink/60 dark:text-rh-chalk/60 leading-relaxed">
+                No retainer lock-in. No vendor dependency. We work alongside your
+                team to build infrastructure you understand, operate, and keep
+                forever. It gets more valuable over time, not less.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- CTA -->
-    <div class="deliverables-reveal">
-      <CTAButton href="/how-we-work" variant="contrast">
-        See How Engagements Work →
-      </CTAButton>
+    <!-- The partnership frame -->
+    <div class="deliverables-reveal border-t border-rh-ink/10 dark:border-rh-chalk/10 pt-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-end">
+        <!-- Left: the closer -->
+        <div>
+          <p class="font-heading text-2xl md:text-4xl font-black uppercase italic text-rh-ink dark:text-rh-chalk leading-tight mb-6">
+            Human connection is about to become your
+            <span class="text-rh-ember">competitive advantage.</span>
+          </p>
+          <BodyText>
+            Let's talk about where your organization is today, where it needs to
+            go, and what the path looks like. No pitch deck. Just a real
+            conversation about your infrastructure.
+          </BodyText>
+        </div>
+
+        <!-- Right: CTA -->
+        <div class="lg:text-right">
+          <CTAButton href="/book">BOOK_ARCHITECTURE_REVIEW</CTAButton>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -183,14 +157,14 @@ import CTAButton from "../../elements/CTAButton.astro";
   );
 
   gsap.fromTo(
-    ".deliverables-card",
-    { opacity: 0, y: 40 },
+    ".deliverables-outcome",
+    { opacity: 0, y: 30 },
     {
       opacity: 1,
       y: 0,
-      duration: 0.8,
-      stagger: 0.2,
-      ease: "power3.out",
+      duration: 0.7,
+      stagger: 0.15,
+      ease: "power2.out",
       scrollTrigger: {
         trigger: "#deliverables-section",
         start: "top 55%",
