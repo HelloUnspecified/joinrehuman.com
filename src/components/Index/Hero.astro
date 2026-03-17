@@ -3,20 +3,41 @@ import SectionLabel from "../../elements/SectionLabel.astro";
 import Heading from "../../elements/Heading.astro";
 import BodyText from "../../elements/BodyText.astro";
 
+// Build-time code stream generation (1 <pre> node instead of 1,760 DOM nodes)
+const tokens = [
+  "HUMAN_PROTOCOL", "ARCH.REVIEW", "CONNECT.AUTH", "INFRA.HUMAN",
+  "SOUL.RENDER", "CULTURE.SYNC", "TRUST_LAYER", "RETENTION.BIND",
+  "SIGNAL.BOOST", "EMPATHY_ENGINE", "SCALE.HUMAN", "SYS.REDESIGN",
+];
+const seededRandom = (seed: number) => {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+};
+const lines: string[] = [];
+for (let i = 0; i < 120; i++) {
+  const line = Array.from(
+    { length: 20 },
+    (_, j) => tokens[Math.floor(seededRandom(i * 8 + j + 42) * tokens.length)],
+  ).join("  ");
+  lines.push(line);
+}
+const gridText = lines.join("\n");
 ---
 
 <section
   class="relative flex min-h-[100dvh] items-center overflow-hidden bg-rh-warm-light dark:bg-rh-warm-dark"
 >
-  <!-- Background Grid/Code Stream -->
+  <!-- Background Code Stream (build-time generated, left-aligned like a code editor) -->
   <div
-    class="pointer-events-none absolute inset-0 overflow-hidden opacity-[0.04] dark:opacity-[0.06]"
+    class="pointer-events-none absolute inset-0 overflow-hidden"
+    aria-hidden="true"
   >
-    <div
-      class="font-mono text-[10px] leading-[1.8] text-rh-ink dark:text-rh-chalk whitespace-pre select-none"
-      id="hero-grid"
-      aria-hidden="true"
-    >
+    <div class="relative w-[75%] h-full">
+      <pre
+        class="absolute inset-0 font-mono text-[10px] leading-[1.8] text-rh-ink dark:text-rh-chalk whitespace-pre select-none opacity-[0.04] dark:opacity-[0.06] overflow-hidden"
+      >{gridText}</pre>
+      <!-- Right fade so text dissolves at the edge -->
+      <div class="absolute top-0 right-0 bottom-0 w-32 md:w-48 hero-grid-fade-r"></div>
     </div>
   </div>
   <!-- Bottom fade gradient -->
@@ -44,13 +65,13 @@ import BodyText from "../../elements/BodyText.astro";
     <!-- Manifesto lines -->
     <div class="hero-fade max-w-2xl mb-12 space-y-2">
       <p class="font-mono text-sm md:text-base text-rh-ink/50 dark:text-rh-chalk/50 leading-relaxed">
-        When we connect, we build faster.
+        Your teams are shrinking. Your culture doesn't scale.
       </p>
       <p class="font-mono text-sm md:text-base text-rh-ink/50 dark:text-rh-chalk/50 leading-relaxed">
-        When we trust, we create braver things.
+        AI is replacing the tasks. Nobody is replacing the connections.
       </p>
       <p class="font-mono text-sm md:text-base text-rh-ink/50 dark:text-rh-chalk/50 leading-relaxed">
-        When we belong, we stay.
+        The human layer was never designed. Now it's breaking.
       </p>
     </div>
 
@@ -61,7 +82,7 @@ import BodyText from "../../elements/BodyText.astro";
     </BodyText> -->
 
 
-    <!-- Founder CTA — identity + action as one unit -->
+    <!-- Founder CTA - identity + action as one unit -->
     <div class="hero-fade mb-16 md:mb-24 w-fit founder-cta-wrapper relative p-px">
       <a
         href="/book"
@@ -85,7 +106,7 @@ import BodyText from "../../elements/BodyText.astro";
         </div>
         <span
           class="font-mono text-sm md:text-base uppercase tracking-widest text-rh-ember group-hover:translate-x-1 transition-transform duration-300 justify-self-end text-right"
-          >SCHEDULE A FREE ARCHITECTURE REVIEW →
+          >SCHEDULE AN ARCHITECTURE REVIEW →
         </span>
       </a>
     </div>
@@ -157,6 +178,14 @@ import BodyText from "../../elements/BodyText.astro";
     50% { opacity: 0; }
   }
 
+  .hero-grid-fade-r {
+    background: linear-gradient(to right, transparent, #f9f8f6);
+  }
+
+  :global(.dark) .hero-grid-fade-r {
+    background: linear-gradient(to right, transparent, #1a1918);
+  }
+
   .hero-bottom-fade {
     background: linear-gradient(to bottom, transparent, #f9f8f6);
   }
@@ -168,42 +197,6 @@ import BodyText from "../../elements/BodyText.astro";
 
 <script>
   import { gsap } from "gsap";
-
-  // Generate background grid
-  const grid = document.getElementById("hero-grid");
-  if (grid) {
-    const lines: string[] = [];
-    const tokens = [
-      "HUMAN_PROTOCOL",
-      "ARCH.REVIEW",
-      "CONNECT.AUTH",
-      "INFRA.HUMAN",
-      "SOUL.RENDER",
-      "CULTURE.SYNC",
-      "TRUST_LAYER",
-      "RETENTION.BIND",
-      "SIGNAL.BOOST",
-      "EMPATHY_ENGINE",
-      "SCALE.HUMAN",
-      "SYS.REDESIGN",
-    ];
-    for (let i = 0; i < 110; i++) {
-      const line = Array.from(
-        { length: 16 },
-        () => tokens[Math.floor(Math.random() * tokens.length)],
-      ).join("  ");
-      lines.push(line);
-    }
-    grid.textContent = lines.join("\n");
-
-    // Slow upward drift animation
-    gsap.to(grid, {
-      yPercent: -15,
-      duration: 60,
-      ease: "none",
-      repeat: -1,
-    });
-  }
 
   // GSAP staggered fade-up
   gsap.fromTo(
