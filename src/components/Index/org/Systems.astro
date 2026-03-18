@@ -1,7 +1,7 @@
 ---
-import SectionLabel from "../../elements/SectionLabel.astro";
-import Heading from "../../elements/Heading.astro";
-import BodyText from "../../elements/BodyText.astro";
+import SectionLabel from "../../../elements/SectionLabel.astro";
+import Heading from "../../../elements/Heading.astro";
+import BodyText from "../../../elements/BodyText.astro";
 ---
 
 <section
@@ -279,7 +279,7 @@ import BodyText from "../../elements/BodyText.astro";
   // EKG pulse animation
   const ekgPath = document.getElementById("ekg-path");
   if (ekgPath) {
-    const length = (ekgPath as SVGPathElement).getTotalLength();
+    const length = (ekgPath as unknown as SVGPathElement).getTotalLength();
     gsap.set(ekgPath, { strokeDasharray: length, strokeDashoffset: length });
     gsap.to(ekgPath, {
       strokeDashoffset: 0,
