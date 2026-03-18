@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import SectionLabel from "../elements/SectionLabel.astro";
-import Heading from "../elements/Heading.astro";
 import CTAButton from "../elements/CTAButton.astro";
 
 const jsonLd = {
@@ -82,7 +81,7 @@ const jsonLd = {
         <!-- Portrait -->
         <div class="lg:col-span-5 relative">
           <div
-            class="w-full aspect-[4/5] bg-rh-ink rounded-[2rem] overflow-hidden relative border border-black/10 dark:border-white/10 shadow-2xl"
+            class="w-full aspect-[4/5] bg-rh-ink rounded-4xl overflow-hidden relative border border-black/10 dark:border-white/10 shadow-2xl"
           >
             <img
               src="/assets/img/people/the-architect.png"
@@ -737,15 +736,15 @@ const jsonLd = {
 <script>
   // GSAP scroll-triggered timeline entry animations
   function initTimelineAnimations() {
-    const gsap = window.gsap;
-    const ScrollTrigger = window.ScrollTrigger;
+    const gsap = (window as any).gsap;
+    const ScrollTrigger = (window as any).ScrollTrigger;
 
     if (!gsap || !ScrollTrigger) return;
 
     gsap.registerPlugin(ScrollTrigger);
 
     // Fade in timeline entries
-    gsap.utils.toArray(".timeline-entry").forEach((entry, i) => {
+    gsap.utils.toArray(".timeline-entry").forEach((entry: Element) => {
       gsap.fromTo(
         entry,
         { opacity: 0, y: 40 },
@@ -763,7 +762,7 @@ const jsonLd = {
     });
 
     // Fade in origin section paragraphs
-    gsap.utils.toArray("#origin-section p").forEach((p, i) => {
+    gsap.utils.toArray("#origin-section p").forEach((p: Element, i: number) => {
       gsap.fromTo(
         p,
         { opacity: 0, y: 30 },
@@ -784,7 +783,7 @@ const jsonLd = {
     // Fade in credentials grid cells
     gsap.utils
       .toArray("#credentials-section .grid > div")
-      .forEach((cell, i) => {
+      .forEach((cell: Element, i: number) => {
         gsap.fromTo(
           cell,
           { opacity: 0, scale: 0.95 },
