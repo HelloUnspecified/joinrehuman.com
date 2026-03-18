@@ -13,9 +13,10 @@ interface Props {
   ogImage?: string;
   ogType?: "website" | "article";
   noindex?: boolean;
+  jsonLd?: Record<string, unknown>;
 }
 
-const { title, description, ogImage, ogType, noindex } = Astro.props;
+const { title, description, ogImage, ogType, noindex, jsonLd } = Astro.props;
 ---
 
 <!doctype html>
@@ -29,6 +30,7 @@ const { title, description, ogImage, ogType, noindex } = Astro.props;
       ogImage={ogImage}
       ogType={ogType}
       noindex={noindex}
+      jsonLd={jsonLd}
     />
     <link rel="icon" href="/favicon.webp" />
 

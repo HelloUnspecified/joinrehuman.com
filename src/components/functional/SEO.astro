@@ -6,6 +6,7 @@ interface Props {
   ogImage?: string;
   ogType?: "website" | "article";
   noindex?: boolean;
+  jsonLd?: Record<string, unknown>;
 }
 
 const SITE_URL = "https://joinrehuman.com";
@@ -21,6 +22,7 @@ const {
   ogImage = DEFAULT_OG_IMAGE,
   ogType = "website",
   noindex = false,
+  jsonLd,
 } = Astro.props;
 
 const pageTitle = title === SITE_NAME ? SITE_NAME : `${SITE_NAME} | ${title}`;
@@ -29,7 +31,7 @@ const ogImageURL = ogImage.startsWith("http")
   ? ogImage
   : new URL(ogImage, SITE_URL).href;
 
-const structuredData = {
+const structuredData = jsonLd || {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "re/Human",
