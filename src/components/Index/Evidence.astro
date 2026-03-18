@@ -41,7 +41,7 @@ import CTAButton from "../../elements/CTAButton.astro";
           </p>
 
           <!-- Org size input -->
-          <div class="flex items-center gap-3">
+          <div class="flex flex-wrap items-center gap-2 md:gap-3">
             <span class="text-rh-ember shrink-0">&gt;</span>
             <label for="org-size" class="text-rh-chalk/50 shrink-0">ORG_SIZE =</label>
             <input
@@ -49,13 +49,13 @@ import CTAButton from "../../elements/CTAButton.astro";
               id="org-size"
               min="1"
               value="100"
-              class="bg-transparent border-b border-rh-chalk/20 text-rh-chalk px-2 py-1 w-28 focus:outline-none focus:border-rh-ember transition-colors text-right"
+              class="bg-transparent border-b border-rh-chalk/20 text-rh-chalk px-2 py-1 w-24 md:w-28 focus:outline-none focus:border-rh-ember transition-colors text-right"
             />
             <span class="text-rh-chalk/30">employees</span>
           </div>
 
           <!-- Avg salary input -->
-          <div class="flex items-center gap-3">
+          <div class="flex flex-wrap items-center gap-2 md:gap-3">
             <span class="text-rh-ember shrink-0">&gt;</span>
             <label for="avg-salary" class="text-rh-chalk/50 shrink-0">AVG_SALARY =</label>
             <span class="text-rh-chalk/30">$</span>
@@ -65,7 +65,7 @@ import CTAButton from "../../elements/CTAButton.astro";
               min="1000"
               step="1000"
               value="85000"
-              class="bg-transparent border-b border-rh-chalk/20 text-rh-chalk px-2 py-1 w-32 focus:outline-none focus:border-rh-ember transition-colors text-right"
+              class="bg-transparent border-b border-rh-chalk/20 text-rh-chalk px-2 py-1 w-28 md:w-32 focus:outline-none focus:border-rh-ember transition-colors text-right"
             />
             <span class="text-rh-chalk/30">/yr</span>
           </div>
@@ -109,7 +109,7 @@ import CTAButton from "../../elements/CTAButton.astro";
           <p class="font-mono text-sm md:text-base text-rh-chalk/60 leading-relaxed">
             At industry-average turnover (18%), you lose ~<span class="text-rh-chalk font-bold" id="r-turnover-count">27</span> people per year. Replacement cost per head: <span class="text-rh-chalk font-bold" id="r-replace-cost">$127K</span>.
           </p>
-          <p class="font-heading text-3xl md:text-4xl font-black text-rh-ember mt-3">
+          <p class="font-heading text-2xl md:text-4xl font-black text-rh-ember mt-3">
             $<span id="r-turnover-total">3.4M</span><span class="font-mono text-sm md:text-base font-normal text-rh-chalk/40 ml-2">/yr walking out the door</span>
           </p>
           <p class="font-mono text-[9px] md:text-[10px] uppercase tracking-widest text-rh-chalk/20 mt-2">
@@ -125,7 +125,7 @@ import CTAButton from "../../elements/CTAButton.astro";
           <p class="font-mono text-sm md:text-base text-rh-chalk/60 leading-relaxed">
             79% global disengagement rate applied to your org:
           </p>
-          <p class="font-heading text-3xl md:text-4xl font-black text-rh-ember mt-3">
+          <p class="font-heading text-2xl md:text-4xl font-black text-rh-ember mt-3">
             <span id="r-disengaged-count">119</span> people<span class="font-mono text-sm md:text-base font-normal text-rh-chalk/40 ml-2">showing up but checked out</span>
           </p>
           <p class="font-mono text-sm md:text-base text-rh-chalk/60 leading-relaxed mt-2">
@@ -144,7 +144,7 @@ import CTAButton from "../../elements/CTAButton.astro";
           <p class="font-mono text-sm md:text-base text-rh-chalk/60 leading-relaxed">
             $2.5 trillion spent on AI globally in 2026. 70% of transformations fail because of people, not technology. Only 8% of organizations have a plan for the human side.
           </p>
-          <p class="font-heading text-3xl md:text-4xl font-black text-rh-ember mt-3">
+          <p class="font-heading text-2xl md:text-4xl font-black text-rh-ember mt-3">
             70% failure rate<span class="font-mono text-sm md:text-base font-normal text-rh-chalk/40 ml-2">is a people problem, not a tech problem</span>
           </p>
           <p class="font-mono text-[9px] md:text-[10px] uppercase tracking-widest text-rh-chalk/20 mt-2">
@@ -160,7 +160,7 @@ import CTAButton from "../../elements/CTAButton.astro";
           <p class="font-mono text-sm md:text-base text-rh-chalk/60 leading-relaxed">
             Organizations with intentional human architecture see 59% less turnover, 3.7x engagement, 50% lower hiring costs. Applied to your org:
           </p>
-          <p class="font-heading text-3xl md:text-4xl font-black text-rh-ember mt-3">
+          <p class="font-heading text-2xl md:text-4xl font-black text-rh-ember mt-3">
             $<span id="r-savings">2.8M</span><span class="font-mono text-sm md:text-base font-normal text-rh-chalk/40 ml-2">/yr recoverable with architecture</span>
           </p>
           <p class="font-mono text-[9px] md:text-[10px] uppercase tracking-widest text-rh-chalk/20 mt-2">

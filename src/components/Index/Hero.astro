@@ -61,29 +61,26 @@ import BodyText from "../../elements/BodyText.astro";
 
 
     <!-- Founder CTA - identity + action as one unit -->
-    <div class="hero-fade mb-16 md:mb-24 w-fit founder-cta-wrapper relative p-px">
+    <div class="hero-fade mb-16 md:mb-24 w-full md:w-fit founder-cta-wrapper relative p-px">
       <a
         href="/book"
-        class="group relative grid grid-cols-[auto_1fr] gap-x-5 md:gap-x-6 gap-y-3 items-center bg-rh-warm-light dark:bg-rh-warm-dark p-5 md:p-6"
+        class="group relative flex flex-col md:grid md:grid-cols-[auto_1fr] gap-4 md:gap-x-6 md:gap-y-3 md:items-center bg-rh-warm-light dark:bg-rh-warm-dark p-5 md:p-6"
       >
         <img
           src="/assets/img/pictures/clark-stage-01.jpg"
           alt="Clark Sell"
-          class="row-span-2 w-16 h-16 md:w-26 md:h-26 rounded-full object-cover border-2 border-rh-ember/30"
+          class="md:row-span-2 w-16 h-16 md:w-26 md:h-26 rounded-full object-cover border-2 border-rh-ember/30"
         />
-        <div class="text-left mb-2">
-          <div class="font-mono text-sm md:text-sm uppercase tracking-widest text-rh-ink/50 dark:text-rh-chalk/50 leading-relaxed">
+        <div class="text-left">
+          <div class="font-mono text-xs md:text-sm uppercase tracking-widest text-rh-ink/50 dark:text-rh-chalk/50 leading-relaxed">
             re/Human architects the human infrastructure for what comes next.
           </div>
           <div class="font-mono text-[9px] md:text-sm uppercase tracking-widest text-rh-ink/30 dark:text-rh-chalk/30 mt-1">
             <span id="founder-terminal-line"></span><span id="founder-cursor" class="inline-block w-0.5 h-[1em] bg-rh-ember ml-1 align-middle opacity-0"></span>
           </div>
-          <!-- <div class="font-mono text-[9px] md:text-xs uppercase tracking-widest text-rh-ink/30 dark:text-rh-chalk/30 mt-1">
-            25 YRS SOFTWARE SYSTEMS // 15 YRS COMMUNITY AT SCALE
-          </div> -->
         </div>
         <span
-          class="font-mono text-sm md:text-base uppercase tracking-widest text-rh-ember group-hover:translate-x-1 transition-transform duration-300 justify-self-end text-right"
+          class="font-mono text-xs md:text-base uppercase tracking-widest text-rh-ember group-hover:translate-x-1 transition-transform duration-300 md:justify-self-end md:text-right"
           >SCHEDULE AN ARCHITECTURE REVIEW →
         </span>
       </a>
