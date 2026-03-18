@@ -1,6 +1,10 @@
 ---
+import { getEntry } from "astro:content";
 import SqueezeLayout from "../layouts/SqueezeLayout.astro";
 import SectionLabel from "../elements/SectionLabel.astro";
+
+const page = await getEntry("pages", "book");
+const { title, description, ogType } = page?.data;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -24,8 +28,9 @@ const jsonLd = {
 ---
 
 <SqueezeLayout
-  title="Book Your Architecture Session"
-  description="Book a private architecture session with re/Human. Zero obligation strategy review for your community ecosystem."
+  title={title}
+  description={description}
+  ogType={ogType}
   jsonLd={jsonLd}
 >
   <Fragment slot="head">
