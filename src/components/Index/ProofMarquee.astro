@@ -52,10 +52,13 @@ import Heading from "../../elements/Heading.astro";
             {/* Portrait */}
             <div class="relative w-full h-[200px] mb-6 shrink-0 overflow-hidden rounded-2xl">
               <img
-                src={person.img}
+                src={person.img.replace(/\.(jpg|jpeg|png)$/, ".webp")}
                 alt={person.name}
-                class="absolute inset-0 w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700"
+                width="640"
+                height="400"
                 loading="lazy"
+                decoding="async"
+                class="absolute inset-0 w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700"
               />
             </div>
             {/* Name */}
@@ -66,7 +69,7 @@ import Heading from "../../elements/Heading.astro";
             <p
               class="text-sm text-rh-ink/70 dark:text-rh-chalk/70 leading-relaxed"
               set:html={person.transformation}
-            ></p>
+            />
             {/* Logo & CTA Footer */}
             <div class="mt-auto pt-6 border-t border-black/10 dark:border-white/10 flex items-center justify-between">
               <span class="font-mono text-xs uppercase tracking-widest text-rh-ink/50 dark:text-rh-chalk/50 group-hover:text-rh-ember transition-colors duration-300">

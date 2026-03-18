@@ -4,7 +4,10 @@ import Heading from "../../elements/Heading.astro";
 import BodyText from "../../elements/BodyText.astro";
 ---
 
-<section id="organization" class="py-28 md:py-40 px-6 bg-rh-warm-light dark:bg-rh-warm-dark">
+<section
+  id="organization"
+  class="py-28 md:py-40 px-6 bg-rh-warm-light dark:bg-rh-warm-dark"
+>
   <div
     class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center"
   >
@@ -14,10 +17,13 @@ import BodyText from "../../elements/BodyText.astro";
         class="w-full aspect-4/5 bg-rh-ink rounded-4xl overflow-hidden relative border border-black/10 dark:border-white/10 shadow-2xl"
       >
         <img
-          src="/assets/img/people/the-architect.png"
+          src="/assets/img/people/the-architect.webp"
           alt="Clark Sell"
-          class="absolute inset-0 w-full h-full object-cover grayscale contrast-125 transition-all duration-700 hover:grayscale-0"
+          width="800"
+          height="1000"
           loading="lazy"
+          decoding="async"
+          class="absolute inset-0 w-full h-full object-cover grayscale contrast-125 transition-all duration-700 hover:grayscale-0"
         />
         <div
           class="absolute bottom-6 left-6 font-mono text-xs bg-black/80 backdrop-blur-md px-4 py-2 rounded text-rh-chalk border border-white/10 uppercase tracking-widest"

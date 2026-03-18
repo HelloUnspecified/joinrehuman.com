@@ -13,13 +13,21 @@ import Heading from "../../elements/Heading.astro";
     aria-hidden="true"
   >
     <div class="relative w-[75%] h-full">
-      <canvas id="hero-code-stream" class="absolute inset-0 w-full h-full select-none"></canvas>
+      <canvas
+        id="hero-code-stream"
+        class="absolute inset-0 w-full h-full select-none"></canvas>
       <!-- Right fade so text dissolves at the edge -->
-      <div class="absolute top-0 right-0 bottom-0 w-32 md:w-48 hero-grid-fade-r"></div>
+      <div
+        class="absolute top-0 right-0 bottom-0 w-32 md:w-48 hero-grid-fade-r"
+      >
+      </div>
     </div>
   </div>
   <!-- Bottom fade gradient -->
-  <div class="pointer-events-none absolute bottom-0 left-0 right-0 h-48 hero-bottom-fade"></div>
+  <div
+    class="pointer-events-none absolute bottom-0 left-0 right-0 h-48 hero-bottom-fade"
+  >
+  </div>
 
   <div
     class="relative z-10 mx-auto w-full max-w-[1400px] px-6 md:px-10 pt-32 pb-20"
@@ -31,52 +39,64 @@ import Heading from "../../elements/Heading.astro";
 
     <!-- Headline -->
     <Heading as="h1" size="lg" class="hero-fade mb-12 max-w-5xl tracking-tight">
-      <div class="leading-[.9]">
-        Humans are the real infrastructure.
-      </div>
+      <div class="leading-[.9]">Humans are the real infrastructure.</div>
 
-      <div class="pt-10 leading-[.9]">
-        Most organizations haven't built it.
-      </div>
+      <div class="pt-10 leading-[.9]">Most organizations haven't built it.</div>
     </Heading>
 
     <!-- Manifesto lines -->
     <div class="hero-fade max-w-2xl mb-12 space-y-2">
-      <p class="font-mono text-sm md:text-base text-rh-ink/50 dark:text-rh-chalk/50 leading-relaxed">
+      <p
+        class="font-mono text-sm md:text-base text-rh-ink/50 dark:text-rh-chalk/50 leading-relaxed"
+      >
         Your teams are shrinking. Your culture doesn't scale.
       </p>
-      <p class="font-mono text-sm md:text-base text-rh-ink/50 dark:text-rh-chalk/50 leading-relaxed">
+      <p
+        class="font-mono text-sm md:text-base text-rh-ink/50 dark:text-rh-chalk/50 leading-relaxed"
+      >
         AI is replacing the tasks. Nobody is replacing the connections.
       </p>
-      <p class="font-mono text-sm md:text-base text-rh-ink/50 dark:text-rh-chalk/50 leading-relaxed">
+      <p
+        class="font-mono text-sm md:text-base text-rh-ink/50 dark:text-rh-chalk/50 leading-relaxed"
+      >
         The human layer was never designed. Now it's breaking.
       </p>
     </div>
 
-    
     <!-- Subheadline -->
     <!-- <BodyText class="hero-fade max-w-2xl mb-12">
       re/Human architects the human infrastructure for what comes next.
     </BodyText> -->
 
-
     <!-- Founder CTA - identity + action as one unit -->
-    <div class="hero-fade mb-16 md:mb-24 w-full md:w-fit founder-cta-wrapper relative p-px">
+    <div
+      class="hero-fade mb-16 md:mb-24 w-full md:w-fit founder-cta-wrapper relative p-px"
+    >
       <a
         href="/book"
         class="group relative flex flex-col md:grid md:grid-cols-[auto_1fr] gap-4 md:gap-x-6 md:gap-y-3 md:items-center bg-rh-warm-light dark:bg-rh-warm-dark p-5 md:p-6"
       >
         <img
-          src="/assets/img/pictures/clark-stage-01.jpg"
+          src="/assets/img/pictures/clark-stage-01.webp"
           alt="Clark Sell"
+          width="400"
+          height="400"
+          fetchpriority="high"
           class="md:row-span-2 w-16 h-16 md:w-26 md:h-26 rounded-full object-cover border-2 border-rh-ember/30"
         />
         <div class="text-left">
-          <div class="font-mono text-xs md:text-sm uppercase tracking-widest text-rh-ink/50 dark:text-rh-chalk/50 leading-relaxed">
+          <div
+            class="font-mono text-xs md:text-sm uppercase tracking-widest text-rh-ink/50 dark:text-rh-chalk/50 leading-relaxed"
+          >
             re/Human architects the human infrastructure for what comes next.
           </div>
-          <div class="font-mono text-[9px] md:text-sm uppercase tracking-widest text-rh-ink/30 dark:text-rh-chalk/30 mt-1">
-            <span id="founder-terminal-line"></span><span id="founder-cursor" class="inline-block w-0.5 h-[1em] bg-rh-ember ml-1 align-middle opacity-0"></span>
+          <div
+            class="font-mono text-[9px] md:text-sm uppercase tracking-widest text-rh-ink/30 dark:text-rh-chalk/30 mt-1"
+          >
+            <span id="founder-terminal-line"></span><span
+              id="founder-cursor"
+              class="inline-block w-0.5 h-[1em] bg-rh-ember ml-1 align-middle opacity-0"
+            ></span>
           </div>
         </div>
         <span
@@ -149,8 +169,13 @@ import Heading from "../../elements/Heading.astro";
   }
 
   @keyframes cursor-blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
   }
 
   .hero-grid-fade-r {
@@ -188,14 +213,25 @@ import Heading from "../../elements/Heading.astro";
   );
 
   // Background code stream via canvas (no DOM text)
-  const codeCanvas = document.getElementById("hero-code-stream") as HTMLCanvasElement | null;
+  const codeCanvas = document.getElementById(
+    "hero-code-stream",
+  ) as HTMLCanvasElement | null;
   if (codeCanvas) {
     const ctx = codeCanvas.getContext("2d");
     if (ctx) {
       const tokens = [
-        "HUMAN_PROTOCOL", "ARCH.REVIEW", "CONNECT.AUTH", "INFRA.HUMAN",
-        "SOUL.RENDER", "CULTURE.SYNC", "TRUST_LAYER", "RETENTION.BIND",
-        "SIGNAL.BOOST", "EMPATHY_ENGINE", "SCALE.HUMAN", "SYS.REDESIGN",
+        "HUMAN_PROTOCOL",
+        "ARCH.REVIEW",
+        "CONNECT.AUTH",
+        "INFRA.HUMAN",
+        "SOUL.RENDER",
+        "CULTURE.SYNC",
+        "TRUST_LAYER",
+        "RETENTION.BIND",
+        "SIGNAL.BOOST",
+        "EMPATHY_ENGINE",
+        "SCALE.HUMAN",
+        "SYS.REDESIGN",
       ];
       const seededRandom = (seed: number) => {
         const x = Math.sin(seed) * 10000;
@@ -223,7 +259,10 @@ import Heading from "../../elements/Heading.astro";
           let x = 0;
           const y = i * lineHeight + fontSize;
           for (let j = 0; j < 20; j++) {
-            const token = tokens[Math.floor(seededRandom(i * 8 + j + 42) * tokens.length)];
+            const token =
+              tokens[
+                Math.floor(seededRandom(i * 8 + j + 42) * tokens.length)
+              ];
             ctx.fillText(token, x, y);
             x += ctx.measureText(token + "  ").width;
           }
