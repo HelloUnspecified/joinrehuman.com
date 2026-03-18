@@ -1,11 +1,32 @@
 ---
 import SqueezeLayout from "../layouts/SqueezeLayout.astro";
 import SectionLabel from "../elements/SectionLabel.astro";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://joinrehuman.com/book#webpage",
+      name: "Book Your Architecture Review",
+      description:
+        "Book a private architecture session with re/Human. Zero obligation strategy review for your community ecosystem.",
+      url: "https://joinrehuman.com/book",
+      isPartOf: {
+        "@type": "WebSite",
+        "@id": "https://joinrehuman.com/#website",
+        name: "re/Human",
+        url: "https://joinrehuman.com",
+      },
+    },
+  ],
+};
 ---
 
 <SqueezeLayout
   title="Book Your Architecture Session"
   description="Book a private architecture session with re/Human. Zero obligation strategy review for your community ecosystem."
+  jsonLd={jsonLd}
 >
   <Fragment slot="head">
     <script is:inline>

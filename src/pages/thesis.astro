@@ -3,12 +3,43 @@ import Layout from "../layouts/Layout.astro";
 import SectionLabel from "../elements/SectionLabel.astro";
 import Heading from "../elements/Heading.astro";
 import CTAButton from "../elements/CTAButton.astro";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://joinrehuman.com/thesis#article",
+      headline: "The Death of the Audience",
+      author: {
+        "@type": "Person",
+        name: "Clark Sell",
+        url: "https://joinrehuman.com/the-architect",
+      },
+      datePublished: "2024-01-01",
+      description:
+        "The re/Human manifesto. Why community is the last satisfying moat and how to build systems that scale authentic human connection.",
+      publisher: {
+        "@type": "Organization",
+        "@id": "https://joinrehuman.com/#organization",
+        name: "re/Human",
+        url: "https://joinrehuman.com",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://joinrehuman.com/favicon.webp",
+        },
+      },
+      mainEntityOfPage: "https://joinrehuman.com/thesis",
+    },
+  ],
+};
 ---
 
 <Layout
   title="The Manifesto | re/Human"
   description="The re/Human manifesto. Why community is the last satisfying moat and how to build systems that scale authentic human connection."
   ogType="article"
+  jsonLd={jsonLd}
 >
   <div class="pt-32 pb-24 px-6 max-w-4xl mx-auto">
     <!-- Terminal Header -->

@@ -3,11 +3,71 @@ import Layout from "../layouts/Layout.astro";
 import SectionLabel from "../elements/SectionLabel.astro";
 import Heading from "../elements/Heading.astro";
 import CTAButton from "../elements/CTAButton.astro";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://joinrehuman.com/the-architect#person",
+      name: "Clark Sell",
+      jobTitle: "Founder & Human Architect",
+      worksFor: {
+        "@id": "https://joinrehuman.com/#organization",
+      },
+      description:
+        "Community builder, speaker, and systems thinker with 25+ years shipping production code and a decade building community-driven tech events. Founder of re/Human and THAT Conference.",
+      sameAs: [
+        "https://www.linkedin.com/in/csell5",
+        "https://x.com/csell5",
+      ],
+      knowsAbout: [
+        "Human Architecture",
+        "Community Building",
+        "AI Transformation",
+        "Software Engineering",
+        "Conference Production",
+      ],
+      alumniOf: [
+        {
+          "@type": "Organization",
+          name: "Allstate",
+        },
+        {
+          "@type": "Organization",
+          name: "Microsoft",
+        },
+        {
+          "@type": "Organization",
+          name: "Telerik",
+        },
+      ],
+      image: "https://joinrehuman.com/assets/img/people/the-architect.png",
+      url: "https://joinrehuman.com/the-architect",
+    },
+    {
+      "@type": "Article",
+      "@id": "https://joinrehuman.com/the-architect#article",
+      headline: "The Architect | Clark Sell",
+      author: {
+        "@id": "https://joinrehuman.com/the-architect#person",
+      },
+      datePublished: "2024-01-01",
+      description:
+        "Meet Clark Sell - the architect behind re/Human. 25+ years of engineering, a decade of community building, and the founding of THAT Conference — all converging into Human Architecture.",
+      publisher: {
+        "@id": "https://joinrehuman.com/#organization",
+      },
+      mainEntityOfPage: "https://joinrehuman.com/the-architect",
+    },
+  ],
+};
 ---
 
 <Layout
   title="The Architect | Clark Sell"
   description="Meet Clark Sell - the architect behind re/Human. Community builder, speaker, and systems thinker."
+  jsonLd={jsonLd}
 >
   <main class="main-wrapper relative overflow-hidden">
     <!-- ═══════════════════════════════════════════════════════════════
