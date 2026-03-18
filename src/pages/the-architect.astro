@@ -20,10 +20,7 @@ const jsonLd = {
       },
       description:
         "Community builder, speaker, and systems thinker with 25+ years shipping production code and a decade building community-driven tech events. Founder of re/Human and THAT Conference.",
-      sameAs: [
-        "https://www.linkedin.com/in/csell5",
-        "https://x.com/csell5",
-      ],
+      sameAs: ["https://www.linkedin.com/in/csell5", "https://x.com/csell5"],
       knowsAbout: [
         "Human Architecture",
         "Community Building",
@@ -67,12 +64,7 @@ const jsonLd = {
 };
 ---
 
-<Layout
-  title={title}
-  description={description}
-  ogType={ogType}
-  jsonLd={jsonLd}
->
+<Layout title={title} description={description} ogType={ogType} jsonLd={jsonLd}>
   <main class="main-wrapper relative overflow-hidden">
     <!-- ═══════════════════════════════════════════════════════════════
          A. DOSSIER HEADER
@@ -89,10 +81,12 @@ const jsonLd = {
             class="w-full aspect-4/5 bg-rh-ink rounded-4xl overflow-hidden relative border border-black/10 dark:border-white/10 shadow-2xl"
           >
             <img
-              src="/assets/img/people/the-architect.png"
+              src="/assets/img/people/the-architect.webp"
               alt="Clark Sell - The Architect"
+              width="800"
+              height="1000"
+              fetchpriority="high"
               class="absolute inset-0 w-full h-full object-cover grayscale contrast-125"
-              loading="eager"
             />
             <div
               class="absolute bottom-6 left-6 font-mono text-xs bg-black/80 backdrop-blur-md px-4 py-2 rounded text-rh-chalk border border-white/10 uppercase tracking-widest"
@@ -203,8 +197,8 @@ const jsonLd = {
           into one of the largest community-driven tech events in the United
           States, and spent a decade studying how thousands of humans connect,
           build trust, and create belonging in real life. Then I took everything
-          I learned from engineering and from community, and built re/Human
-          to bring that architecture to the businesses that need it most.
+          I learned from engineering and from community, and built re/Human to
+          bring that architecture to the businesses that need it most.
         </p>
       </div>
     </section>
@@ -491,8 +485,8 @@ const jsonLd = {
                 >
                   Pandemic forced every community online overnight. Engineered
                   the digital infrastructure to maintain human connection
-                  without physical proximity, and discovered it could scale
-                  even further.
+                  without physical proximity, and discovered it could scale even
+                  further.
                 </p>
                 <span
                   class="font-mono text-[10px] text-rh-ink/30 dark:text-white/30 tracking-widest mt-2 block"

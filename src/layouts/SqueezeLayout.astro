@@ -30,20 +30,16 @@ const { title, description, ogImage, ogType, noindex, jsonLd } = Astro.props;
     />
     <link rel="icon" href="/favicon.webp" />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <PostHog />
+    <!-- Resource hints for third-party origins -->
+    <link rel="preconnect" href="https://us.i.posthog.com" />
+    <link rel="preconnect" href="https://us-assets.i.posthog.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cal.joinrehuman.com" />
+    <link rel="dns-prefetch" href="https://blog.joinrehuman.com" />
 
     <slot name="head" />
   </head>
   <body class="bg-rh-ink text-rh-chalk font-body antialiased">
-    <!-- Noise Overlay -->
+    <!-- Noise Overlay (reduced octaves for GPU perf) -->
     <svg
       class="pointer-events-none fixed inset-0 z-9999 h-full w-full opacity-[0.03]"
       aria-hidden="true"
@@ -52,7 +48,7 @@ const { title, description, ogImage, ogType, noindex, jsonLd } = Astro.props;
         <feTurbulence
           type="fractalNoise"
           baseFrequency="0.85"
-          numOctaves="4"
+          numOctaves="2"
           stitchTiles="stitch"></feTurbulence>
       </filter>
       <rect width="100%" height="100%" filter="url(#noiseFilter)"></rect>
@@ -61,5 +57,8 @@ const { title, description, ogImage, ogType, noindex, jsonLd } = Astro.props;
     <main>
       <slot />
     </main>
+
+    <!-- Analytics: loaded after content for better LCP -->
+    <PostHog />
   </body>
 </html>
