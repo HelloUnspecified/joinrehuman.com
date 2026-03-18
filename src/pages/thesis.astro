@@ -1,8 +1,12 @@
 ---
+import { getEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import SectionLabel from "../elements/SectionLabel.astro";
 import Heading from "../elements/Heading.astro";
 import CTAButton from "../elements/CTAButton.astro";
+
+const page = await getEntry("pages", "thesis");
+const { title, description, ogType } = page?.data;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -36,9 +40,9 @@ const jsonLd = {
 ---
 
 <Layout
-  title="The Manifesto | re/Human"
-  description="The re/Human manifesto. Why community is the last satisfying moat and how to build systems that scale authentic human connection."
-  ogType="article"
+  title={title}
+  description={description}
+  ogType={ogType}
   jsonLd={jsonLd}
 >
   <div class="pt-32 pb-24 px-6 max-w-4xl mx-auto">

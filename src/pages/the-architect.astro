@@ -1,7 +1,11 @@
 ---
+import { getEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import SectionLabel from "../elements/SectionLabel.astro";
 import CTAButton from "../elements/CTAButton.astro";
+
+const page = await getEntry("pages", "the-architect");
+const { title, description, ogType } = page?.data;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -64,8 +68,9 @@ const jsonLd = {
 ---
 
 <Layout
-  title="The Architect | Clark Sell"
-  description="Meet Clark Sell - the architect behind re/Human. Community builder, speaker, and systems thinker."
+  title={title}
+  description={description}
+  ogType={ogType}
   jsonLd={jsonLd}
 >
   <main class="main-wrapper relative overflow-hidden">
