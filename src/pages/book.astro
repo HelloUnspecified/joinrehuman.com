@@ -45,7 +45,7 @@ const jsonLd = {
   <!-- Minimal Header -->
   <nav
     id="book-navbar"
-    class="fixed top-0 left-0 right-0 z-[100] transition-all duration-300"
+    class="fixed top-0 left-0 right-0 z-100 transition-all duration-300"
   >
     <div
       class="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-10"
@@ -125,7 +125,7 @@ const jsonLd = {
       >
         <!-- Terminal Overlay Top Bar -->
         <div
-          class="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-6 py-4 bg-gradient-to-b from-rh-ink/80 to-transparent"
+          class="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-6 py-4 bg-linear-to-b from-rh-ink/80 to-transparent"
         >
           <div class="flex items-center gap-2">
             <span class="w-3 h-3 rounded-full bg-rh-ember/60"></span>
@@ -240,7 +240,7 @@ const jsonLd = {
 
           <div
             id="terminal-log"
-            class="font-mono text-sm text-rh-chalk/70 space-y-4 mb-auto flex-grow"
+            class="font-mono text-sm text-rh-chalk/70 space-y-4 mb-auto grow"
           >
             <p class="terminal-line opacity-0" data-final-opacity="0.5">
               > [SYSTEM] Secure connection established.
